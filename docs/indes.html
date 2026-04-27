@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>LIX Flash Flood Guidance Map</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
+
+  <style>
+    html, body { margin: 0; height: 100%; font-family: Arial, sans-serif; background: #f1f5f9; color: #0f172a; }
+    .wrap { max-width: 1400px; margin: 0 auto; padding: 14px; }
+    .card { background: #fff; border: 1px solid #dbe2ea; border-radius: 14px; box-shadow: 0 1px 3px rgba(0,0,0,.08); margin-bottom: 12px; }
+    .header { padding: 16px 18px; border-left: 6px solid #2563eb; }
+    .title { margin: 0; font-size: 1.25rem; font-weight: 800; }
+    .subtitle { margin: 4px 0 0 0; color: #64748b; font-size: .92rem; }
+    .controls { padding: 10px 12px; display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; font-size: 13px; }
+    .controls strong { width: 100%; }
+    label { display: inline-flex; align-items: center; gap: 5px; }
+    select, input { padding: 4px; border: 1px solid #cbd5e1; border-radius: 5px; background: white; }
+    button { padding: 6px 11px; border: none; border-radius: 7px; background: #2563eb; color: white; font-weight: 700; cursor: pointer; }
+    button.secondary { background: #e2e8f0; color: #0f172a; }
+    #map { height: 68vh; min-height: 460px; border-radius: 14px; overflow: hidden; }
+    .status { padding: 9px 12px; font-size: .9rem; color: #334155; background: #f8fafc; border-top: 1px solid #e2e8f0; border-radius: 0 0 14px 14px; }
+    .swatch { display:inline-block; width: 13px; height:13px; border-radius:50%; border:1px solid #333; }
+    .legend { background: rgba(255,255,255,.95); padding: 8px 10px; border: 1px solid #cbd5e1; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,.18); font-size: 12px; line-height: 1.25; }
+    .legend-row { margin: 3px 0; display:flex; align-items:center; gap:6px; }
+    .infra-icon { border-radius: 50%; border: 2px solid white; box-shadow: 0 0 3px rgba(0,0,0,.55); }
+    .hint { width: 100%; color: #64748b; font-size: 12px; line-height: 1.35; }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card header">
+    <h1 class="title">LIX Flash Flood Guidance Map</h1>
+    <p class="subtitle">Static GitHub Pages version: flash flood events, density/severity heatmap, infrastructure exposure layers, and room for MRMS-event thresholds.</p>
+  </div>
+
+  <div class="card controls">
+    <strong>Filters</strong>
+    <label>Year <input id="yearFilter" size="5" maxlength="4" placeholder="all"></label>
+    <label>Month
+      <select id="monthFilter">
+        <option value="">All</option><option value="01">Jan</option><option value="02">Feb</option><option value="03">Mar</option><option value="04">Apr</option>
+        <option value="05">May</option><option value="06">Jun</option><option value="07">Jul</option><option value="08">Aug</option>
+        <option value="09">Sep</option><option value="10">Oct</option><option value="11">Nov</option><option value="12">Dec</option>
+      </select>
+    </label>
+    <label>Severity
+      <select id="severityFilter">
+        <option value="">All</option>
+        <option value="catastrophic">Catastrophic</option>
+        <option value="severe">Severe</option>
+        <option value="serious">Serious</option>
+        <option value="moderate">Moderate</option>
+        <option value="minor">Minor</option>
+      </select>
+    </label>
+    <button onclick="applyFilters()">Apply</button>
+    <button class="secondary" onclick="clearFilters()">Clear</button>
+  </div>
+
+  <div class="card controls">
+    <strong>Layers</strong>
+    <label><input type="checkbox" id="showEvents" checked> Event markers</label>
+    <label><input type="checkbox" id="showHeat" checked> Heatmap</label>
+    <label>Heat mode
+      <select id="heatMode">
+        <option value="frequency">Frequency</option>
+        <option value="severity" selected>Severity-weighted</option>
+      </select>
+    </label>
+    <label><input type="checkbox" id="showInfra"> Critical infrastructure</label>
+    <label>Infrastructure type
+      <select id="infraType">
+        <option value="">All</option>
+        <option value="hospital">Hospitals</option>
+        <option value="fire_station">Fire stations</option>
+        <option value="law_enforcement">Law enforcement</option>
+        <option value="ems_station">EMS stations</option>
+        <option value="eoc">EOCs</option>
+        <option value="public_school">Public schools</option>
+        <option value="private_school">Private schools</option>
+        <option value="shelter">Shelters</option>
+        <option value="wastewater">Wastewater</option>
+        <option value="power_generation">Power generation</option>
+      </select>
+    </label>
+    <span class="hint">MRMS-enriched events will automatically show rainfall metrics in popups once <code>mrms_event_metrics.csv</code> is generated and merged in a future build step.</span>
+  </div>
+
+  <div class="card">
+    <div id="map"></div>
+    <div class="status" id="status">Loading...</div>
+  </div>
+</div>
+
+<script>
+const DATA_URL = "data/flash_flood_events.geojson";
+const INFRA_URL = "data/critical_infrastructure.geojson";
+
+let map, eventGeojson, infraGeojson;
+let eventLayer = L.layerGroup();
+let infraLayer = L.layerGroup();
+let heatLayer = null;
+
+const severityColors = {
+  catastrophic: "#dc2626",
+  severe: "#f97316",
+  serious: "#facc15",
+  moderate: "#22c55e",
+  minor: "#0ea5e9"
+};
+const severityWeights = { catastrophic: 10, severe: 6, serious: 3, moderate: 2, minor: 1 };
+
+const infraColors = {
+  hospital: "#dc2626",
+  fire_station: "#f97316",
+  law_enforcement: "#2563eb",
+  ems_station: "#9333ea",
+  eoc: "#111827",
+  public_school: "#16a34a",
+  private_school: "#65a30d",
+  shelter: "#0891b2",
+  wastewater: "#64748b",
+  power_generation: "#eab308"
+};
+
+function esc(v) {
+  return String(v ?? "").replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
+}
+
+function fmtDate(d) {
+  if (!d) return "";
+  const s = String(d);
+  if (/^\d{4}-\d{2}-\d{2}/.test(s)) return s.slice(0,10);
+  return s;
+}
+
+function initMap() {
+  map = L.map("map", { preferCanvas: true }).setView([30.45, -90.45], 8);
+  L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
+    attribution: "&copy; OpenStreetMap contributors &copy; CARTO",
+    subdomains: "abcd",
+    maxZoom: 19
+  }).addTo(map);
+  eventLayer.addTo(map);
+  addLegend();
+}
+
+function addLegend() {
+  const control = L.control({position: "bottomright"});
+  control.onAdd = function() {
+    const div = L.DomUtil.create("div", "legend");
+    div.innerHTML = `
+      <b>Severity</b>
+      ${Object.entries(severityColors).map(([k,c]) => `<div class="legend-row"><span class="swatch" style="background:${c}"></span>${k}</div>`).join("")}
+      <hr>
+      <b>Infrastructure</b>
+      <div class="legend-row">Toggle infrastructure layer above</div>
+    `;
+    return div;
+  };
+  control.addTo(map);
+}
+
+function getFilteredEvents() {
+  const year = document.getElementById("yearFilter").value.trim();
+  const month = document.getElementById("monthFilter").value;
+  const severity = document.getElementById("severityFilter").value;
+
+  return (eventGeojson?.features || []).filter(f => {
+    const p = f.properties || {};
+    const d = fmtDate(p.BEGIN_DATE);
+    if (year && !d.startsWith(year + "-")) return false;
+    if (month && d.slice(5,7) !== month) return false;
+    if (severity && p.severity_category !== severity) return false;
+    return true;
+  });
+}
+
+function rebuildEvents(features, fit=false) {
+  eventLayer.clearLayers();
+  const bounds = L.latLngBounds();
+  let count = 0;
+
+  features.forEach(f => {
+    const p = f.properties || {};
+    const [lon, lat] = f.geometry.coordinates;
+    const sev = p.severity_category || "minor";
+    const color = severityColors[sev] || "#0ea5e9";
+    const popup = `
+      <div style="max-width:330px">
+        <b>${esc(p.BEGIN_LOCATION || p["Parish/County"] || "Flash Flood Event")}</b><br>
+        <b>Date:</b> ${esc(fmtDate(p.BEGIN_DATE))} ${esc(p.BEGIN_TIME || "")}<br>
+        <b>Parish/County:</b> ${esc(p["Parish/County"] || "")}<br>
+        <b>Severity:</b> ${esc(sev)}<br>
+        <b>Event ID:</b> ${esc(p.EVENT_ID || "")}<br>
+        ${p.max_1h_qpe_mm ? `<b>MRMS max 1h:</b> ${Number(p.max_1h_qpe_mm).toFixed(1)} mm<br>` : ""}
+        ${p.max_3h_qpe_mm ? `<b>MRMS max 3h:</b> ${Number(p.max_3h_qpe_mm).toFixed(1)} mm<br>` : ""}
+        ${p.max_6h_qpe_mm ? `<b>MRMS max 6h:</b> ${Number(p.max_6h_qpe_mm).toFixed(1)} mm<br>` : ""}
+        <hr>
+        <div style="font-size:.9em;color:#475569">${esc(p.EVENT_NARRATIVE || p.EPISODE_NARRATIVE || "No narrative.")}</div>
+      </div>`;
+
+    L.circleMarker([lat, lon], {
+      radius: 7,
+      color: "#111827",
+      weight: 1,
+      fillColor: color,
+      fillOpacity: .88
+    }).bindPopup(popup).addTo(eventLayer);
+
+    bounds.extend([lat, lon]);
+    count++;
+  });
+
+  if (fit && count > 0) map.fitBounds(bounds, {padding: [40,40]});
+  return count;
+}
+
+function rebuildHeat(features) {
+  if (heatLayer) {
+    map.removeLayer(heatLayer);
+    heatLayer = null;
+  }
+  if (!document.getElementById("showHeat").checked) return;
+
+  const mode = document.getElementById("heatMode").value;
+  const pts = features.map(f => {
+    const [lon, lat] = f.geometry.coordinates;
+    const sev = f.properties?.severity_category || "minor";
+    const w = mode === "severity" ? (severityWeights[sev] || 1) : 1;
+    return [lat, lon, w];
+  });
+
+  heatLayer = L.heatLayer(pts, {
+    radius: 26,
+    blur: 14,
+    maxZoom: 12,
+    minOpacity: .18,
+    gradient: {0.05:"#38bdf8", 0.25:"#22c55e", 0.45:"#facc15", 0.65:"#f97316", 0.82:"#dc2626", 1:"#581c87"}
+  }).addTo(map);
+}
+
+function rebuildInfra() {
+  infraLayer.clearLayers();
+  if (!document.getElementById("showInfra").checked) {
+    if (map.hasLayer(infraLayer)) map.removeLayer(infraLayer);
+    return 0;
+  }
+
+  const selected = document.getElementById("infraType").value;
+  let count = 0;
+
+  (infraGeojson?.features || []).forEach(f => {
+    const p = f.properties || {};
+    const type = p.infra_type || "other";
+    if (selected && type !== selected) return;
+
+    const [lon, lat] = f.geometry.coordinates;
+    const color = infraColors[type] || "#334155";
+    const name = p.display_name || p.NAME || p.name || type.replaceAll("_", " ");
+
+    const icon = L.divIcon({
+      className: "",
+      html: `<div class="infra-icon" style="background:${color};width:12px;height:12px;"></div>`,
+      iconSize: [12,12],
+      iconAnchor: [6,6]
+    });
+
+    L.marker([lat, lon], {icon}).bindPopup(`
+      <b>${esc(name)}</b><br>
+      <b>Type:</b> ${esc(type)}<br>
+      ${p.ADDRESS ? `<b>Address:</b> ${esc(p.ADDRESS)}<br>` : ""}
+      ${p.CITY ? `<b>City:</b> ${esc(p.CITY)}<br>` : ""}
+    `).addTo(infraLayer);
+    count++;
+  });
+
+  if (!map.hasLayer(infraLayer)) infraLayer.addTo(map);
+  return count;
+}
+
+function refresh(fit=false) {
+  const features = getFilteredEvents();
+  if (document.getElementById("showEvents").checked) {
+    if (!map.hasLayer(eventLayer)) eventLayer.addTo(map);
+  } else if (map.hasLayer(eventLayer)) {
+    map.removeLayer(eventLayer);
+  }
+
+  const eventCount = rebuildEvents(features, fit);
+  rebuildHeat(features);
+  const infraCount = rebuildInfra();
+
+  document.getElementById("status").textContent =
+    `Mapped ${eventCount} flash flood events. Infrastructure features shown: ${infraCount}.`;
+}
+
+function applyFilters() { refresh(true); }
+function clearFilters() {
+  document.getElementById("yearFilter").value = "";
+  document.getElementById("monthFilter").value = "";
+  document.getElementById("severityFilter").value = "";
+  refresh(true);
+}
+
+async function loadData() {
+  const eventResp = await fetch(DATA_URL);
+  if (!eventResp.ok) throw new Error(`Could not load ${DATA_URL}`);
+  eventGeojson = await eventResp.json();
+
+  try {
+    const infraResp = await fetch(INFRA_URL);
+    if (infraResp.ok) infraGeojson = await infraResp.json();
+    else infraGeojson = {type:"FeatureCollection", features:[]};
+  } catch {
+    infraGeojson = {type:"FeatureCollection", features:[]};
+  }
+
+  refresh(true);
+}
+
+["showEvents","showHeat","heatMode","showInfra","infraType"].forEach(id => {
+  document.addEventListener("change", e => {
+    if (e.target && e.target.id === id) refresh(false);
+  });
+});
+
+window.onload = async function() {
+  initMap();
+  try {
+    await loadData();
+  } catch (err) {
+    document.getElementById("status").textContent = "Error: " + err.message;
+    console.error(err);
+  }
+};
+</script>
+</body>
+</html>
