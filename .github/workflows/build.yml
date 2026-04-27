@@ -55,8 +55,8 @@ jobs:
           python scripts/build_events.py --input data/raw/lix_flash_flood_events.csv
 
       - name: Fetch critical infrastructure
-        run: |
-          python scripts/fetch_critical_infrastructure.py --out docs/data/critical_infrastructure.geojson
+        continue-on-error: true
+        run: python scripts/fetch_critical_infrastructure.py --out docs/data/critical_infrastructure.geojson
 
       - name: Optional MRMS enrichment
         if: ${{ github.event.inputs.run_mrms == 'true' }}
