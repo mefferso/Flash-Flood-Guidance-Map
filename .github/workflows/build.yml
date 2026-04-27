@@ -1,0 +1,77 @@
+name: Build and publish map
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_mrms:
+        description: "Run slow MRMS enrichment?"
+        required: true
+        default: "false"
+        type: choice
+        options:
+          - "false"
+          - "true"
+  schedule:
+    # Monthly rebuild. NCEI Storm Events data can lag by 75-90 days.
+    - cron: "23 10 15 * *"
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libeccodes0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Build flash flood event files
+        run: |
+          python scripts/build_events.py --input data/raw/lix_flash_flood_events.csv
+
+      - name: Fetch critical infrastructure
+        run: |
+          python scripts/fetch_critical_infrastructure.py --out docs/data/critical_infrastructure.geojson
+
+      - name: Optional MRMS enrichment
+        if: ${{ github.event.inputs.run_mrms == 'true' }}
+        run: |
+          python scripts/enrich_mrms.py \
+            --events docs/data/flash_flood_events.geojson \
+            --out docs/data/mrms_event_metrics.csv
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
