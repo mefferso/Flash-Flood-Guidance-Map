@@ -66,7 +66,19 @@ jobs:
             --start-year 2015 \
             --limit 150 \
             --sample-grib
+         
+      - name: Merge MRMS metrics into events
+        if: "${{ github.event.inputs.run_mrms == 'true' }}"
+        run: |
+          python scripts/merge_mrms_into_events.py \
+            --events docs/data/flash_flood_events.geojson \
+            --mrms docs/data/mrms_event_metrics.csv \
+            --out docs/data/flash_flood_events.geojson
 
+      - name: Build empirical threshold grid
+        if: "${{ github.event.inputs.run_mrms == 'true' }}"
+        run: |
+          python scripts/build_threshold_grid.py
       - name: Commit generated data files
         if: "${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_mrms == 'true' }}"
         run: |
