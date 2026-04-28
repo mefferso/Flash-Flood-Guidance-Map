@@ -72,6 +72,7 @@
         <option value="severity" selected>Severity-weighted</option>
       </select>
     </label>
+    <label><input type="checkbox" id="showThreshold"> Empirical 3-hr flood threshold</label>
     <label><input type="checkbox" id="showInfra"> Critical infrastructure</label>
     <label>Infrastructure type
       <select id="infraType">
@@ -100,10 +101,12 @@
 <script>
 const DATA_URL = "data/flash_flood_events.geojson";
 const INFRA_URL = "data/critical_infrastructure.geojson";
+const THRESHOLD_URL = "data/threshold_grid.geojson";
 
-let map, eventGeojson, infraGeojson;
+let map, eventGeojson, infraGeojson, thresholdGeojson;
 let eventLayer = L.layerGroup();
 let infraLayer = L.layerGroup();
+let thresholdLayer = L.layerGroup();
 let heatLayer = null;
 
 const severityColors = {
@@ -157,6 +160,12 @@ function addLegend() {
     div.innerHTML = `
       <b>Severity</b>
       ${Object.entries(severityColors).map(([k,c]) => `<div class="legend-row"><span class="swatch" style="background:${c}"></span>${k}</div>`).join("")}
+      <hr>
+      <b>Empirical 3-hr threshold</b>
+      <div class="legend-row"><span class="swatch" style="background:#dc2626"></span>&lt; 2"</div>
+      <div class="legend-row"><span class="swatch" style="background:#f97316"></span>2–3"</div>
+      <div class="legend-row"><span class="swatch" style="background:#facc15"></span>3–4"</div>
+      <div class="legend-row"><span class="swatch" style="background:#22c55e"></span>&gt;= 4"</div>
       <hr>
       <b>Infrastructure</b>
       <div class="legend-row">Toggle infrastructure layer above</div>
@@ -245,6 +254,62 @@ function rebuildHeat(features) {
   }).addTo(map);
 }
 
+
+function thresholdColor(val) {
+  if (!Number.isFinite(val)) return "#64748b";
+  if (val < 2) return "#dc2626";      // lower threshold = more sensitive
+  if (val < 3) return "#f97316";
+  if (val < 4) return "#facc15";
+  return "#22c55e";
+}
+
+function rebuildThreshold() {
+  thresholdLayer.clearLayers();
+
+  if (!document.getElementById("showThreshold").checked) {
+    if (map.hasLayer(thresholdLayer)) map.removeLayer(thresholdLayer);
+    return 0;
+  }
+
+  let count = 0;
+
+  (thresholdGeojson?.features || []).forEach(f => {
+    const p = f.properties || {};
+    const [lon, lat] = f.geometry.coordinates;
+    const threshold = Number(p.threshold_3h_in);
+    const eventCount = Number(p.event_count || 0);
+    const color = thresholdColor(threshold);
+
+    // More supporting events = slightly larger marker, but keep it sane.
+    const radius = Math.min(16, Math.max(7, 5 + eventCount * 2));
+
+    L.circleMarker([lat, lon], {
+      radius,
+      color: "#111827",
+      weight: 1,
+      fillColor: color,
+      fillOpacity: 0.72
+    }).bindPopup(`
+      <div style="max-width:280px">
+        <b>Empirical 3-hr flood threshold</b><br>
+        <b>Threshold:</b> ${Number.isFinite(threshold) ? threshold.toFixed(2) + '"' : "n/a"}<br>
+        <b>Supporting events:</b> ${eventCount}<br>
+        <hr>
+        <span style="font-size:.9em;color:#475569">
+          Lower values mean flash flooding has occurred here with less 3-hour MRMS QPE.
+          Treat low event counts as low confidence.
+        </span>
+      </div>
+    `).addTo(thresholdLayer);
+
+    count++;
+  });
+
+  if (!map.hasLayer(thresholdLayer)) thresholdLayer.addTo(map);
+  return count;
+}
+
+
 function rebuildInfra() {
   infraLayer.clearLayers();
   if (!document.getElementById("showInfra").checked) {
@@ -294,10 +359,11 @@ function refresh(fit=false) {
 
   const eventCount = rebuildEvents(features, fit);
   rebuildHeat(features);
+  const thresholdCount = rebuildThreshold();
   const infraCount = rebuildInfra();
 
   document.getElementById("status").textContent =
-    `Mapped ${eventCount} flash flood events. Infrastructure features shown: ${infraCount}.`;
+    `Mapped ${eventCount} flash flood events. Threshold cells shown: ${thresholdCount}. Infrastructure features shown: ${infraCount}.`;
 }
 
 function applyFilters() { refresh(true); }
@@ -314,6 +380,14 @@ async function loadData() {
   eventGeojson = await eventResp.json();
 
   try {
+    const thresholdResp = await fetch(THRESHOLD_URL);
+    if (thresholdResp.ok) thresholdGeojson = await thresholdResp.json();
+    else thresholdGeojson = {type:"FeatureCollection", features:[]};
+  } catch {
+    thresholdGeojson = {type:"FeatureCollection", features:[]};
+  }
+
+  try {
     const infraResp = await fetch(INFRA_URL);
     if (infraResp.ok) infraGeojson = await infraResp.json();
     else infraGeojson = {type:"FeatureCollection", features:[]};
@@ -324,7 +398,7 @@ async function loadData() {
   refresh(true);
 }
 
-["showEvents","showHeat","heatMode","showInfra","infraType"].forEach(id => {
+["showEvents","showHeat","heatMode","showThreshold","showInfra","infraType"].forEach(id => {
   document.addEventListener("change", e => {
     if (e.target && e.target.id === id) refresh(false);
   });
