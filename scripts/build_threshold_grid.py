@@ -3,17 +3,13 @@
 Build an empirical 3-hour flash flood threshold grid from MRMS-enriched events.
 
 Input:
-  docs/data/mrms_sampled.csv
+  docs/data/mrms_event_metrics.csv
 
 Output:
   docs/data/threshold_grid.geojson
 
-What it does:
-- Reads MRMS event rainfall metrics
-- Converts max 3-hour QPE from mm to inches
-- Snaps events to a grid
-- Calculates a representative local 3-hour flood threshold
-- Writes threshold_grid.geojson for the Leaflet map
+This script uses inch-based rainfall columns. Raw MRMS values may be retained in mm
+elsewhere, but threshold calculations are in inches.
 """
 
 from __future__ import annotations
@@ -25,32 +21,13 @@ import numpy as np
 import pandas as pd
 
 
-INPUT = Path("docs/data/mrms_sampled.csv")
+INPUT = Path("docs/data/mrms_event_metrics.csv")
 OUTPUT = Path("docs/data/threshold_grid.geojson")
-
-# Grid size in degrees.
-# 0.05 degrees is roughly 3-4 miles around southeast LA / south MS.
 GRID_SIZE = 0.05
-
-# Minimum number of events needed in a grid cell.
-# Keep this at 1 for early testing.
-# Later, increase to 2 or 3 once you have more MRMS-sampled events.
 MIN_EVENTS_PER_CELL = 1
 
 
-def safe_float(value):
-    try:
-        if pd.isna(value):
-            return None
-        return float(value)
-    except Exception:
-        return None
-
-
 def threshold_category(value_in):
-    """
-    Lower threshold = more flood-sensitive.
-    """
     if value_in is None:
         return "unknown"
     if value_in < 2.0:
@@ -68,47 +45,41 @@ def main() -> None:
 
     df = pd.read_csv(INPUT)
 
-    required = ["EVENT_ID", "Latitude", "Longitude", "max_3h_qpe_mm"]
+    required = ["EVENT_ID", "Latitude", "Longitude", "max_3h_qpe_in"]
     missing = [c for c in required if c not in df.columns]
     if missing:
         raise ValueError(f"Missing required column(s): {missing}")
 
-    # Convert MRMS 3-hour QPE from mm to inches.
-    df["max_3h_qpe_mm"] = pd.to_numeric(df["max_3h_qpe_mm"], errors="coerce")
-    df["max_3h_in"] = df["max_3h_qpe_mm"] / 25.4
-
-    # Clean bad/missing data.
     df["Latitude"] = pd.to_numeric(df["Latitude"], errors="coerce")
     df["Longitude"] = pd.to_numeric(df["Longitude"], errors="coerce")
-    df = df.dropna(subset=["Latitude", "Longitude", "max_3h_in"])
+    df["max_3h_qpe_in"] = pd.to_numeric(df["max_3h_qpe_in"], errors="coerce")
 
-    # Remove physically dumb values.
-    df = df[(df["max_3h_in"] >= 0) & (df["max_3h_in"] <= 30)]
+    df = df.dropna(subset=["Latitude", "Longitude", "max_3h_qpe_in"])
+    df = df[(df["max_3h_qpe_in"] >= 0) & (df["max_3h_qpe_in"] <= 30)]
 
     if df.empty:
         raise ValueError("No usable MRMS rows after cleaning.")
 
-    # Snap to grid.
     df["grid_lat"] = (df["Latitude"] / GRID_SIZE).round() * GRID_SIZE
     df["grid_lon"] = (df["Longitude"] / GRID_SIZE).round() * GRID_SIZE
 
-    # Optional severity weighting if available.
-    # If severity_weight is not in the MRMS CSV yet, this falls back to 1.
     if "severity_weight" not in df.columns:
         df["severity_weight"] = 1
 
-    df["severity_weight"] = pd.to_numeric(df["severity_weight"], errors="coerce").fillna(1)
-    df["severity_weight"] = df["severity_weight"].clip(lower=1)
+    df["severity_weight"] = (
+        pd.to_numeric(df["severity_weight"], errors="coerce")
+        .fillna(1)
+        .clip(lower=1)
+    )
 
     rows = []
 
     for (grid_lat, grid_lon), g in df.groupby(["grid_lat", "grid_lon"]):
         event_count = len(g)
-
         if event_count < MIN_EVENTS_PER_CELL:
             continue
 
-        values = g["max_3h_in"].to_numpy(dtype=float)
+        values = g["max_3h_qpe_in"].to_numpy(dtype=float)
         weights = g["severity_weight"].to_numpy(dtype=float)
 
         median_3h = float(np.median(values))
@@ -119,8 +90,6 @@ def main() -> None:
         except Exception:
             weighted_mean_3h = mean_3h
 
-        # For now, use median as the actual displayed threshold.
-        # Median is less jumpy with small samples.
         threshold_3h_in = median_3h
 
         rows.append({
@@ -137,7 +106,6 @@ def main() -> None:
         })
 
     features = []
-
     for row in rows:
         features.append({
             "type": "Feature",
@@ -164,11 +132,9 @@ def main() -> None:
     }
 
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+    OUTPUT.write_text(json.dumps(geojson, indent=2), encoding="utf-8")
 
-    with OUTPUT.open("w", encoding="utf-8") as f:
-        json.dump(geojson, f, indent=2)
-
-    print(f"[OK] Read {len(df):,} MRMS-enriched event rows")
+    print(f"[OK] Read {len(df):,} MRMS sampled event row(s) with inch-based 3-hour QPE")
     print(f"[OK] Wrote {len(features):,} threshold grid point(s)")
     print(f"[OK] Output: {OUTPUT}")
 
