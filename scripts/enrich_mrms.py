@@ -1,35 +1,29 @@
 #!/usr/bin/env python3
 """
-Sample archived MRMS hourly QPE around flash flood events.
+MRMS enrichment for the Flash Flood Guidance Map project.
 
-This is a starter, not the final boss.
+Default behavior is intentionally LIGHTWEIGHT:
+- checks archived MRMS directory availability around each event
+- writes MRMS_HOURS_FOUND so we can verify archive coverage without downloading GRIB2 files
 
-It samples the nearest MRMS grid point for each event and computes:
-- max_1h_qpe_mm
-- max_3h_qpe_mm
-- max_6h_qpe_mm
-- max_12h_qpe_mm
+Optional real sampling mode:
+- use --sample-grib
+- downloads archived hourly MRMS QPE GRIB2 files
+- samples nearest grid point
+- computes max 1h/3h/6h/12h QPE in mm
 
-Default archive:
-Iowa State MTArchive:
-https://mtarchive.geol.iastate.edu/YYYY/MM/DD/mrms/ncep/<PRODUCT>/
-
-Products tried:
-- MultiSensor_QPE_01H_Pass2
-- GaugeCorr_QPE_01H
-
-Why hourly QPE first?
-Because a flash flood threshold needs event-scale rainfall accumulation. Instantaneous precip rate can be useful later, but it is noisier and easier to overfit like a raccoon with a spreadsheet.
+Why this split?
+Because full MRMS GRIB sampling is slow and can fail in GitHub Actions. First prove coverage,
+then sample a small subset, then scale intelligently.
 """
-
 from __future__ import annotations
 
 import argparse
 import gzip
 import json
 import math
+import re
 import shutil
-import tempfile
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
@@ -37,41 +31,105 @@ from typing import Any
 import numpy as np
 import pandas as pd
 import requests
-import xarray as xr
+
+try:
+    import xarray as xr
+except Exception:  # Allows lightweight coverage mode without xarray/cfgrib installed.
+    xr = None
 
 PRODUCTS = ["MultiSensor_QPE_01H_Pass2", "GaugeCorr_QPE_01H"]
 ARCHIVE_BASE = "https://mtarchive.geol.iastate.edu"
+DEFAULT_SEARCH_HOURS = 6
+DEFAULT_MAX_EVENTS = 10
+
+SESSION = requests.Session()
+SESSION.headers.update({"User-Agent": "flash-flood-guidance-map/0.1"})
 
 
 def parse_iso_utc(value: Any) -> datetime | None:
     if not value:
         return None
-    s = str(value)
-    try:
-        # Handles "+00:00"; convert trailing Z if present.
-        dt = datetime.fromisoformat(s.replace("Z", "+00:00"))
-    except Exception:
+    s = str(value).strip()
+    if not s:
         return None
-    if dt.tzinfo is None:
-        dt = dt.replace(tzinfo=timezone.utc)
-    return dt.astimezone(timezone.utc)
+
+    # Try ISO first: 2024-04-10T21:00:00+00:00 or Z.
+    try:
+        dt = datetime.fromisoformat(s.replace("Z", "+00:00"))
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+        return dt.astimezone(timezone.utc)
+    except Exception:
+        pass
+
+    # Fallbacks for common Storm Events-ish strings.
+    for fmt in (
+        "%Y-%m-%d %H:%M:%S",
+        "%Y-%m-%d %H:%M",
+        "%Y-%m-%d",
+        "%m/%d/%Y %H:%M",
+        "%m/%d/%Y",
+        "%m-%d-%Y %H:%M",
+        "%m-%d-%Y",
+    ):
+        try:
+            dt = datetime.strptime(s, fmt).replace(tzinfo=timezone.utc)
+            return dt
+        except Exception:
+            continue
+
+    return None
 
 
 def hour_floor(dt: datetime) -> datetime:
     return dt.replace(minute=0, second=0, microsecond=0)
 
 
+def mrms_dir_url(valid_time: datetime, product: str) -> str:
+    return f"{ARCHIVE_BASE}/{valid_time:%Y/%m/%d}/mrms/ncep/{product}/"
+
+
 def candidate_urls(valid_time: datetime) -> list[tuple[str, str]]:
-    y = valid_time.strftime("%Y")
-    m = valid_time.strftime("%m")
-    d = valid_time.strftime("%d")
     stamp = valid_time.strftime("%Y%m%d-%H0000")
-    urls = []
+    urls: list[tuple[str, str]] = []
     for product in PRODUCTS:
         name = f"{product}_00.00_{stamp}.grib2.gz"
-        url = f"{ARCHIVE_BASE}/{y}/{m}/{d}/mrms/ncep/{product}/{name}"
+        url = f"{mrms_dir_url(valid_time, product)}{name}"
         urls.append((product, url))
     return urls
+
+
+def url_exists(url: str, timeout: int = 12) -> bool:
+    try:
+        r = SESSION.head(url, timeout=timeout, allow_redirects=True)
+        if r.status_code == 200:
+            return True
+        # Some archive servers don't love HEAD. Fall back to a tiny ranged GET.
+        if r.status_code in (403, 405, 501):
+            r = SESSION.get(url, timeout=timeout, headers={"Range": "bytes=0-0"}, stream=True)
+            return r.status_code in (200, 206)
+        return False
+    except Exception:
+        return False
+
+
+def count_mrms_hours_found(event_time: datetime, search_hours: int) -> tuple[int, str]:
+    anchor = hour_floor(event_time)
+    found_hours = 0
+    products_used: set[str] = set()
+
+    for h in range(-search_hours, search_hours + 1):
+        vt = anchor + timedelta(hours=h)
+        found_this_hour = False
+        for product, url in candidate_urls(vt):
+            if url_exists(url):
+                products_used.add(product)
+                found_this_hour = True
+                break
+        if found_this_hour:
+            found_hours += 1
+
+    return found_hours, ",".join(sorted(products_used))
 
 
 def download_first_available(valid_time: datetime, cache_dir: Path) -> tuple[Path | None, str | None]:
@@ -80,11 +138,11 @@ def download_first_available(valid_time: datetime, cache_dir: Path) -> tuple[Pat
         gz_path = cache_dir / Path(url).name
         grib_path = cache_dir / gz_path.name.replace(".gz", "")
 
-        if grib_path.exists():
+        if grib_path.exists() and grib_path.stat().st_size > 0:
             return grib_path, product
 
         try:
-            r = requests.get(url, timeout=60)
+            r = SESSION.get(url, timeout=60)
             if r.status_code != 200:
                 continue
             gz_path.write_bytes(r.content)
@@ -98,8 +156,10 @@ def download_first_available(valid_time: datetime, cache_dir: Path) -> tuple[Pat
     return None, None
 
 
-def open_first_data_array(grib_path: Path) -> xr.DataArray:
-    # indexpath='' avoids stale .idx files in short-lived CI/cache situations.
+def open_first_data_array(grib_path: Path):
+    if xr is None:
+        raise RuntimeError("xarray/cfgrib is not installed. Run without --sample-grib or install MRMS GRIB dependencies.")
+
     ds = xr.open_dataset(grib_path, engine="cfgrib", backend_kwargs={"indexpath": ""})
     data_vars = list(ds.data_vars)
     if not data_vars:
@@ -107,7 +167,7 @@ def open_first_data_array(grib_path: Path) -> xr.DataArray:
     return ds[data_vars[0]]
 
 
-def sample_nearest(da: xr.DataArray, lat: float, lon: float) -> float | None:
+def sample_nearest(da: Any, lat: float, lon: float) -> float | None:
     coords = da.coords
     lat_name = "latitude" if "latitude" in coords else "lat" if "lat" in coords else None
     lon_name = "longitude" if "longitude" in coords else "lon" if "lon" in coords else None
@@ -125,7 +185,6 @@ def sample_nearest(da: xr.DataArray, lat: float, lon: float) -> float | None:
     except Exception:
         return None
 
-    # MRMS missing/no-coverage values are often negative.
     if not math.isfinite(f) or f < 0:
         return None
 
@@ -142,7 +201,6 @@ def rolling_sum(values: list[float | None], window: int) -> float | None:
         chunk = arr[i:i + window]
         if np.isnan(chunk).all():
             continue
-        # Require at least half the window present.
         if np.sum(~np.isnan(chunk)) < max(1, window // 2):
             continue
         s = np.nansum(chunk)
@@ -153,9 +211,9 @@ def rolling_sum(values: list[float | None], window: int) -> float | None:
 
 def load_events(path: Path) -> list[dict[str, Any]]:
     gj = json.loads(path.read_text())
-    events = []
+    events: list[dict[str, Any]] = []
     for feat in gj.get("features", []):
-        props = feat.get("properties", {})
+        props = dict(feat.get("properties", {}))
         geom = feat.get("geometry", {})
         coords = geom.get("coordinates", [])
         if len(coords) < 2:
@@ -166,17 +224,32 @@ def load_events(path: Path) -> list[dict[str, Any]]:
     return events
 
 
-def process_event(event: dict[str, Any], cache_dir: Path, hours_before: int, hours_after: int) -> dict[str, Any]:
-    event_id = event.get("EVENT_ID")
-    lat = float(event["_lat"])
-    lon = float(event["_lon"])
+def event_datetime(event: dict[str, Any]) -> datetime | None:
+    # Preferred generated field from build_events.py.
     dt = parse_iso_utc(event.get("event_datetime_utc"))
+    if dt:
+        return dt
 
-    row = {
-        "EVENT_ID": event_id,
-        "event_datetime_utc": event.get("event_datetime_utc"),
-        "Latitude": lat,
-        "Longitude": lon,
+    # Fallbacks if GeoJSON properties use original Storm Events fields.
+    date_value = event.get("BEGIN_DATE") or event.get("begin_date") or event.get("Begin Date")
+    time_value = event.get("BEGIN_TIME") or event.get("begin_time") or event.get("Begin Time") or "00:00"
+    if date_value:
+        combined = f"{date_value} {time_value}"
+        dt = parse_iso_utc(combined)
+        if dt:
+            return dt
+        return parse_iso_utc(date_value)
+
+    return None
+
+
+def base_output_row(event: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "EVENT_ID": event.get("EVENT_ID") or event.get("event_id") or "",
+        "event_datetime_utc": event.get("event_datetime_utc") or "",
+        "Latitude": float(event["_lat"]),
+        "Longitude": float(event["_lon"]),
+        "MRMS_HOURS_FOUND": 0,
         "mrms_hours_sampled": 0,
         "mrms_product_used": "",
         "max_1h_qpe_mm": None,
@@ -185,13 +258,35 @@ def process_event(event: dict[str, Any], cache_dir: Path, hours_before: int, hou
         "max_12h_qpe_mm": None,
     }
 
+
+def process_event_coverage(event: dict[str, Any], search_hours: int) -> dict[str, Any]:
+    row = base_output_row(event)
+    dt = event_datetime(event)
     if not dt:
         return row
 
+    row["event_datetime_utc"] = dt.isoformat().replace("+00:00", "Z")
+    hours_found, products = count_mrms_hours_found(dt, search_hours)
+    row["MRMS_HOURS_FOUND"] = hours_found
+    row["mrms_product_used"] = products
+    return row
+
+
+def process_event_grib(event: dict[str, Any], cache_dir: Path, hours_before: int, hours_after: int) -> dict[str, Any]:
+    row = base_output_row(event)
+    event_id = row["EVENT_ID"]
+    lat = row["Latitude"]
+    lon = row["Longitude"]
+    dt = event_datetime(event)
+
+    if not dt:
+        return row
+
+    row["event_datetime_utc"] = dt.isoformat().replace("+00:00", "Z")
     anchor = hour_floor(dt)
     valid_times = [anchor + timedelta(hours=h) for h in range(-hours_before, hours_after + 1)]
-    hourly = []
-    products_used = set()
+    hourly: list[float | None] = []
+    products_used: set[str] = set()
 
     for vt in valid_times:
         grib, product = download_first_available(vt, cache_dir)
@@ -208,6 +303,7 @@ def process_event(event: dict[str, Any], cache_dir: Path, hours_before: int, hou
             print(f"[WARN] EVENT_ID={event_id} failed sampling {vt}: {exc}")
             hourly.append(None)
 
+    row["MRMS_HOURS_FOUND"] = int(sum(v is not None for v in hourly))
     row["mrms_hours_sampled"] = int(sum(v is not None for v in hourly))
     row["mrms_product_used"] = ",".join(sorted(p for p in products_used if p))
     row["max_1h_qpe_mm"] = rolling_sum(hourly, 1)
@@ -218,24 +314,34 @@ def process_event(event: dict[str, Any], cache_dir: Path, hours_before: int, hou
 
 
 def main() -> None:
-    ap = argparse.ArgumentParser()
+    ap = argparse.ArgumentParser(description="Enrich flash flood events with archived MRMS coverage or sampled QPE.")
     ap.add_argument("--events", default="docs/data/flash_flood_events.geojson")
     ap.add_argument("--out", default="docs/data/mrms_event_metrics.csv")
     ap.add_argument("--cache", default=".cache/mrms")
-    ap.add_argument("--hours-before", type=int, default=12)
-    ap.add_argument("--hours-after", type=int, default=1)
-    ap.add_argument("--limit", type=int)
+    ap.add_argument("--search-hours", type=int, default=DEFAULT_SEARCH_HOURS, help="Lightweight mode: check ±N hours around event.")
+    ap.add_argument("--hours-before", type=int, default=12, help="GRIB sampling mode: hours before event.")
+    ap.add_argument("--hours-after", type=int, default=1, help="GRIB sampling mode: hours after event.")
+    ap.add_argument("--limit", type=int, default=DEFAULT_MAX_EVENTS, help="Default small limit so you don't accidentally hammer the archive.")
+    ap.add_argument("--all-events", action="store_true", help="Process all events instead of the default small limit.")
+    ap.add_argument("--sample-grib", action="store_true", help="Download/sample GRIB2 files instead of lightweight coverage check.")
     args = ap.parse_args()
 
     events = load_events(Path(args.events))
-    if args.limit:
-        events = events[:args.limit]
+    if not args.all_events and args.limit:
+        events = events[: args.limit]
 
     cache_dir = Path(args.cache)
-    rows = []
+    rows: list[dict[str, Any]] = []
+
+    mode = "GRIB sampling" if args.sample_grib else "lightweight coverage check"
+    print(f"[INFO] Running MRMS {mode} for {len(events):,} event(s)")
+
     for i, event in enumerate(events, 1):
-        print(f"[INFO] {i}/{len(events)} EVENT_ID={event.get('EVENT_ID')}")
-        rows.append(process_event(event, cache_dir, args.hours_before, args.hours_after))
+        print(f"[INFO] {i}/{len(events)} EVENT_ID={event.get('EVENT_ID') or event.get('event_id')}")
+        if args.sample_grib:
+            rows.append(process_event_grib(event, cache_dir, args.hours_before, args.hours_after))
+        else:
+            rows.append(process_event_coverage(event, args.search_hours))
 
     out = Path(args.out)
     out.parent.mkdir(parents=True, exist_ok=True)
