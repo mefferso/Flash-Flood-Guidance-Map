@@ -12,7 +12,6 @@ on:
           - "false"
           - "true"
   schedule:
-    # Monthly rebuild. NCEI Storm Events data can lag by 75-90 days.
     - cron: "23 10 15 * *"
   push:
     branches: [main]
@@ -58,13 +57,15 @@ jobs:
         continue-on-error: true
         run: python scripts/fetch_critical_infrastructure.py --out docs/data/critical_infrastructure.geojson
 
-      - name: Optional MRMS enrichment
+      - name: Optional MRMS enrichment (TEST MODE)
         if: "${{ github.event.inputs.run_mrms == 'true' }}"
         run: |
           python scripts/enrich_mrms.py \
             --events docs/data/flash_flood_events.geojson \
             --out docs/data/mrms_event_metrics.csv \
-            --all-events
+            --start-year 2015 \
+            --limit 25 \
+            --sample-grib
 
       - name: Commit generated data files
         if: "${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_mrms == 'true' }}"
