@@ -350,15 +350,21 @@ function rebuildInfra() {
 }
 
 function refresh(fit=false) {
-  const features = getFilteredEvents();
-  if (document.getElementById("showEvents").checked) {
-    if (!map.hasLayer(eventLayer)) eventLayer.addTo(map);
-  } else if (map.hasLayer(eventLayer)) {
-    map.removeLayer(eventLayer);
-  }
-
   const eventCount = rebuildEvents(features, fit);
   rebuildHeat(features);
+  
+  // 👇 THIS IS YOUR ADD
+  if (document.getElementById("showThreshold")?.checked) {
+    if (heatLayer) {
+      map.removeLayer(heatLayer);
+    }
+  
+    eventLayer.eachLayer(l => {
+      l.setStyle({ fillOpacity: 0.3 });
+    });
+  }
+  
+  const infraCount = rebuildInfra();
   const thresholdCount = rebuildThreshold();
   const infraCount = rebuildInfra();
 
