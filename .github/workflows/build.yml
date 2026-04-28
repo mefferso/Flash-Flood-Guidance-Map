@@ -58,12 +58,13 @@ jobs:
         continue-on-error: true
         run: python scripts/fetch_critical_infrastructure.py --out docs/data/critical_infrastructure.geojson
 
-      - name: Optional MRMS enrichment
+       - name: Optional MRMS enrichment
         if: ${{ github.event.inputs.run_mrms == 'true' }}
         run: |
           python scripts/enrich_mrms.py \
             --events docs/data/flash_flood_events.geojson \
-            --out docs/data/mrms_event_metrics.csv
+            --out docs/data/mrms_event_metrics.csv \
+            --all-events
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
