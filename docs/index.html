@@ -99,7 +99,7 @@
 </div>
 
 <script>
-const DATA_URL = "data/flash_flood_events_enriched.geojson";
+const DATA_URL = "data/flash_flood_events.geojson";
 const INFRA_URL = "data/critical_infrastructure.geojson";
 const THRESHOLD_URL = "data/threshold_grid.geojson";
 
@@ -350,21 +350,27 @@ function rebuildInfra() {
 }
 
 function refresh(fit=false) {
+  const features = getFilteredEvents();
+
+  if (document.getElementById("showEvents").checked) {
+    if (!map.hasLayer(eventLayer)) eventLayer.addTo(map);
+  } else if (map.hasLayer(eventLayer)) {
+    map.removeLayer(eventLayer);
+  }
+
   const eventCount = rebuildEvents(features, fit);
   rebuildHeat(features);
-  
-  // 👇 THIS IS YOUR ADD
+
   if (document.getElementById("showThreshold")?.checked) {
     if (heatLayer) {
       map.removeLayer(heatLayer);
     }
-  
+
     eventLayer.eachLayer(l => {
-      l.setStyle({ fillOpacity: 0.3 });
+      if (l.setStyle) l.setStyle({ fillOpacity: 0.3 });
     });
   }
-  
-  const infraCount = rebuildInfra();
+
   const thresholdCount = rebuildThreshold();
   const infraCount = rebuildInfra();
 
