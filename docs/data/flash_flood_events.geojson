@@ -9898,7 +9898,19 @@
         "Longitude": -88.8725,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "severe",
-        "severity_weight": 6
+        "severity_weight": 6,
+        "MRMS_HOURS_FOUND": 0,
+        "mrms_hours_sampled": 0,
+        "mrms_product_used": null,
+        "max_1h_qpe_mm": null,
+        "max_3h_qpe_mm": null,
+        "max_6h_qpe_mm": null,
+        "max_12h_qpe_mm": null,
+        "max_1h_qpe_in": null,
+        "max_3h_qpe_in": null,
+        "max_6h_qpe_in": null,
+        "max_12h_qpe_in": null,
+        "mrms_enriched": true
       }
     },
     {
@@ -9948,7 +9960,19 @@
         "Longitude": -88.8725,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 0,
+        "mrms_hours_sampled": 0,
+        "mrms_product_used": null,
+        "max_1h_qpe_mm": null,
+        "max_3h_qpe_mm": null,
+        "max_6h_qpe_mm": null,
+        "max_12h_qpe_mm": null,
+        "max_1h_qpe_in": null,
+        "max_3h_qpe_in": null,
+        "max_6h_qpe_in": null,
+        "max_12h_qpe_in": null,
+        "mrms_enriched": true
       }
     },
     {
@@ -9998,7 +10022,19 @@
         "Longitude": -90.6544,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "moderate",
-        "severity_weight": 2
+        "severity_weight": 2,
+        "MRMS_HOURS_FOUND": 0,
+        "mrms_hours_sampled": 0,
+        "mrms_product_used": null,
+        "max_1h_qpe_mm": null,
+        "max_3h_qpe_mm": null,
+        "max_6h_qpe_mm": null,
+        "max_12h_qpe_mm": null,
+        "max_1h_qpe_in": null,
+        "max_3h_qpe_in": null,
+        "max_6h_qpe_in": null,
+        "max_12h_qpe_in": null,
+        "mrms_enriched": true
       }
     },
     {
@@ -10048,7 +10084,19 @@
         "Longitude": -90.6,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 0,
+        "mrms_hours_sampled": 0,
+        "mrms_product_used": null,
+        "max_1h_qpe_mm": null,
+        "max_3h_qpe_mm": null,
+        "max_6h_qpe_mm": null,
+        "max_12h_qpe_mm": null,
+        "max_1h_qpe_in": null,
+        "max_3h_qpe_in": null,
+        "max_6h_qpe_in": null,
+        "max_12h_qpe_in": null,
+        "mrms_enriched": true
       }
     },
     {
@@ -10098,7 +10146,19 @@
         "Longitude": -90.2,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "severe",
-        "severity_weight": 6
+        "severity_weight": 6,
+        "MRMS_HOURS_FOUND": 0,
+        "mrms_hours_sampled": 0,
+        "mrms_product_used": null,
+        "max_1h_qpe_mm": null,
+        "max_3h_qpe_mm": null,
+        "max_6h_qpe_mm": null,
+        "max_12h_qpe_mm": null,
+        "max_1h_qpe_in": null,
+        "max_3h_qpe_in": null,
+        "max_6h_qpe_in": null,
+        "max_12h_qpe_in": null,
+        "mrms_enriched": true
       }
     },
     {
@@ -10148,7 +10208,19 @@
         "Longitude": -90.35,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "serious",
-        "severity_weight": 3
+        "severity_weight": 3,
+        "MRMS_HOURS_FOUND": 0,
+        "mrms_hours_sampled": 0,
+        "mrms_product_used": null,
+        "max_1h_qpe_mm": null,
+        "max_3h_qpe_mm": null,
+        "max_6h_qpe_mm": null,
+        "max_12h_qpe_mm": null,
+        "max_1h_qpe_in": null,
+        "max_3h_qpe_in": null,
+        "max_6h_qpe_in": null,
+        "max_12h_qpe_in": null,
+        "mrms_enriched": true
       }
     },
     {
@@ -10198,7 +10270,19 @@
         "Longitude": -89.8,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "serious",
-        "severity_weight": 3
+        "severity_weight": 3,
+        "MRMS_HOURS_FOUND": 0,
+        "mrms_hours_sampled": 0,
+        "mrms_product_used": null,
+        "max_1h_qpe_mm": null,
+        "max_3h_qpe_mm": null,
+        "max_6h_qpe_mm": null,
+        "max_12h_qpe_mm": null,
+        "max_1h_qpe_in": null,
+        "max_3h_qpe_in": null,
+        "max_6h_qpe_in": null,
+        "max_12h_qpe_in": null,
+        "mrms_enriched": true
       }
     },
     {
@@ -10248,7 +10332,19 @@
         "Longitude": -90.48,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 0,
+        "mrms_hours_sampled": 0,
+        "mrms_product_used": null,
+        "max_1h_qpe_mm": null,
+        "max_3h_qpe_mm": null,
+        "max_6h_qpe_mm": null,
+        "max_12h_qpe_mm": null,
+        "max_1h_qpe_in": null,
+        "max_3h_qpe_in": null,
+        "max_6h_qpe_in": null,
+        "max_12h_qpe_in": null,
+        "mrms_enriched": true
       }
     },
     {
@@ -10298,7 +10394,19 @@
         "Longitude": -90.961,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 0,
+        "mrms_hours_sampled": 0,
+        "mrms_product_used": null,
+        "max_1h_qpe_mm": null,
+        "max_3h_qpe_mm": null,
+        "max_6h_qpe_mm": null,
+        "max_12h_qpe_mm": null,
+        "max_1h_qpe_in": null,
+        "max_3h_qpe_in": null,
+        "max_6h_qpe_in": null,
+        "max_12h_qpe_in": null,
+        "mrms_enriched": true
       }
     },
     {
@@ -10348,7 +10456,19 @@
         "Longitude": -91.1179,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "moderate",
-        "severity_weight": 2
+        "severity_weight": 2,
+        "MRMS_HOURS_FOUND": 0,
+        "mrms_hours_sampled": 0,
+        "mrms_product_used": null,
+        "max_1h_qpe_mm": null,
+        "max_3h_qpe_mm": null,
+        "max_6h_qpe_mm": null,
+        "max_12h_qpe_mm": null,
+        "max_1h_qpe_in": null,
+        "max_3h_qpe_in": null,
+        "max_6h_qpe_in": null,
+        "max_12h_qpe_in": null,
+        "mrms_enriched": true
       }
     },
     {
@@ -10398,7 +10518,19 @@
         "Longitude": -89.78,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 0,
+        "mrms_hours_sampled": 0,
+        "mrms_product_used": null,
+        "max_1h_qpe_mm": null,
+        "max_3h_qpe_mm": null,
+        "max_6h_qpe_mm": null,
+        "max_12h_qpe_mm": null,
+        "max_1h_qpe_in": null,
+        "max_3h_qpe_in": null,
+        "max_6h_qpe_in": null,
+        "max_12h_qpe_in": null,
+        "mrms_enriched": true
       }
     },
     {
@@ -10448,7 +10580,19 @@
         "Longitude": -89.38,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "severe",
-        "severity_weight": 6
+        "severity_weight": 6,
+        "MRMS_HOURS_FOUND": 0,
+        "mrms_hours_sampled": 0,
+        "mrms_product_used": null,
+        "max_1h_qpe_mm": null,
+        "max_3h_qpe_mm": null,
+        "max_6h_qpe_mm": null,
+        "max_12h_qpe_mm": null,
+        "max_1h_qpe_in": null,
+        "max_3h_qpe_in": null,
+        "max_6h_qpe_in": null,
+        "max_12h_qpe_in": null,
+        "mrms_enriched": true
       }
     },
     {
@@ -10498,7 +10642,19 @@
         "Longitude": -90.0505,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "moderate",
-        "severity_weight": 2
+        "severity_weight": 2,
+        "MRMS_HOURS_FOUND": 0,
+        "mrms_hours_sampled": 0,
+        "mrms_product_used": null,
+        "max_1h_qpe_mm": null,
+        "max_3h_qpe_mm": null,
+        "max_6h_qpe_mm": null,
+        "max_12h_qpe_mm": null,
+        "max_1h_qpe_in": null,
+        "max_3h_qpe_in": null,
+        "max_6h_qpe_in": null,
+        "max_12h_qpe_in": null,
+        "mrms_enriched": true
       }
     },
     {
@@ -10548,7 +10704,19 @@
         "Longitude": -88.945,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "serious",
-        "severity_weight": 3
+        "severity_weight": 3,
+        "MRMS_HOURS_FOUND": 0,
+        "mrms_hours_sampled": 0,
+        "mrms_product_used": null,
+        "max_1h_qpe_mm": null,
+        "max_3h_qpe_mm": null,
+        "max_6h_qpe_mm": null,
+        "max_12h_qpe_mm": null,
+        "max_1h_qpe_in": null,
+        "max_3h_qpe_in": null,
+        "max_6h_qpe_in": null,
+        "max_12h_qpe_in": null,
+        "mrms_enriched": true
       }
     },
     {
@@ -10598,7 +10766,19 @@
         "Longitude": -89.6776,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "serious",
-        "severity_weight": 3
+        "severity_weight": 3,
+        "MRMS_HOURS_FOUND": 0,
+        "mrms_hours_sampled": 0,
+        "mrms_product_used": null,
+        "max_1h_qpe_mm": null,
+        "max_3h_qpe_mm": null,
+        "max_6h_qpe_mm": null,
+        "max_12h_qpe_mm": null,
+        "max_1h_qpe_in": null,
+        "max_3h_qpe_in": null,
+        "max_6h_qpe_in": null,
+        "max_12h_qpe_in": null,
+        "mrms_enriched": true
       }
     },
     {
@@ -10648,7 +10828,19 @@
         "Longitude": -89.67,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 0,
+        "mrms_hours_sampled": 0,
+        "mrms_product_used": null,
+        "max_1h_qpe_mm": null,
+        "max_3h_qpe_mm": null,
+        "max_6h_qpe_mm": null,
+        "max_12h_qpe_mm": null,
+        "max_1h_qpe_in": null,
+        "max_3h_qpe_in": null,
+        "max_6h_qpe_in": null,
+        "max_12h_qpe_in": null,
+        "mrms_enriched": true
       }
     },
     {
@@ -10698,7 +10890,19 @@
         "Longitude": -89.1628,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "moderate",
-        "severity_weight": 2
+        "severity_weight": 2,
+        "MRMS_HOURS_FOUND": 0,
+        "mrms_hours_sampled": 0,
+        "mrms_product_used": null,
+        "max_1h_qpe_mm": null,
+        "max_3h_qpe_mm": null,
+        "max_6h_qpe_mm": null,
+        "max_12h_qpe_mm": null,
+        "max_1h_qpe_in": null,
+        "max_3h_qpe_in": null,
+        "max_6h_qpe_in": null,
+        "max_12h_qpe_in": null,
+        "mrms_enriched": true
       }
     },
     {
@@ -10748,7 +10952,19 @@
         "Longitude": -89.07,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 0,
+        "mrms_hours_sampled": 0,
+        "mrms_product_used": null,
+        "max_1h_qpe_mm": null,
+        "max_3h_qpe_mm": null,
+        "max_6h_qpe_mm": null,
+        "max_12h_qpe_mm": null,
+        "max_1h_qpe_in": null,
+        "max_3h_qpe_in": null,
+        "max_6h_qpe_in": null,
+        "max_12h_qpe_in": null,
+        "mrms_enriched": true
       }
     },
     {
@@ -10798,7 +11014,19 @@
         "Longitude": -89.5125,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "serious",
-        "severity_weight": 3
+        "severity_weight": 3,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 9.300000190734863,
+        "max_3h_qpe_mm": 18.20000028610229,
+        "max_6h_qpe_mm": 26.500000298023224,
+        "max_12h_qpe_mm": 33.400000259280205,
+        "max_1h_qpe_in": 0.3661417397927112,
+        "max_3h_qpe_in": 0.716535444334736,
+        "max_6h_qpe_in": 1.0433070983473711,
+        "max_12h_qpe_in": 1.314960640129142,
+        "mrms_enriched": true
       }
     },
     {
@@ -10848,7 +11076,19 @@
         "Longitude": -89.168,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "moderate",
-        "severity_weight": 2
+        "severity_weight": 2,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 29.799999237060547,
+        "max_3h_qpe_mm": 57.10000038146973,
+        "max_6h_qpe_mm": 59.10000035911799,
+        "max_12h_qpe_mm": 79.50000116974115,
+        "max_1h_qpe_in": 1.1732283164197066,
+        "max_3h_qpe_in": 2.248031511081485,
+        "max_6h_qpe_in": 2.3267716676818107,
+        "max_12h_qpe_in": 3.129921305895321,
+        "mrms_enriched": true
       }
     },
     {
@@ -10898,7 +11138,19 @@
         "Longitude": -90.87,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 24.600000381469727,
+        "max_3h_qpe_mm": 24.900000393390656,
+        "max_6h_qpe_mm": 24.900000393390656,
+        "max_12h_qpe_mm": 24.900000393390656,
+        "max_1h_qpe_in": 0.9685039520263672,
+        "max_3h_qpe_in": 0.9803149761177424,
+        "max_6h_qpe_in": 0.9803149761177424,
+        "max_12h_qpe_in": 0.9803149761177424,
+        "mrms_enriched": true
       }
     },
     {
@@ -10948,7 +11200,19 @@
         "Longitude": -90.1284,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "serious",
-        "severity_weight": 3
+        "severity_weight": 3,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 4.900000095367432,
+        "max_3h_qpe_mm": 4.900000095367432,
+        "max_6h_qpe_mm": 4.900000095367432,
+        "max_12h_qpe_mm": 4.900000095367432,
+        "max_1h_qpe_in": 0.1929133895813949,
+        "max_3h_qpe_in": 0.1929133895813949,
+        "max_6h_qpe_in": 0.1929133895813949,
+        "max_12h_qpe_in": 0.1929133895813949,
+        "mrms_enriched": true
       }
     },
     {
@@ -10998,7 +11262,19 @@
         "Longitude": -91.1852,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 0.0,
+        "max_3h_qpe_mm": 0.0,
+        "max_6h_qpe_mm": 0.0,
+        "max_12h_qpe_mm": 0.0,
+        "max_1h_qpe_in": 0.0,
+        "max_3h_qpe_in": 0.0,
+        "max_6h_qpe_in": 0.0,
+        "max_12h_qpe_in": 0.0,
+        "mrms_enriched": true
       }
     },
     {
@@ -11048,7 +11324,19 @@
         "Longitude": -91.1254,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "severe",
-        "severity_weight": 6
+        "severity_weight": 6,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 11.699999809265137,
+        "max_3h_qpe_mm": 11.699999809265137,
+        "max_6h_qpe_mm": 11.699999809265137,
+        "max_12h_qpe_mm": 11.699999809265137,
+        "max_1h_qpe_in": 0.460629913750596,
+        "max_3h_qpe_in": 0.460629913750596,
+        "max_6h_qpe_in": 0.460629913750596,
+        "max_12h_qpe_in": 0.460629913750596,
+        "mrms_enriched": true
       }
     },
     {
@@ -11098,7 +11386,19 @@
         "Longitude": -88.5594,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 87.80000305175781,
+        "max_3h_qpe_mm": 104.3000022917986,
+        "max_6h_qpe_mm": 104.3000022917986,
+        "max_12h_qpe_mm": 104.3000022917986,
+        "max_1h_qpe_in": 3.456693033533772,
+        "max_3h_qpe_in": 4.1062993028267165,
+        "max_6h_qpe_in": 4.1062993028267165,
+        "max_12h_qpe_in": 4.1062993028267165,
+        "mrms_enriched": true
       }
     },
     {
@@ -11148,7 +11448,19 @@
         "Longitude": -90.5941,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 34.29999923706055,
+        "max_3h_qpe_mm": 95.60000038146973,
+        "max_6h_qpe_mm": 134.49999976158142,
+        "max_12h_qpe_mm": 153.80000014603138,
+        "max_1h_qpe_in": 1.3503936707504154,
+        "max_3h_qpe_in": 3.7637795425775487,
+        "max_6h_qpe_in": 5.295275581164623,
+        "max_12h_qpe_in": 6.055118115985488,
+        "mrms_enriched": true
       }
     },
     {
@@ -11198,7 +11510,19 @@
         "Longitude": -90.7828,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 24.399999618530277,
+        "max_3h_qpe_mm": 54.70000076293945,
+        "max_6h_qpe_mm": 70.30000114440918,
+        "max_12h_qpe_mm": 80.70000109821558,
+        "max_1h_qpe_in": 0.9606299062413494,
+        "max_3h_qpe_in": 2.153543337123601,
+        "max_6h_qpe_in": 2.76771658048855,
+        "max_12h_qpe_in": 3.177165397567543,
+        "mrms_enriched": true
       }
     },
     {
@@ -11248,7 +11572,19 @@
         "Longitude": -90.2493,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "catastrophic",
-        "severity_weight": 10
+        "severity_weight": 10,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 22.5,
+        "max_3h_qpe_mm": 55.89999961853027,
+        "max_6h_qpe_mm": 90.4000005722046,
+        "max_12h_qpe_mm": 126.70000118017197,
+        "max_1h_qpe_in": 0.8858267716535434,
+        "max_3h_qpe_in": 2.20078738655631,
+        "max_6h_qpe_in": 3.559055140637976,
+        "max_12h_qpe_in": 4.988189022841416,
+        "mrms_enriched": true
       }
     },
     {
@@ -11298,7 +11634,19 @@
         "Longitude": -89.8366,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 18.899999618530277,
+        "max_3h_qpe_mm": 29.799999713897705,
+        "max_6h_qpe_mm": 38.299999713897705,
+        "max_12h_qpe_mm": 43.0999998152256,
+        "max_1h_qpe_in": 0.7440944731704833,
+        "max_3h_qpe_in": 1.173228335192823,
+        "max_6h_qpe_in": 1.5078740044841616,
+        "max_12h_qpe_in": 1.6968503864262048,
+        "mrms_enriched": true
       }
     },
     {
@@ -11348,7 +11696,19 @@
         "Longitude": -90.4697,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "moderate",
-        "severity_weight": 2
+        "severity_weight": 2,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 21.600000381469727,
+        "max_3h_qpe_mm": 46.5,
+        "max_6h_qpe_mm": 80.50000095367432,
+        "max_12h_qpe_mm": 82.80000102519989,
+        "max_1h_qpe_in": 0.8503937158058948,
+        "max_3h_qpe_in": 1.830708661417323,
+        "max_6h_qpe_in": 3.16929137612891,
+        "max_12h_qpe_in": 3.25984256004724,
+        "mrms_enriched": true
       }
     },
     {
@@ -11398,7 +11758,19 @@
         "Longitude": -90.5603,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 24.399999618530277,
+        "max_3h_qpe_mm": 58.09999942779541,
+        "max_6h_qpe_mm": 71.69999957084656,
+        "max_12h_qpe_mm": 90.49999952316284,
+        "max_1h_qpe_in": 0.9606299062413494,
+        "max_3h_qpe_in": 2.28740155227541,
+        "max_6h_qpe_in": 2.822834628773487,
+        "max_12h_qpe_in": 3.562992107211136,
+        "mrms_enriched": true
       }
     },
     {
@@ -11448,7 +11820,19 @@
         "Longitude": -90.5443,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "catastrophic",
-        "severity_weight": 10
+        "severity_weight": 10,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 23.299999237060547,
+        "max_3h_qpe_mm": 49.99999904632568,
+        "max_6h_qpe_mm": 64.19999957084656,
+        "max_12h_qpe_mm": 69.29999946802855,
+        "max_1h_qpe_in": 0.917322804608683,
+        "max_3h_qpe_in": 1.9685038994616413,
+        "max_6h_qpe_in": 2.527559038222305,
+        "max_12h_qpe_in": 2.728346435749156,
+        "mrms_enriched": true
       }
     },
     {
@@ -11498,7 +11882,19 @@
         "Longitude": -90.3402,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "catastrophic",
-        "severity_weight": 10
+        "severity_weight": 10,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 24.5,
+        "max_3h_qpe_mm": 66.29999923706055,
+        "max_6h_qpe_mm": 80.89999914169312,
+        "max_12h_qpe_mm": 140.50000029802322,
+        "max_1h_qpe_in": 0.9645669291338584,
+        "max_3h_qpe_in": 2.610236190435455,
+        "max_6h_qpe_in": 3.1850393362871308,
+        "max_12h_qpe_in": 5.531496074725324,
+        "mrms_enriched": true
       }
     },
     {
@@ -11548,7 +11944,19 @@
         "Longitude": -90.5081,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 23.899999618530277,
+        "max_3h_qpe_mm": 46.69999980926514,
+        "max_6h_qpe_mm": 61.39999985694885,
+        "max_12h_qpe_mm": 79.30000025033951,
+        "max_1h_qpe_in": 0.9409448668712708,
+        "max_3h_qpe_in": 1.838582669656108,
+        "max_6h_qpe_in": 2.4173228290137345,
+        "max_12h_qpe_in": 3.1220472539503743,
+        "mrms_enriched": true
       }
     },
     {
@@ -11598,7 +12006,19 @@
         "Longitude": -90.3035,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "severe",
-        "severity_weight": 6
+        "severity_weight": 6,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 34.400001525878906,
+        "max_3h_qpe_mm": 72.60000038146973,
+        "max_6h_qpe_mm": 106.2000002861023,
+        "max_12h_qpe_mm": 181.70000159740448,
+        "max_1h_qpe_in": 1.35433076873539,
+        "max_3h_qpe_in": 2.8582677315539264,
+        "max_6h_qpe_in": 4.181102373468595,
+        "max_12h_qpe_in": 7.153543369976555,
+        "mrms_enriched": true
       }
     },
     {
@@ -11648,7 +12068,19 @@
         "Longitude": -90.4683,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 44.79999923706055,
+        "max_3h_qpe_mm": 104.20000076293944,
+        "max_6h_qpe_mm": 130.5,
+        "max_12h_qpe_mm": 173.89999971538782,
+        "max_1h_qpe_in": 1.7637794975220689,
+        "max_3h_qpe_in": 4.102362234761396,
+        "max_6h_qpe_in": 5.137795275590552,
+        "max_12h_qpe_in": 6.846456681708182,
+        "mrms_enriched": true
       }
     },
     {
@@ -11698,7 +12130,19 @@
         "Longitude": -90.3886,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 21.100000381469727,
+        "max_3h_qpe_mm": 53.0,
+        "max_6h_qpe_mm": 86.29999923706055,
+        "max_12h_qpe_mm": 94.89999927580357,
+        "max_1h_qpe_in": 0.830708676435816,
+        "max_3h_qpe_in": 2.0866141732283467,
+        "max_6h_qpe_in": 3.3976377652386045,
+        "max_12h_qpe_in": 3.7362204439292745,
+        "mrms_enriched": true
       }
     },
     {
@@ -11748,7 +12192,19 @@
         "Longitude": -90.4189,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "severe",
-        "severity_weight": 6
+        "severity_weight": 6,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 29.899999618530277,
+        "max_3h_qpe_mm": 56.80000019073486,
+        "max_6h_qpe_mm": 82.0,
+        "max_12h_qpe_mm": 141.6000006198883,
+        "max_1h_qpe_in": 1.1771653393122157,
+        "max_3h_qpe_in": 2.2362204799501915,
+        "max_6h_qpe_in": 3.228346456692913,
+        "max_12h_qpe_in": 5.574803174011351,
+        "mrms_enriched": true
       }
     },
     {
@@ -11798,7 +12254,19 @@
         "Longitude": -90.434,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "moderate",
-        "severity_weight": 2
+        "severity_weight": 2,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 36.09999847412109,
+        "max_3h_qpe_mm": 68.99999904632568,
+        "max_6h_qpe_mm": 99.5,
+        "max_12h_qpe_mm": 148.19999942928553,
+        "max_1h_qpe_in": 1.4212597824457125,
+        "max_3h_qpe_in": 2.7165353955246334,
+        "max_6h_qpe_in": 3.917322834645669,
+        "max_12h_qpe_in": 5.834645646822265,
+        "mrms_enriched": true
       }
     },
     {
@@ -11848,7 +12316,19 @@
         "Longitude": -90.46,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "moderate",
-        "severity_weight": 2
+        "severity_weight": 2,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 27.0,
+        "max_3h_qpe_mm": 52.20000076293945,
+        "max_6h_qpe_mm": 72.80000138282776,
+        "max_12h_qpe_mm": 129.40000081062317,
+        "max_1h_qpe_in": 1.062992125984252,
+        "max_3h_qpe_in": 2.055118140273207,
+        "max_6h_qpe_in": 2.8661417867255023,
+        "max_12h_qpe_in": 5.0944882208906765,
+        "mrms_enriched": true
       }
     },
     {
@@ -11898,7 +12378,19 @@
         "Longitude": -90.46,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "severe",
-        "severity_weight": 6
+        "severity_weight": 6,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 27.0,
+        "max_3h_qpe_mm": 52.20000076293945,
+        "max_6h_qpe_mm": 72.80000138282776,
+        "max_12h_qpe_mm": 129.40000081062317,
+        "max_1h_qpe_in": 1.062992125984252,
+        "max_3h_qpe_in": 2.055118140273207,
+        "max_6h_qpe_in": 2.8661417867255023,
+        "max_12h_qpe_in": 5.0944882208906765,
+        "mrms_enriched": true
       }
     },
     {
@@ -11948,7 +12440,19 @@
         "Longitude": -90.0391,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "severe",
-        "severity_weight": 6
+        "severity_weight": 6,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 17.5,
+        "max_3h_qpe_mm": 29.799999713897705,
+        "max_6h_qpe_mm": 31.099999725818638,
+        "max_12h_qpe_mm": 42.09999972581864,
+        "max_1h_qpe_in": 0.6889763779527559,
+        "max_3h_qpe_in": 1.173228335192823,
+        "max_6h_qpe_in": 1.2244094380243558,
+        "max_12h_qpe_in": 1.657480304166088,
+        "mrms_enriched": true
       }
     },
     {
@@ -11998,7 +12502,19 @@
         "Longitude": -90.1607,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "moderate",
-        "severity_weight": 2
+        "severity_weight": 2,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 24.700000762939453,
+        "max_3h_qpe_mm": 58.89999961853027,
+        "max_6h_qpe_mm": 83.30000019073486,
+        "max_12h_qpe_mm": 125.40000104904176,
+        "max_1h_qpe_in": 0.9724409749188762,
+        "max_3h_qpe_in": 2.3188976227767824,
+        "max_6h_qpe_in": 3.279527566564365,
+        "max_12h_qpe_in": 4.937007915316604,
+        "mrms_enriched": true
       }
     },
     {
@@ -12048,7 +12564,19 @@
         "Longitude": -90.1078,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "severe",
-        "severity_weight": 6
+        "severity_weight": 6,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 29.5,
+        "max_3h_qpe_mm": 58.5,
+        "max_6h_qpe_mm": 85.60000038146973,
+        "max_12h_qpe_mm": 155.2000002861023,
+        "max_1h_qpe_in": 1.1614173228346458,
+        "max_3h_qpe_in": 2.303149606299213,
+        "max_6h_qpe_in": 3.3700787551759737,
+        "max_12h_qpe_in": 6.110236231736312,
+        "mrms_enriched": true
       }
     },
     {
@@ -12098,7 +12626,19 @@
         "Longitude": -90.23,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 27.100000381469727,
+        "max_3h_qpe_mm": 28.200000405311584,
+        "max_6h_qpe_mm": 34.30000050365925,
+        "max_12h_qpe_mm": 34.30000050365925,
+        "max_1h_qpe_in": 1.066929148876761,
+        "max_3h_qpe_in": 1.11023623642959,
+        "max_6h_qpe_in": 1.350393720616506,
+        "max_12h_qpe_in": 1.350393720616506,
+        "mrms_enriched": true
       }
     },
     {
@@ -12148,7 +12688,19 @@
         "Longitude": -90.03,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 49.0,
+        "max_3h_qpe_mm": 49.79999998956919,
+        "max_6h_qpe_mm": 64.09999997913837,
+        "max_12h_qpe_mm": 64.19999998062849,
+        "max_1h_qpe_in": 1.9291338582677169,
+        "max_3h_qpe_in": 1.9606299208491809,
+        "max_6h_qpe_in": 2.523622046422771,
+        "max_12h_qpe_in": 2.5275590543554527,
+        "mrms_enriched": true
       }
     },
     {
@@ -12198,7 +12750,19 @@
         "Longitude": -88.8876,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 32.70000076293945,
+        "max_3h_qpe_mm": 37.70000076293945,
+        "max_6h_qpe_mm": 37.70000076293945,
+        "max_12h_qpe_mm": 37.70000076293945,
+        "max_1h_qpe_in": 1.287401604840136,
+        "max_3h_qpe_in": 1.4842519985409235,
+        "max_6h_qpe_in": 1.4842519985409235,
+        "max_12h_qpe_in": 1.4842519985409235,
+        "mrms_enriched": true
       }
     },
     {
@@ -12248,7 +12812,19 @@
         "Longitude": -89.13,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "catastrophic",
-        "severity_weight": 10
+        "severity_weight": 10,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 31.0,
+        "max_3h_qpe_mm": 50.09999990463257,
+        "max_6h_qpe_mm": 53.89999985694885,
+        "max_12h_qpe_mm": 64.5,
+        "max_1h_qpe_in": 1.220472440944882,
+        "max_3h_qpe_in": 1.9724409411272663,
+        "max_6h_qpe_in": 2.122047238462553,
+        "max_12h_qpe_in": 2.5393700787401574,
+        "mrms_enriched": true
       }
     },
     {
@@ -12298,7 +12874,19 @@
         "Longitude": -90.364,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "moderate",
-        "severity_weight": 2
+        "severity_weight": 2,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 68.0,
+        "max_3h_qpe_mm": 122.89999961853027,
+        "max_6h_qpe_mm": 122.89999961853027,
+        "max_12h_qpe_mm": 122.89999961853027,
+        "max_1h_qpe_in": 2.677165354330709,
+        "max_3h_qpe_in": 4.8385826621468615,
+        "max_6h_qpe_in": 4.8385826621468615,
+        "max_12h_qpe_in": 4.8385826621468615,
+        "mrms_enriched": true
       }
     },
     {
@@ -12348,7 +12936,19 @@
         "Longitude": -90.874,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 127.3000030517578,
+        "max_3h_qpe_mm": 127.3000030517578,
+        "max_6h_qpe_mm": 127.8000030517578,
+        "max_12h_qpe_mm": 127.8000030517578,
+        "max_1h_qpe_in": 5.011811143769993,
+        "max_3h_qpe_in": 5.011811143769993,
+        "max_6h_qpe_in": 5.031496183140072,
+        "max_12h_qpe_in": 5.031496183140072,
+        "mrms_enriched": true
       }
     },
     {
@@ -12398,7 +12998,19 @@
         "Longitude": -90.892,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "moderate",
-        "severity_weight": 2
+        "severity_weight": 2,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 44.900001525878906,
+        "max_3h_qpe_mm": 86.80000233650208,
+        "max_6h_qpe_mm": 86.80000233650208,
+        "max_12h_qpe_mm": 86.80000233650208,
+        "max_1h_qpe_in": 1.7677165955070435,
+        "max_3h_qpe_in": 3.41732292663394,
+        "max_6h_qpe_in": 3.41732292663394,
+        "max_12h_qpe_in": 3.41732292663394,
+        "mrms_enriched": true
       }
     },
     {
@@ -12448,7 +13060,19 @@
         "Longitude": -89.028,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "moderate",
-        "severity_weight": 2
+        "severity_weight": 2,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 0.4000000059604645,
+        "max_3h_qpe_mm": 0.4000000059604645,
+        "max_6h_qpe_mm": 0.4000000059604645,
+        "max_12h_qpe_mm": 0.4000000059604645,
+        "max_1h_qpe_in": 0.0157480317307269,
+        "max_3h_qpe_in": 0.0157480317307269,
+        "max_6h_qpe_in": 0.0157480317307269,
+        "max_12h_qpe_in": 0.0157480317307269,
+        "mrms_enriched": true
       }
     },
     {
@@ -12498,7 +13122,19 @@
         "Longitude": -91.012,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "catastrophic",
-        "severity_weight": 10
+        "severity_weight": 10,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 27.799999237060547,
+        "max_3h_qpe_mm": 45.69999885559082,
+        "max_6h_qpe_mm": 52.39999876171351,
+        "max_12h_qpe_mm": 73.29999879747629,
+        "max_1h_qpe_in": 1.0944881589393918,
+        "max_3h_qpe_in": 1.7992125533697174,
+        "max_6h_qpe_in": 2.062992077232815,
+        "max_12h_qpe_in": 2.8858267243100904,
+        "mrms_enriched": true
       }
     },
     {
@@ -12548,7 +13184,19 @@
         "Longitude": -90.906,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "catastrophic",
-        "severity_weight": 10
+        "severity_weight": 10,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 24.799999237060547,
+        "max_3h_qpe_mm": 34.299999475479126,
+        "max_6h_qpe_mm": 34.299999475479126,
+        "max_12h_qpe_mm": 49.49999928474426,
+        "max_1h_qpe_in": 0.9763779227189192,
+        "max_3h_qpe_in": 1.3503936801369736,
+        "max_6h_qpe_in": 1.3503936801369736,
+        "max_12h_qpe_in": 1.9488188694781208,
+        "mrms_enriched": true
       }
     },
     {
@@ -12598,7 +13246,19 @@
         "Longitude": -90.853,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "catastrophic",
-        "severity_weight": 10
+        "severity_weight": 10,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 71.80000305175781,
+        "max_3h_qpe_mm": 107.3000020980835,
+        "max_6h_qpe_mm": 114.20000219345091,
+        "max_12h_qpe_mm": 151.6000019311905,
+        "max_1h_qpe_in": 2.8267717736912528,
+        "max_3h_qpe_in": 4.22440953142061,
+        "max_6h_qpe_in": 4.496063078482321,
+        "max_12h_qpe_in": 5.968504013038996,
+        "mrms_enriched": true
       }
     },
     {
@@ -12648,7 +13308,19 @@
         "Longitude": -91.176,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "catastrophic",
-        "severity_weight": 10
+        "severity_weight": 10,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 56.0,
+        "max_3h_qpe_mm": 106.9000015258789,
+        "max_6h_qpe_mm": 106.9000015258789,
+        "max_12h_qpe_mm": 127.60000139474867,
+        "max_1h_qpe_in": 2.204724409448819,
+        "max_3h_qpe_in": 4.208661477396808,
+        "max_6h_qpe_in": 4.208661477396808,
+        "max_12h_qpe_in": 5.023622102155461,
+        "mrms_enriched": true
       }
     },
     {
@@ -12698,7 +13370,19 @@
         "Longitude": -90.566,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "catastrophic",
-        "severity_weight": 10
+        "severity_weight": 10,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 36.5,
+        "max_3h_qpe_mm": 55.70000076293945,
+        "max_6h_qpe_mm": 56.20000076293945,
+        "max_12h_qpe_mm": 71.10000020265579,
+        "max_1h_qpe_in": 1.437007874015748,
+        "max_3h_qpe_in": 2.192913415863758,
+        "max_6h_qpe_in": 2.2125984552338367,
+        "max_12h_qpe_in": 2.7992126064037715,
+        "mrms_enriched": true
       }
     },
     {
@@ -12748,7 +13432,19 @@
         "Longitude": -90.826,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "catastrophic",
-        "severity_weight": 10
+        "severity_weight": 10,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 69.30000305175781,
+        "max_3h_qpe_mm": 130.10000467300415,
+        "max_6h_qpe_mm": 145.10000455379486,
+        "max_12h_qpe_mm": 157.90000474452972,
+        "max_1h_qpe_in": 2.728346576840859,
+        "max_3h_qpe_in": 5.1220474280710295,
+        "max_6h_qpe_in": 5.712598604480113,
+        "max_12h_qpe_in": 6.216535619863375,
+        "mrms_enriched": true
       }
     },
     {
@@ -12798,7 +13494,19 @@
         "Longitude": -91.515,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "catastrophic",
-        "severity_weight": 10
+        "severity_weight": 10,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 28.0,
+        "max_3h_qpe_mm": 31.200000166893005,
+        "max_6h_qpe_mm": 31.50000017881393,
+        "max_12h_qpe_mm": 60.200000166893005,
+        "max_1h_qpe_in": 1.1023622047244095,
+        "max_3h_qpe_in": 1.2283464632635042,
+        "max_6h_qpe_in": 1.2401574873548793,
+        "max_12h_qpe_in": 2.3700787467280717,
+        "mrms_enriched": true
       }
     },
     {
@@ -12848,7 +13556,19 @@
         "Longitude": -90.347,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 69.30000305175781,
+        "max_3h_qpe_mm": 92.50000333786012,
+        "max_6h_qpe_mm": 183.90000104904172,
+        "max_12h_qpe_mm": 276.40000200271606,
+        "max_1h_qpe_in": 2.728346576840859,
+        "max_3h_qpe_in": 3.6417324148763823,
+        "max_6h_qpe_in": 7.240157521615817,
+        "max_12h_qpe_in": 10.881889842626617,
+        "mrms_enriched": true
       }
     },
     {
@@ -12898,7 +13618,19 @@
         "Longitude": -91.768,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "severe",
-        "severity_weight": 6
+        "severity_weight": 6,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 2.400000095367432,
+        "max_3h_qpe_mm": 3.700000047683716,
+        "max_6h_qpe_mm": 3.700000047683716,
+        "max_12h_qpe_mm": 5.400000095367432,
+        "max_1h_qpe_in": 0.0944881927310012,
+        "max_3h_qpe_in": 0.1456692932158943,
+        "max_6h_qpe_in": 0.1456692932158943,
+        "max_12h_qpe_in": 0.2125984289514737,
+        "mrms_enriched": true
       }
     },
     {
@@ -12948,7 +13680,19 @@
         "Longitude": -90.548,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "severe",
-        "severity_weight": 6
+        "severity_weight": 6,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 32.900001525878906,
+        "max_3h_qpe_mm": 46.10000133514404,
+        "max_6h_qpe_mm": 58.30000162124634,
+        "max_12h_qpe_mm": 62.30000150203705,
+        "max_1h_qpe_in": 1.295275650625154,
+        "max_3h_qpe_in": 1.814960682485986,
+        "max_6h_qpe_in": 2.295275654379777,
+        "max_12h_qpe_in": 2.452755964647128,
+        "mrms_enriched": true
       }
     },
     {
@@ -12998,7 +13742,19 @@
         "Longitude": -91.385,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "severe",
-        "severity_weight": 6
+        "severity_weight": 6,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 65.19999694824219,
+        "max_3h_qpe_mm": 143.2999973297119,
+        "max_6h_qpe_mm": 160.6999979019165,
+        "max_12h_qpe_mm": 160.6999979019165,
+        "max_1h_qpe_in": 2.5669290137103227,
+        "max_3h_qpe_in": 5.641732178335115,
+        "max_6h_qpe_in": 6.326771570941595,
+        "max_12h_qpe_in": 6.326771570941595,
+        "mrms_enriched": true
       }
     },
     {
@@ -13048,7 +13804,19 @@
         "Longitude": -91.097,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "severe",
-        "severity_weight": 6
+        "severity_weight": 6,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 53.09999847412109,
+        "max_3h_qpe_mm": 84.69999808073044,
+        "max_6h_qpe_mm": 87.39999812841415,
+        "max_12h_qpe_mm": 101.49999810010196,
+        "max_1h_qpe_in": 2.0905511210283896,
+        "max_3h_qpe_in": 3.334645593729545,
+        "max_6h_qpe_in": 3.440944808205282,
+        "max_12h_qpe_in": 3.996062917326849,
+        "mrms_enriched": true
       }
     },
     {
@@ -13098,7 +13866,19 @@
         "Longitude": -91.398,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "moderate",
-        "severity_weight": 2
+        "severity_weight": 2,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 11.399999618530272,
+        "max_3h_qpe_mm": 25.799999713897705,
+        "max_6h_qpe_mm": 37.70000052452088,
+        "max_12h_qpe_mm": 72.00000023841858,
+        "max_1h_qpe_in": 0.4488188826193021,
+        "max_3h_qpe_in": 1.0157480202321931,
+        "max_6h_qpe_in": 1.4842519891543653,
+        "max_12h_qpe_in": 2.834645678677897,
+        "mrms_enriched": true
       }
     },
     {
@@ -13148,7 +13928,19 @@
         "Longitude": -91.1921,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 28.5,
+        "max_3h_qpe_mm": 30.299999952316284,
+        "max_6h_qpe_mm": 31.299999952316284,
+        "max_12h_qpe_mm": 31.899999976158146,
+        "max_1h_qpe_in": 1.1220472440944882,
+        "max_3h_qpe_in": 1.19291338394946,
+        "max_6h_qpe_in": 1.2322834626896175,
+        "max_12h_qpe_in": 1.2559055108723678,
+        "mrms_enriched": true
       }
     },
     {
@@ -13198,7 +13990,19 @@
         "Longitude": -91.03,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 45.70000076293945,
+        "max_3h_qpe_mm": 73.60000151395798,
+        "max_6h_qpe_mm": 73.60000151395798,
+        "max_12h_qpe_mm": 73.60000151395798,
+        "max_1h_qpe_in": 1.7992126284621832,
+        "max_3h_qpe_in": 2.8976378548802355,
+        "max_6h_qpe_in": 2.8976378548802355,
+        "max_12h_qpe_in": 2.8976378548802355,
+        "mrms_enriched": true
       }
     },
     {
@@ -13248,7 +14052,19 @@
         "Longitude": -91.1876,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "moderate",
-        "severity_weight": 2
+        "severity_weight": 2,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 41.0,
+        "max_3h_qpe_mm": 87.49999856948853,
+        "max_6h_qpe_mm": 90.6999984756112,
+        "max_12h_qpe_mm": 90.6999984756112,
+        "max_1h_qpe_in": 1.6141732283464567,
+        "max_3h_qpe_in": 3.4448818334444304,
+        "max_6h_qpe_in": 3.570866081716977,
+        "max_12h_qpe_in": 3.570866081716977,
+        "mrms_enriched": true
       }
     },
     {
@@ -13298,7 +14114,19 @@
         "Longitude": -89.78,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 36.400001525878906,
+        "max_3h_qpe_mm": 39.80000162124634,
+        "max_6h_qpe_mm": 39.80000162124634,
+        "max_12h_qpe_mm": 39.80000162124634,
+        "max_1h_qpe_in": 1.433070926215705,
+        "max_3h_qpe_in": 1.5669291976868638,
+        "max_6h_qpe_in": 1.5669291976868638,
+        "max_12h_qpe_in": 1.5669291976868638,
+        "mrms_enriched": true
       }
     },
     {
@@ -13348,7 +14176,19 @@
         "Longitude": -90.9699,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 42.20000076293945,
+        "max_3h_qpe_mm": 51.20000076293945,
+        "max_6h_qpe_mm": 52.1000007390976,
+        "max_12h_qpe_mm": 52.1000007390976,
+        "max_1h_qpe_in": 1.661417352871632,
+        "max_3h_qpe_in": 2.0157480615330496,
+        "max_6h_qpe_in": 2.0511811314605355,
+        "max_12h_qpe_in": 2.0511811314605355,
+        "mrms_enriched": true
       }
     },
     {
@@ -13398,7 +14238,19 @@
         "Longitude": -90.9702,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 46.59999847412109,
+        "max_3h_qpe_mm": 54.79999828338623,
+        "max_6h_qpe_mm": 56.19999825954437,
+        "max_12h_qpe_mm": 56.19999825954437,
+        "max_1h_qpe_in": 1.834645609217366,
+        "max_3h_qpe_in": 2.1574802473774106,
+        "max_6h_qpe_in": 2.212598356674976,
+        "max_12h_qpe_in": 2.212598356674976,
+        "mrms_enriched": true
       }
     },
     {
@@ -13448,7 +14300,19 @@
         "Longitude": -88.7275,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "catastrophic",
-        "severity_weight": 10
+        "severity_weight": 10,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 31.700000762939453,
+        "max_3h_qpe_mm": 79.70000076293945,
+        "max_6h_qpe_mm": 81.1000007390976,
+        "max_12h_qpe_mm": 82.60000076889992,
+        "max_1h_qpe_in": 1.2480315260999786,
+        "max_3h_qpe_in": 3.1377953056275376,
+        "max_6h_qpe_in": 3.192913414925102,
+        "max_12h_qpe_in": 3.2519685342086584,
+        "mrms_enriched": true
       }
     },
     {
@@ -13498,7 +14362,19 @@
         "Longitude": -90.36,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 27.399999618530277,
+        "max_3h_qpe_mm": 27.399999618530277,
+        "max_6h_qpe_mm": 27.399999618530277,
+        "max_12h_qpe_mm": 27.399999618530277,
+        "max_1h_qpe_in": 1.078740142461822,
+        "max_3h_qpe_in": 1.078740142461822,
+        "max_6h_qpe_in": 1.078740142461822,
+        "max_12h_qpe_in": 1.078740142461822,
+        "mrms_enriched": true
       }
     },
     {
@@ -13548,7 +14424,19 @@
         "Longitude": -89.18,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "severe",
-        "severity_weight": 6
+        "severity_weight": 6,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 49.20000076293945,
+        "max_3h_qpe_mm": 93.80000114440918,
+        "max_6h_qpe_mm": 98.60000125318766,
+        "max_12h_qpe_mm": 105.30000115931034,
+        "max_1h_qpe_in": 1.9370079040527344,
+        "max_3h_qpe_in": 3.692913430882252,
+        "max_6h_qpe_in": 3.881889813117625,
+        "max_12h_qpe_in": 4.145669336980722,
+        "mrms_enriched": true
       }
     },
     {
@@ -13598,7 +14486,19 @@
         "Longitude": -89.1403,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 45.5,
+        "max_3h_qpe_mm": 74.40000009536743,
+        "max_6h_qpe_mm": 89.0,
+        "max_12h_qpe_mm": 98.7000002861023,
+        "max_1h_qpe_in": 1.7913385826771655,
+        "max_3h_qpe_in": 2.92913386202234,
+        "max_6h_qpe_in": 3.503937007874016,
+        "max_12h_qpe_in": 3.885826782917413,
+        "mrms_enriched": true
       }
     },
     {
@@ -13648,7 +14548,19 @@
         "Longitude": -88.6157,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "serious",
-        "severity_weight": 3
+        "severity_weight": 3,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 29.700000762939453,
+        "max_3h_qpe_mm": 44.70000123977661,
+        "max_6h_qpe_mm": 52.2000013589859,
+        "max_12h_qpe_mm": 80.50000131130219,
+        "max_1h_qpe_in": 1.1692913686196635,
+        "max_3h_qpe_in": 1.7598425684951422,
+        "max_6h_qpe_in": 2.0551181637396025,
+        "max_12h_qpe_in": 3.169291390208748,
+        "mrms_enriched": true
       }
     },
     {
@@ -13698,7 +14610,19 @@
         "Longitude": -91.11,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 47.59999847412109,
+        "max_3h_qpe_mm": 69.49999809265137,
+        "max_6h_qpe_mm": 69.49999809265137,
+        "max_12h_qpe_mm": 69.49999809265137,
+        "max_1h_qpe_in": 1.8740156879575236,
+        "max_3h_qpe_in": 2.7362203973484798,
+        "max_6h_qpe_in": 2.7362203973484798,
+        "max_12h_qpe_in": 2.7362203973484798,
+        "mrms_enriched": true
       }
     },
     {
@@ -13748,7 +14672,19 @@
         "Longitude": -90.3028,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "serious",
-        "severity_weight": 3
+        "severity_weight": 3,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 6.800000190734863,
+        "max_3h_qpe_mm": 10.200000286102297,
+        "max_6h_qpe_mm": 10.500000298023224,
+        "max_12h_qpe_mm": 15.20000034570694,
+        "max_1h_qpe_in": 0.2677165429423174,
+        "max_3h_qpe_in": 0.4015748144134762,
+        "max_6h_qpe_in": 0.4133858385048513,
+        "max_12h_qpe_in": 0.5984252104609031,
+        "mrms_enriched": true
       }
     },
     {
@@ -13798,7 +14734,19 @@
         "Longitude": -90.1165,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "severe",
-        "severity_weight": 6
+        "severity_weight": 6,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 3.5,
+        "max_3h_qpe_mm": 4.400000013411045,
+        "max_6h_qpe_mm": 4.400000013411045,
+        "max_12h_qpe_mm": 4.400000013411045,
+        "max_1h_qpe_in": 0.1377952755905512,
+        "max_3h_qpe_in": 0.1732283469846868,
+        "max_6h_qpe_in": 0.1732283469846868,
+        "max_12h_qpe_in": 0.1732283469846868,
+        "mrms_enriched": true
       }
     },
     {
@@ -13848,7 +14796,19 @@
         "Longitude": -89.11,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "catastrophic",
-        "severity_weight": 10
+        "severity_weight": 10,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 31.399999618530277,
+        "max_3h_qpe_mm": 87.0,
+        "max_6h_qpe_mm": 87.69999998807907,
+        "max_12h_qpe_mm": 87.69999998807907,
+        "max_1h_qpe_in": 1.2362204574224518,
+        "max_3h_qpe_in": 3.425196850393701,
+        "max_6h_qpe_in": 3.4527559050424834,
+        "max_12h_qpe_in": 3.4527559050424834,
+        "mrms_enriched": true
       }
     },
     {
@@ -13898,7 +14858,19 @@
         "Longitude": -90.08,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 43.400001525878906,
+        "max_3h_qpe_mm": 44.30000150203705,
+        "max_6h_qpe_mm": 44.30000150203705,
+        "max_12h_qpe_mm": 44.30000150203705,
+        "max_1h_qpe_in": 1.7086614773968074,
+        "max_3h_qpe_in": 1.7440945473242933,
+        "max_6h_qpe_in": 1.7440945473242933,
+        "max_12h_qpe_in": 1.7440945473242933,
+        "mrms_enriched": true
       }
     },
     {
@@ -13948,7 +14920,19 @@
         "Longitude": -90.5315,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "moderate",
-        "severity_weight": 2
+        "severity_weight": 2,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 47.400001525878906,
+        "max_3h_qpe_mm": 89.4000015258789,
+        "max_6h_qpe_mm": 92.4000015258789,
+        "max_12h_qpe_mm": 94.3000015169382,
+        "max_1h_qpe_in": 1.8661417923574373,
+        "max_3h_qpe_in": 3.519685099444052,
+        "max_6h_qpe_in": 3.637795335664524,
+        "max_12h_qpe_in": 3.712598484918827,
+        "mrms_enriched": true
       }
     },
     {
@@ -13998,7 +14982,19 @@
         "Longitude": -90.3371,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 48.29999923706055,
+        "max_3h_qpe_mm": 62.99999952316284,
+        "max_6h_qpe_mm": 65.99999952316284,
+        "max_12h_qpe_mm": 68.49999958276749,
+        "max_1h_qpe_in": 1.90157477311262,
+        "max_3h_qpe_in": 2.480314941856805,
+        "max_6h_qpe_in": 2.5984251780772776,
+        "max_12h_qpe_in": 2.6968503772743104,
+        "mrms_enriched": true
       }
     },
     {
@@ -14048,7 +15044,19 @@
         "Longitude": -90.8154,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 40.0,
+        "max_3h_qpe_mm": 82.20000076293945,
+        "max_6h_qpe_mm": 104.00000095367432,
+        "max_12h_qpe_mm": 106.4000009894371,
+        "max_1h_qpe_in": 1.5748031496062993,
+        "max_3h_qpe_in": 3.236220502477932,
+        "max_6h_qpe_in": 4.094488226522612,
+        "max_12h_qpe_in": 4.188976416906973,
+        "mrms_enriched": true
       }
     },
     {
@@ -14098,7 +15106,19 @@
         "Longitude": -88.5313,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "severe",
-        "severity_weight": 6
+        "severity_weight": 6,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 32.599998474121094,
+        "max_3h_qpe_mm": 37.499998569488525,
+        "max_6h_qpe_mm": 40.89999866485596,
+        "max_12h_qpe_mm": 57.59999871253967,
+        "max_1h_qpe_in": 1.2834645068551611,
+        "max_3h_qpe_in": 1.476377896436556,
+        "max_6h_qpe_in": 1.6102361679077148,
+        "max_12h_qpe_in": 2.267716484745657,
+        "mrms_enriched": true
       }
     },
     {
@@ -14148,7 +15168,19 @@
         "Longitude": -90.1416,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 58.900001525878906,
+        "max_3h_qpe_mm": 65.30000162124634,
+        "max_6h_qpe_mm": 69.30000162124634,
+        "max_12h_qpe_mm": 69.80000162869692,
+        "max_1h_qpe_in": 2.3188976978692484,
+        "max_3h_qpe_in": 2.5708662055608795,
+        "max_6h_qpe_in": 2.7283465205215096,
+        "max_12h_qpe_in": 2.748031560184918,
+        "mrms_enriched": true
       }
     },
     {
@@ -14198,7 +15230,19 @@
         "Longitude": -90.0788,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "moderate",
-        "severity_weight": 2
+        "severity_weight": 2,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 43.0,
+        "max_3h_qpe_mm": 51.10000014305115,
+        "max_6h_qpe_mm": 58.79999995231629,
+        "max_12h_qpe_mm": 59.39999996125698,
+        "max_1h_qpe_in": 1.6929133858267718,
+        "max_3h_qpe_in": 2.011811029253982,
+        "max_6h_qpe_in": 2.3149606280439485,
+        "max_12h_qpe_in": 2.3385826756400387,
+        "mrms_enriched": true
       }
     },
     {
@@ -14248,7 +15292,19 @@
         "Longitude": -90.1045,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "moderate",
-        "severity_weight": 2
+        "severity_weight": 2,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 30.0,
+        "max_3h_qpe_mm": 51.00000071525574,
+        "max_6h_qpe_mm": 58.10000067949295,
+        "max_12h_qpe_mm": 61.30000058561564,
+        "max_1h_qpe_in": 1.1811023622047243,
+        "max_3h_qpe_in": 2.0078740439077065,
+        "max_6h_qpe_in": 2.2874016015548406,
+        "max_12h_qpe_in": 2.4133858498273875,
+        "mrms_enriched": true
       }
     },
     {
@@ -14298,7 +15354,19 @@
         "Longitude": -91.4681,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 70.69999694824219,
+        "max_3h_qpe_mm": 171.4999961853027,
+        "max_6h_qpe_mm": 210.19999527931213,
+        "max_12h_qpe_mm": 215.49999530613425,
+        "max_1h_qpe_in": 2.7834644467811884,
+        "max_3h_qpe_in": 6.751968353752076,
+        "max_6h_qpe_in": 8.27559036532725,
+        "max_12h_qpe_in": 8.484251783706073,
+        "mrms_enriched": true
       }
     },
     {
@@ -14348,7 +15416,19 @@
         "Longitude": -91.4722,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 72.30000305175781,
+        "max_3h_qpe_mm": 171.10000610351562,
+        "max_6h_qpe_mm": 208.5000066757202,
+        "max_12h_qpe_mm": 212.90000677108765,
+        "max_1h_qpe_in": 2.8464568130613315,
+        "max_3h_qpe_in": 6.736220712736836,
+        "max_6h_qpe_in": 8.208661680146466,
+        "max_12h_qpe_in": 8.381890030357782,
+        "mrms_enriched": true
       }
     },
     {
@@ -14398,7 +15478,19 @@
         "Longitude": -89.1711,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 55.5,
+        "max_3h_qpe_mm": 94.29999923706056,
+        "max_6h_qpe_mm": 95.19999927282332,
+        "max_12h_qpe_mm": 95.19999927282332,
+        "max_1h_qpe_in": 2.1850393700787403,
+        "max_3h_qpe_in": 3.712598395159864,
+        "max_6h_qpe_in": 3.74803146743399,
+        "max_12h_qpe_in": 3.74803146743399,
+        "mrms_enriched": true
       }
     },
     {
@@ -14448,7 +15540,19 @@
         "Longitude": -91.3699,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "severe",
-        "severity_weight": 6
+        "severity_weight": 6,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 58.79999923706055,
+        "max_3h_qpe_mm": 121.99999809265135,
+        "max_6h_qpe_mm": 142.99999809265137,
+        "max_12h_qpe_mm": 158.89999828487635,
+        "max_1h_qpe_in": 2.314960599884273,
+        "max_3h_qpe_in": 4.803149531206747,
+        "max_6h_qpe_in": 5.629921184750054,
+        "max_12h_qpe_in": 6.255905444286471,
+        "mrms_enriched": true
       }
     },
     {
@@ -14498,7 +15602,19 @@
         "Longitude": -91.1707,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "catastrophic",
-        "severity_weight": 10
+        "severity_weight": 10,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 39.0,
+        "max_3h_qpe_mm": 66.59999942779541,
+        "max_6h_qpe_mm": 122.00000095367432,
+        "max_12h_qpe_mm": 132.90000094473362,
+        "max_1h_qpe_in": 1.535433070866142,
+        "max_3h_qpe_in": 2.6220472215667487,
+        "max_6h_qpe_in": 4.803149643845446,
+        "max_12h_qpe_in": 5.232283501761167,
+        "mrms_enriched": true
       }
     },
     {
@@ -14548,7 +15664,19 @@
         "Longitude": -91.4378,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "catastrophic",
-        "severity_weight": 10
+        "severity_weight": 10,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 58.70000076293945,
+        "max_3h_qpe_mm": 126.60000038146973,
+        "max_6h_qpe_mm": 202.8000020980835,
+        "max_12h_qpe_mm": 232.500002771616,
+        "max_1h_qpe_in": 2.3110236520842307,
+        "max_3h_qpe_in": 4.98425198352243,
+        "max_6h_qpe_in": 7.98425205110565,
+        "max_12h_qpe_in": 9.153543416205354,
+        "mrms_enriched": true
       }
     },
     {
@@ -14598,7 +15726,19 @@
         "Longitude": -91.1188,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 24.600000381469727,
+        "max_3h_qpe_mm": 41.700000286102295,
+        "max_6h_qpe_mm": 62.30000066757202,
+        "max_12h_qpe_mm": 66.00000063329935,
+        "max_1h_qpe_in": 0.9685039520263672,
+        "max_3h_qpe_in": 1.641732294728437,
+        "max_6h_qpe_in": 2.452755931794174,
+        "max_12h_qpe_in": 2.598425221783439,
+        "mrms_enriched": true
       }
     },
     {
@@ -14648,7 +15788,19 @@
         "Longitude": -91.18,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 14.399999618530272,
+        "max_3h_qpe_mm": 34.80000019073486,
+        "max_6h_qpe_mm": 58.200000286102295,
+        "max_12h_qpe_mm": 60.40000031888485,
+        "max_1h_qpe_in": 0.5669291188397746,
+        "max_3h_qpe_in": 1.3700787476667269,
+        "max_6h_qpe_in": 2.291338593941036,
+        "max_12h_qpe_in": 2.377952768460033,
+        "mrms_enriched": true
       }
     },
     {
@@ -14698,7 +15850,19 @@
         "Longitude": -91.055,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 23.0,
+        "max_3h_qpe_mm": 49.0,
+        "max_6h_qpe_mm": 95.80000019073486,
+        "max_12h_qpe_mm": 109.59999976307154,
+        "max_1h_qpe_in": 0.905511811023622,
+        "max_3h_qpe_in": 1.9291338582677169,
+        "max_6h_qpe_in": 3.7716535508163336,
+        "max_12h_qpe_in": 4.314960620593368,
+        "mrms_enriched": true
       }
     },
     {
@@ -14748,7 +15912,19 @@
         "Longitude": -89.2838,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "moderate",
-        "severity_weight": 2
+        "severity_weight": 2,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 34.900001525878906,
+        "max_3h_qpe_mm": 91.20000076293944,
+        "max_6h_qpe_mm": 135.7000014781952,
+        "max_12h_qpe_mm": 135.7000014781952,
+        "max_1h_qpe_in": 1.3740158081054688,
+        "max_3h_qpe_in": 3.5905512111393487,
+        "max_6h_qpe_in": 5.342519743236031,
+        "max_12h_qpe_in": 5.342519743236031,
+        "mrms_enriched": true
       }
     },
     {
@@ -14798,7 +15974,19 @@
         "Longitude": -89.33,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 20.399999618530277,
+        "max_3h_qpe_mm": 22.49999952316284,
+        "max_6h_qpe_mm": 22.49999952316284,
+        "max_12h_qpe_mm": 22.49999952316284,
+        "max_1h_qpe_in": 0.8031495912807195,
+        "max_3h_qpe_in": 0.8858267528804269,
+        "max_6h_qpe_in": 0.8858267528804269,
+        "max_12h_qpe_in": 0.8858267528804269,
+        "mrms_enriched": true
       }
     },
     {
@@ -14848,7 +16036,19 @@
         "Longitude": -89.17,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 29.5,
+        "max_3h_qpe_mm": 58.49999964237213,
+        "max_6h_qpe_mm": 59.39999961853027,
+        "max_12h_qpe_mm": 59.39999961853027,
+        "max_1h_qpe_in": 1.1614173228346458,
+        "max_3h_qpe_in": 2.303149592219375,
+        "max_6h_qpe_in": 2.338582662146861,
+        "max_12h_qpe_in": 2.338582662146861,
+        "mrms_enriched": true
       }
     },
     {
@@ -14898,7 +16098,19 @@
         "Longitude": -89.17,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 29.5,
+        "max_3h_qpe_mm": 58.49999964237213,
+        "max_6h_qpe_mm": 59.39999961853027,
+        "max_12h_qpe_mm": 59.39999961853027,
+        "max_1h_qpe_in": 1.1614173228346458,
+        "max_3h_qpe_in": 2.303149592219375,
+        "max_6h_qpe_in": 2.338582662146861,
+        "max_12h_qpe_in": 2.338582662146861,
+        "mrms_enriched": true
       }
     },
     {
@@ -14948,7 +16160,19 @@
         "Longitude": -89.3819,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 35.79999923706055,
+        "max_3h_qpe_mm": 53.99999952316284,
+        "max_6h_qpe_mm": 55.39999955892563,
+        "max_12h_qpe_mm": 55.39999955892563,
+        "max_1h_qpe_in": 1.4094487888606515,
+        "max_3h_qpe_in": 2.125984233195388,
+        "max_6h_qpe_in": 2.181102344839592,
+        "max_12h_qpe_in": 2.181102344839592,
+        "mrms_enriched": true
       }
     },
     {
@@ -14998,7 +16222,19 @@
         "Longitude": -89.11,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "severe",
-        "severity_weight": 6
+        "severity_weight": 6,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 75.4000015258789,
+        "max_3h_qpe_mm": 153.4000015258789,
+        "max_6h_qpe_mm": 194.4000015258789,
+        "max_12h_qpe_mm": 194.4000015258789,
+        "max_1h_qpe_in": 2.968503997081847,
+        "max_3h_qpe_in": 6.039370138814131,
+        "max_6h_qpe_in": 7.653543367160587,
+        "max_12h_qpe_in": 7.653543367160587,
+        "mrms_enriched": true
       }
     },
     {
@@ -15048,7 +16284,19 @@
         "Longitude": -89.2193,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "catastrophic",
-        "severity_weight": 10
+        "severity_weight": 10,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 32.900001525878906,
+        "max_3h_qpe_mm": 62.400001525878906,
+        "max_6h_qpe_mm": 98.40000104904176,
+        "max_12h_qpe_mm": 104.7000012397766,
+        "max_1h_qpe_in": 1.295275650625154,
+        "max_3h_qpe_in": 2.4566929734598,
+        "max_6h_qpe_in": 3.874015789332352,
+        "max_12h_qpe_in": 4.122047292904592,
+        "mrms_enriched": true
       }
     },
     {
@@ -15098,7 +16346,19 @@
         "Longitude": -90.0409,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "serious",
-        "severity_weight": 3
+        "severity_weight": 3,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 0.0,
+        "max_3h_qpe_mm": 0.0,
+        "max_6h_qpe_mm": 0.0,
+        "max_12h_qpe_mm": 0.0,
+        "max_1h_qpe_in": 0.0,
+        "max_3h_qpe_in": 0.0,
+        "max_6h_qpe_in": 0.0,
+        "max_12h_qpe_in": 0.0,
+        "mrms_enriched": true
       }
     },
     {
@@ -15148,7 +16408,19 @@
         "Longitude": -91.1841,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "severe",
-        "severity_weight": 6
+        "severity_weight": 6,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 1.7000000476837158,
+        "max_3h_qpe_mm": 1.7000000476837158,
+        "max_6h_qpe_mm": 1.7000000476837158,
+        "max_12h_qpe_mm": 1.7000000476837158,
+        "max_1h_qpe_in": 0.0669291357355793,
+        "max_3h_qpe_in": 0.0669291357355793,
+        "max_6h_qpe_in": 0.0669291357355793,
+        "max_12h_qpe_in": 0.0669291357355793,
+        "mrms_enriched": true
       }
     },
     {
@@ -15198,7 +16470,19 @@
         "Longitude": -90.01,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "severe",
-        "severity_weight": 6
+        "severity_weight": 6,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 39.29999923706055,
+        "max_3h_qpe_mm": 40.09999924898148,
+        "max_6h_qpe_mm": 40.19999925047159,
+        "max_12h_qpe_mm": 41.09999926388264,
+        "max_1h_qpe_in": 1.5472440644512029,
+        "max_3h_qpe_in": 1.5787401279126567,
+        "max_6h_qpe_in": 1.5826771358453384,
+        "max_12h_qpe_in": 1.618110207239474,
+        "mrms_enriched": true
       }
     },
     {
@@ -15248,7 +16532,19 @@
         "Longitude": -90.01,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 51.20000076293945,
+        "max_3h_qpe_mm": 91.30000001192091,
+        "max_6h_qpe_mm": 91.40000001341105,
+        "max_12h_qpe_mm": 91.50000001490116,
+        "max_1h_qpe_in": 2.0157480615330496,
+        "max_3h_qpe_in": 3.594488189445706,
+        "max_6h_qpe_in": 3.598425197378388,
+        "max_12h_qpe_in": 3.6023622053110693,
+        "mrms_enriched": true
       }
     },
     {
@@ -15298,7 +16594,19 @@
         "Longitude": -89.4391,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "serious",
-        "severity_weight": 3
+        "severity_weight": 3,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 0.0,
+        "max_3h_qpe_mm": 0.0,
+        "max_6h_qpe_mm": 0.0,
+        "max_12h_qpe_mm": 0.0,
+        "max_1h_qpe_in": 0.0,
+        "max_3h_qpe_in": 0.0,
+        "max_6h_qpe_in": 0.0,
+        "max_12h_qpe_in": 0.0,
+        "mrms_enriched": true
       }
     },
     {
@@ -15348,7 +16656,19 @@
         "Longitude": -89.07,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 20.899999618530277,
+        "max_3h_qpe_mm": 38.39999961853027,
+        "max_6h_qpe_mm": 38.39999961853027,
+        "max_12h_qpe_mm": 38.39999961853027,
+        "max_1h_qpe_in": 0.8228346306507982,
+        "max_3h_qpe_in": 1.511811008603554,
+        "max_6h_qpe_in": 1.511811008603554,
+        "max_12h_qpe_in": 1.511811008603554,
+        "mrms_enriched": true
       }
     },
     {
@@ -15398,7 +16718,19 @@
         "Longitude": -90.0671,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 3.799999952316284,
+        "max_3h_qpe_mm": 3.799999952316284,
+        "max_6h_qpe_mm": 3.799999952316284,
+        "max_12h_qpe_mm": 3.799999952316284,
+        "max_1h_qpe_in": 0.1496062973352868,
+        "max_3h_qpe_in": 0.1496062973352868,
+        "max_6h_qpe_in": 0.1496062973352868,
+        "max_12h_qpe_in": 0.1496062973352868,
+        "mrms_enriched": true
       }
     },
     {
@@ -15448,7 +16780,19 @@
         "Longitude": -90.34,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 23.299999237060547,
+        "max_3h_qpe_mm": 41.89999848604202,
+        "max_6h_qpe_mm": 41.89999848604202,
+        "max_12h_qpe_mm": 41.89999848604202,
+        "max_1h_qpe_in": 0.917322804608683,
+        "max_3h_qpe_in": 1.6496062396079538,
+        "max_6h_qpe_in": 1.6496062396079538,
+        "max_12h_qpe_in": 1.6496062396079538,
+        "mrms_enriched": true
       }
     },
     {
@@ -15498,7 +16842,19 @@
         "Longitude": -91.2477,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "moderate",
-        "severity_weight": 2
+        "severity_weight": 2,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 24.299999237060547,
+        "max_3h_qpe_mm": 56.29999828338623,
+        "max_6h_qpe_mm": 65.79999828338623,
+        "max_12h_qpe_mm": 65.79999828338623,
+        "max_1h_qpe_in": 0.9566928833488404,
+        "max_3h_qpe_in": 2.216535365487647,
+        "max_6h_qpe_in": 2.590551113519143,
+        "max_12h_qpe_in": 2.590551113519143,
+        "mrms_enriched": true
       }
     },
     {
@@ -15548,7 +16904,19 @@
         "Longitude": -89.8,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "severe",
-        "severity_weight": 6
+        "severity_weight": 6,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 20.899999618530277,
+        "max_3h_qpe_mm": 51.29999923706055,
+        "max_6h_qpe_mm": 74.7999986410141,
+        "max_12h_qpe_mm": 77.59999857097864,
+        "max_1h_qpe_in": 0.8228346306507982,
+        "max_3h_qpe_in": 2.0196850093330925,
+        "max_6h_qpe_in": 2.944881836260398,
+        "max_12h_qpe_in": 3.055118053975537,
+        "mrms_enriched": true
       }
     },
     {
@@ -15598,7 +16966,19 @@
         "Longitude": -89.8165,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "severe",
-        "severity_weight": 6
+        "severity_weight": 6,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 32.29999923706055,
+        "max_3h_qpe_mm": 92.89999771118164,
+        "max_6h_qpe_mm": 155.79999828338623,
+        "max_12h_qpe_mm": 159.79999828338623,
+        "max_1h_qpe_in": 1.2716535132701003,
+        "max_3h_qpe_in": 3.657480224849671,
+        "max_6h_qpe_in": 6.133858200133316,
+        "max_12h_qpe_in": 6.291338515093947,
+        "mrms_enriched": true
       }
     },
     {
@@ -15648,7 +17028,19 @@
         "Longitude": -89.7437,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "moderate",
-        "severity_weight": 2
+        "severity_weight": 2,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 25.899999618530277,
+        "max_3h_qpe_mm": 64.69999885559082,
+        "max_6h_qpe_mm": 116.79999828338624,
+        "max_12h_qpe_mm": 135.499998152256,
+        "max_1h_qpe_in": 1.0196850243515856,
+        "max_3h_qpe_in": 2.547244049432709,
+        "max_6h_qpe_in": 4.598425129267175,
+        "max_12h_qpe_in": 5.334645596545513,
+        "mrms_enriched": true
       }
     },
     {
@@ -15698,7 +17090,19 @@
         "Longitude": -90.3199,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "severe",
-        "severity_weight": 6
+        "severity_weight": 6,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 3.5999999046325684,
+        "max_3h_qpe_mm": 3.900000035762787,
+        "max_6h_qpe_mm": 7.499999940395355,
+        "max_12h_qpe_mm": 8.699999943375587,
+        "max_1h_qpe_in": 0.1417322797099436,
+        "max_3h_qpe_in": 0.1535433084945979,
+        "max_6h_qpe_in": 0.2952755882045416,
+        "max_12h_qpe_in": 0.3425196828100625,
+        "mrms_enriched": true
       }
     },
     {
@@ -15748,7 +17152,19 @@
         "Longitude": -91.1064,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 16.399999618530273,
+        "max_3h_qpe_mm": 20.199999690055847,
+        "max_6h_qpe_mm": 20.299999691545963,
+        "max_12h_qpe_mm": 20.299999691545963,
+        "max_1h_qpe_in": 0.6456692763200895,
+        "max_3h_qpe_in": 0.7952755783486555,
+        "max_6h_qpe_in": 0.7992125862813372,
+        "max_12h_qpe_in": 0.7992125862813372,
+        "mrms_enriched": true
       }
     },
     {
@@ -15798,7 +17214,19 @@
         "Longitude": -91.24,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 37.70000076293945,
+        "max_3h_qpe_mm": 82.10000038146973,
+        "max_6h_qpe_mm": 92.5,
+        "max_12h_qpe_mm": 92.5,
+        "max_1h_qpe_in": 1.4842519985409235,
+        "max_3h_qpe_in": 3.2322834795854223,
+        "max_6h_qpe_in": 3.641732283464567,
+        "max_12h_qpe_in": 3.641732283464567,
+        "mrms_enriched": true
       }
     },
     {
@@ -15848,7 +17276,19 @@
         "Longitude": -91.1869,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "severe",
-        "severity_weight": 6
+        "severity_weight": 6,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 32.20000076293945,
+        "max_3h_qpe_mm": 47.90000057220459,
+        "max_6h_qpe_mm": 53.50000047683716,
+        "max_12h_qpe_mm": 53.50000047683716,
+        "max_1h_qpe_in": 1.2677165654700573,
+        "max_3h_qpe_in": 1.8858267941812832,
+        "max_6h_qpe_in": 2.106299231371542,
+        "max_12h_qpe_in": 2.106299231371542,
+        "mrms_enriched": true
       }
     },
     {
@@ -15898,7 +17338,19 @@
         "Longitude": -91.05,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 32.099998474121094,
+        "max_3h_qpe_mm": 64.99999809265137,
+        "max_6h_qpe_mm": 82.39999842643738,
+        "max_12h_qpe_mm": 82.4999984279275,
+        "max_1h_qpe_in": 1.2637794674850824,
+        "max_3h_qpe_in": 2.5590550430177705,
+        "max_6h_qpe_in": 3.2440944262376923,
+        "max_12h_qpe_in": 3.248031434170374,
+        "mrms_enriched": true
       }
     },
     {
@@ -15948,7 +17400,19 @@
         "Longitude": -91.01,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 34.0,
+        "max_3h_qpe_mm": 71.30000019073486,
+        "max_6h_qpe_mm": 82.40000019222498,
+        "max_12h_qpe_mm": 82.40000019222498,
+        "max_1h_qpe_in": 1.3385826771653544,
+        "max_3h_qpe_in": 2.8070866216824752,
+        "max_6h_qpe_in": 3.2440944957568894,
+        "max_12h_qpe_in": 3.2440944957568894,
+        "mrms_enriched": true
       }
     },
     {
@@ -15998,7 +17462,19 @@
         "Longitude": -91.0231,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "severe",
-        "severity_weight": 6
+        "severity_weight": 6,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 4.800000190734863,
+        "max_3h_qpe_mm": 9.400000095367432,
+        "max_6h_qpe_mm": 10.700000122189522,
+        "max_12h_qpe_mm": 14.800000183284284,
+        "max_1h_qpe_in": 0.1889763854620025,
+        "max_3h_qpe_in": 0.3700787439121036,
+        "max_6h_qpe_in": 0.4212598473302961,
+        "max_12h_qpe_in": 0.5826771725702474,
+        "mrms_enriched": true
       }
     },
     {
@@ -16048,7 +17524,19 @@
         "Longitude": -91.34,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "serious",
-        "severity_weight": 3
+        "severity_weight": 3,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 31.299999237060547,
+        "max_3h_qpe_mm": 84.89999961853027,
+        "max_6h_qpe_mm": 100.69999980926514,
+        "max_12h_qpe_mm": 100.69999980926514,
+        "max_1h_qpe_in": 1.232283434529943,
+        "max_3h_qpe_in": 3.342519670020877,
+        "max_6h_qpe_in": 3.964566921624612,
+        "max_12h_qpe_in": 3.964566921624612,
+        "mrms_enriched": true
       }
     },
     {
@@ -16098,7 +17586,19 @@
         "Longitude": -89.7072,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "catastrophic",
-        "severity_weight": 10
+        "severity_weight": 10,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 29.5,
+        "max_3h_qpe_mm": 57.299999713897705,
+        "max_6h_qpe_mm": 59.49999976158142,
+        "max_12h_qpe_mm": 59.99999976158142,
+        "max_1h_qpe_in": 1.1614173228346458,
+        "max_3h_qpe_in": 2.2559055005471538,
+        "max_6h_qpe_in": 2.342519675652812,
+        "max_12h_qpe_in": 2.362204715022891,
+        "mrms_enriched": true
       }
     },
     {
@@ -16148,7 +17648,19 @@
         "Longitude": -89.8676,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 20.600000381469727,
+        "max_3h_qpe_mm": 21.3000003695488,
+        "max_6h_qpe_mm": 21.400000371038917,
+        "max_12h_qpe_mm": 21.400000371038917,
+        "max_1h_qpe_in": 0.8110236370657373,
+        "max_3h_qpe_in": 0.8385826917145196,
+        "max_6h_qpe_in": 0.8425196996472014,
+        "max_12h_qpe_in": 0.8425196996472014,
+        "mrms_enriched": true
       }
     },
     {
@@ -16198,7 +17710,19 @@
         "Longitude": -90.1192,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "serious",
-        "severity_weight": 3
+        "severity_weight": 3,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 25.899999618530277,
+        "max_3h_qpe_mm": 35.89999961853027,
+        "max_6h_qpe_mm": 35.89999961853027,
+        "max_12h_qpe_mm": 35.89999961853027,
+        "max_1h_qpe_in": 1.0196850243515856,
+        "max_3h_qpe_in": 1.4133858117531604,
+        "max_6h_qpe_in": 1.4133858117531604,
+        "max_12h_qpe_in": 1.4133858117531604,
+        "mrms_enriched": true
       }
     },
     {
@@ -16248,7 +17772,19 @@
         "Longitude": -90.069,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "moderate",
-        "severity_weight": 2
+        "severity_weight": 2,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 48.5,
+        "max_3h_qpe_mm": 49.30000001192093,
+        "max_6h_qpe_mm": 76.80000030994415,
+        "max_12h_qpe_mm": 87.10000069439411,
+        "max_1h_qpe_in": 1.909448818897638,
+        "max_3h_qpe_in": 1.940944882359092,
+        "max_6h_qpe_in": 3.0236220594466205,
+        "max_12h_qpe_in": 3.429133885606068,
+        "mrms_enriched": true
       }
     },
     {
@@ -16298,7 +17834,19 @@
         "Longitude": -90.35,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "moderate",
-        "severity_weight": 2
+        "severity_weight": 2,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 24.5,
+        "max_3h_qpe_mm": 47.5,
+        "max_6h_qpe_mm": 60.80000019073486,
+        "max_12h_qpe_mm": 84.90000025182962,
+        "max_1h_qpe_in": 0.9645669291338584,
+        "max_3h_qpe_in": 1.8700787401574803,
+        "max_6h_qpe_in": 2.393700794910821,
+        "max_12h_qpe_in": 3.342519694953922,
+        "mrms_enriched": true
       }
     },
     {
@@ -16348,7 +17896,19 @@
         "Longitude": -90.42,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 38.29999923706055,
+        "max_3h_qpe_mm": 42.79999923706055,
+        "max_6h_qpe_mm": 44.19999924302101,
+        "max_12h_qpe_mm": 60.29999962449074,
+        "max_1h_qpe_in": 1.5078739857110453,
+        "max_3h_qpe_in": 1.6850393400417538,
+        "max_6h_qpe_in": 1.7401574505126385,
+        "max_12h_qpe_in": 2.374015733247667,
+        "mrms_enriched": true
       }
     },
     {
@@ -16398,7 +17958,19 @@
         "Longitude": -90.1363,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 44.400001525878906,
+        "max_3h_qpe_mm": 47.20000147819519,
+        "max_6h_qpe_mm": 64.00000071525574,
+        "max_12h_qpe_mm": 86.10000035911798,
+        "max_1h_qpe_in": 1.7480315561369648,
+        "max_3h_qpe_in": 1.858267774732094,
+        "max_6h_qpe_in": 2.5196850675297537,
+        "max_12h_qpe_in": 3.3897637936660625,
+        "mrms_enriched": true
       }
     },
     {
@@ -16448,7 +18020,19 @@
         "Longitude": -90.9718,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "serious",
-        "severity_weight": 3
+        "severity_weight": 3,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 3.900000095367432,
+        "max_3h_qpe_mm": 11.00000023841858,
+        "max_6h_qpe_mm": 20.800000190734863,
+        "max_12h_qpe_mm": 31.200000151991844,
+        "max_1h_qpe_in": 0.1535433108412374,
+        "max_3h_qpe_in": 0.4330708755282905,
+        "max_6h_qpe_in": 0.8188976453045222,
+        "max_12h_qpe_in": 1.2283464626768443,
+        "mrms_enriched": true
       }
     },
     {
@@ -16498,7 +18082,19 @@
         "Longitude": -91.2103,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "catastrophic",
-        "severity_weight": 10
+        "severity_weight": 10,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 23.700000762939453,
+        "max_3h_qpe_mm": 30.000000715255737,
+        "max_6h_qpe_mm": 30.400000728666782,
+        "max_12h_qpe_mm": 60.700000919401646,
+        "max_1h_qpe_in": 0.9330708961787186,
+        "max_3h_qpe_in": 1.1811023903643991,
+        "max_6h_qpe_in": 1.196850422388456,
+        "max_12h_qpe_in": 2.3897638157244745,
+        "mrms_enriched": true
       }
     },
     {
@@ -16548,7 +18144,19 @@
         "Longitude": -90.2275,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "serious",
-        "severity_weight": 3
+        "severity_weight": 3,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 13.100000381469728,
+        "max_3h_qpe_mm": 17.500000573694706,
+        "max_6h_qpe_mm": 20.80000052601099,
+        "max_12h_qpe_mm": 21.000000528991222,
+        "max_1h_qpe_in": 0.5157480465145562,
+        "max_3h_qpe_in": 0.6889764005391616,
+        "max_6h_qpe_in": 0.8188976585043697,
+        "max_12h_qpe_in": 0.8267716743697332,
+        "mrms_enriched": true
       }
     },
     {
@@ -16598,7 +18206,19 @@
         "Longitude": -90.1214,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "severe",
-        "severity_weight": 6
+        "severity_weight": 6,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 24.399999618530277,
+        "max_3h_qpe_mm": 30.299999713897705,
+        "max_6h_qpe_mm": 31.099999725818638,
+        "max_12h_qpe_mm": 31.19999972730875,
+        "max_1h_qpe_in": 0.9606299062413494,
+        "max_3h_qpe_in": 1.192913374562902,
+        "max_6h_qpe_in": 1.2244094380243558,
+        "max_12h_qpe_in": 1.2283464459570377,
+        "mrms_enriched": true
       }
     },
     {
@@ -16648,7 +18268,19 @@
         "Longitude": -90.1,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 32.29999923706055,
+        "max_3h_qpe_mm": 32.29999923706055,
+        "max_6h_qpe_mm": 32.29999923706055,
+        "max_12h_qpe_mm": 33.49999928474426,
+        "max_1h_qpe_in": 1.2716535132701003,
+        "max_3h_qpe_in": 1.2716535132701003,
+        "max_6h_qpe_in": 1.2716535132701003,
+        "max_12h_qpe_in": 1.3188976096356009,
+        "mrms_enriched": true
       }
     },
     {
@@ -16698,7 +18330,19 @@
         "Longitude": -90.3368,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 24.600000381469727,
+        "max_3h_qpe_mm": 45.90000057220459,
+        "max_6h_qpe_mm": 75.90000057220459,
+        "max_12h_qpe_mm": 80.90000054985285,
+        "max_1h_qpe_in": 0.9685039520263672,
+        "max_3h_qpe_in": 1.807086636700968,
+        "max_6h_qpe_in": 2.988188998905693,
+        "max_12h_qpe_in": 3.18503939172649,
+        "mrms_enriched": true
       }
     },
     {
@@ -16748,7 +18392,19 @@
         "Longitude": -88.5577,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 39.70000076293945,
+        "max_3h_qpe_mm": 65.50000095367432,
+        "max_6h_qpe_mm": 67.20000100135803,
+        "max_12h_qpe_mm": 75.70000100135803,
+        "max_1h_qpe_in": 1.5629921560212383,
+        "max_3h_qpe_in": 2.578740195026548,
+        "max_6h_qpe_in": 2.6456693307621277,
+        "max_12h_qpe_in": 2.980315000053466,
+        "mrms_enriched": true
       }
     },
     {
@@ -16798,7 +18454,19 @@
         "Longitude": -89.75,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 24.200000762939453,
+        "max_3h_qpe_mm": 24.200000762939453,
+        "max_6h_qpe_mm": 24.200000762939453,
+        "max_12h_qpe_mm": 24.200000762939453,
+        "max_1h_qpe_in": 0.9527559355487976,
+        "max_3h_qpe_in": 0.9527559355487976,
+        "max_6h_qpe_in": 0.9527559355487976,
+        "max_12h_qpe_in": 0.9527559355487976,
+        "mrms_enriched": true
       }
     },
     {
@@ -16848,7 +18516,19 @@
         "Longitude": -90.1189,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "severe",
-        "severity_weight": 6
+        "severity_weight": 6,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 24.100000381469727,
+        "max_3h_qpe_mm": 42.700000286102295,
+        "max_6h_qpe_mm": 42.700000286102295,
+        "max_12h_qpe_mm": 43.30000029504299,
+        "max_1h_qpe_in": 0.9488189126562884,
+        "max_3h_qpe_in": 1.6811023734685944,
+        "max_6h_qpe_in": 1.6811023734685944,
+        "max_12h_qpe_in": 1.7047244210646848,
+        "mrms_enriched": true
       }
     },
     {
@@ -16898,7 +18578,19 @@
         "Longitude": -89.9997,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "severe",
-        "severity_weight": 6
+        "severity_weight": 6,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 29.399999618530277,
+        "max_3h_qpe_mm": 46.0,
+        "max_6h_qpe_mm": 46.0,
+        "max_12h_qpe_mm": 47.39999997615814,
+        "max_1h_qpe_in": 1.1574802999421367,
+        "max_3h_qpe_in": 1.811023622047244,
+        "max_6h_qpe_in": 1.811023622047244,
+        "max_12h_qpe_in": 1.8661417313448088,
+        "mrms_enriched": true
       }
     },
     {
@@ -16948,7 +18640,19 @@
         "Longitude": -90.3569,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 33.20000076293945,
+        "max_3h_qpe_mm": 68.80000019073486,
+        "max_6h_qpe_mm": 71.10000026226044,
+        "max_12h_qpe_mm": 71.10000026226044,
+        "max_1h_qpe_in": 1.3070866442102147,
+        "max_3h_qpe_in": 2.7086614248320813,
+        "max_6h_qpe_in": 2.7992126087504112,
+        "max_12h_qpe_in": 2.7992126087504112,
+        "mrms_enriched": true
       }
     },
     {
@@ -16998,7 +18702,19 @@
         "Longitude": -90.7872,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 53.0,
+        "max_3h_qpe_mm": 78.39999961853027,
+        "max_6h_qpe_mm": 97.49999928474426,
+        "max_12h_qpe_mm": 103.79999932646751,
+        "max_1h_qpe_in": 2.0866141732283467,
+        "max_3h_qpe_in": 3.0866141582098536,
+        "max_6h_qpe_in": 3.83858264900568,
+        "max_12h_qpe_in": 4.08661414671132,
+        "mrms_enriched": true
       }
     },
     {
@@ -17048,7 +18764,19 @@
         "Longitude": -90.37,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 53.400001525878906,
+        "max_3h_qpe_mm": 105.80000114440918,
+        "max_6h_qpe_mm": 128.30000066757202,
+        "max_12h_qpe_mm": 132.0000005736947,
+        "max_1h_qpe_in": 2.102362264798382,
+        "max_3h_qpe_in": 4.165354375764141,
+        "max_6h_qpe_in": 5.0511811286445685,
+        "max_12h_qpe_in": 5.196850416287194,
+        "mrms_enriched": true
       }
     },
     {
@@ -17098,7 +18826,19 @@
         "Longitude": -90.16,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "severe",
-        "severity_weight": 6
+        "severity_weight": 6,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 47.70000076293945,
+        "max_3h_qpe_mm": 113.5,
+        "max_6h_qpe_mm": 147.09999918937683,
+        "max_12h_qpe_mm": 183.5,
+        "max_1h_qpe_in": 1.8779527859424985,
+        "max_3h_qpe_in": 4.468503937007874,
+        "max_6h_qpe_in": 5.791338550762868,
+        "max_12h_qpe_in": 7.224409448818898,
+        "mrms_enriched": true
       }
     },
     {
@@ -17148,7 +18888,19 @@
         "Longitude": -90.27,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "severe",
-        "severity_weight": 6
+        "severity_weight": 6,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 60.900001525878906,
+        "max_3h_qpe_mm": 123.20000076293944,
+        "max_6h_qpe_mm": 203.9000015258789,
+        "max_12h_qpe_mm": 241.4000020027161,
+        "max_1h_qpe_in": 2.397637855349563,
+        "max_3h_qpe_in": 4.850393730824388,
+        "max_6h_qpe_in": 8.027559115192084,
+        "max_12h_qpe_in": 9.503937086721104,
+        "mrms_enriched": true
       }
     },
     {
@@ -17198,7 +18950,19 @@
         "Longitude": -90.28,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 56.70000076293945,
+        "max_3h_qpe_mm": 116.50000190734865,
+        "max_6h_qpe_mm": 197.2000026702881,
+        "max_12h_qpe_mm": 224.80000257492063,
+        "max_1h_qpe_in": 2.2322834946039154,
+        "max_3h_qpe_in": 4.586614248320813,
+        "max_6h_qpe_in": 7.763779632688507,
+        "max_12h_qpe_in": 8.85039380216223,
+        "mrms_enriched": true
       }
     },
     {
@@ -17248,7 +19012,19 @@
         "Longitude": -90.0529,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "minor",
-        "severity_weight": 1
+        "severity_weight": 1,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 52.59999847412109,
+        "max_3h_qpe_mm": 67.79999828338623,
+        "max_6h_qpe_mm": 67.79999828338623,
+        "max_12h_qpe_mm": 67.79999828338623,
+        "max_1h_qpe_in": 2.070866081658311,
+        "max_3h_qpe_in": 2.669291270999458,
+        "max_6h_qpe_in": 2.669291270999458,
+        "max_12h_qpe_in": 2.669291270999458,
+        "mrms_enriched": true
       }
     },
     {
@@ -17298,7 +19074,19 @@
         "Longitude": -90.7,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "moderate",
-        "severity_weight": 2
+        "severity_weight": 2,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 37.5,
+        "max_3h_qpe_mm": 78.00000095367432,
+        "max_6h_qpe_mm": 101.4000005722046,
+        "max_12h_qpe_mm": 105.20000058412552,
+        "max_1h_qpe_in": 1.4763779527559056,
+        "max_3h_qpe_in": 3.070866179278517,
+        "max_6h_qpe_in": 3.9921260067797086,
+        "max_12h_qpe_in": 4.141732306461635,
+        "mrms_enriched": true
       }
     },
     {
@@ -17348,7 +19136,19 @@
         "Longitude": -90.47,
         "Bayou/Creek/Stream Name": null,
         "severity_category": "serious",
-        "severity_weight": 3
+        "severity_weight": 3,
+        "MRMS_HOURS_FOUND": 14,
+        "mrms_hours_sampled": 14,
+        "mrms_product_used": "GaugeCorr_QPE_01H",
+        "max_1h_qpe_mm": 0.0,
+        "max_3h_qpe_mm": 0.0,
+        "max_6h_qpe_mm": 0.0,
+        "max_12h_qpe_mm": 0.0,
+        "max_1h_qpe_in": 0.0,
+        "max_3h_qpe_in": 0.0,
+        "max_6h_qpe_in": 0.0,
+        "max_12h_qpe_in": 0.0,
+        "mrms_enriched": true
       }
     },
     {

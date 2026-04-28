@@ -1,0 +1,2126 @@
+{
+  "type": "FeatureCollection",
+  "name": "empirical_flash_flood_threshold_grid",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.7,
+          29.6
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 3.07,
+        "median_3h_in": 3.07,
+        "mean_3h_in": 3.07,
+        "weighted_mean_3h_in": 3.07,
+        "min_3h_in": 3.07,
+        "max_3h_in": 3.07,
+        "event_count": 1,
+        "threshold_category": "lower_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.55000000000001,
+          29.700000000000003
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 3.52,
+        "median_3h_in": 3.52,
+        "mean_3h_in": 3.52,
+        "weighted_mean_3h_in": 3.52,
+        "min_3h_in": 3.52,
+        "max_3h_in": 3.52,
+        "event_count": 1,
+        "threshold_category": "lower_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.80000000000001,
+          29.75
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 3.09,
+        "median_3h_in": 3.09,
+        "mean_3h_in": 3.09,
+        "weighted_mean_3h_in": 3.09,
+        "min_3h_in": 3.09,
+        "max_3h_in": 3.09,
+        "event_count": 1,
+        "threshold_category": "lower_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.45,
+          29.85
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 0.0,
+        "median_3h_in": 0.0,
+        "mean_3h_in": 0.0,
+        "weighted_mean_3h_in": 0.0,
+        "min_3h_in": 0.0,
+        "max_3h_in": 0.0,
+        "event_count": 1,
+        "threshold_category": "high_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.10000000000001,
+          29.85
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 1.41,
+        "median_3h_in": 1.41,
+        "mean_3h_in": 1.41,
+        "weighted_mean_3h_in": 1.41,
+        "min_3h_in": 1.41,
+        "max_3h_in": 1.41,
+        "event_count": 1,
+        "threshold_category": "high_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.35000000000001,
+          29.900000000000002
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 2.48,
+        "median_3h_in": 2.48,
+        "mean_3h_in": 2.48,
+        "weighted_mean_3h_in": 2.48,
+        "min_3h_in": 2.48,
+        "max_3h_in": 2.48,
+        "event_count": 1,
+        "threshold_category": "moderate_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.15,
+          29.900000000000002
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 0.19,
+        "median_3h_in": 0.19,
+        "mean_3h_in": 0.19,
+        "weighted_mean_3h_in": 0.19,
+        "min_3h_in": 0.19,
+        "max_3h_in": 0.19,
+        "event_count": 1,
+        "threshold_category": "high_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.05000000000001,
+          29.900000000000002
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 1.94,
+        "median_3h_in": 1.94,
+        "mean_3h_in": 1.94,
+        "weighted_mean_3h_in": 1.94,
+        "min_3h_in": 1.94,
+        "max_3h_in": 1.94,
+        "event_count": 1,
+        "threshold_category": "high_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.0,
+          29.900000000000002
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 2.59,
+        "median_3h_in": 2.59,
+        "mean_3h_in": 2.59,
+        "weighted_mean_3h_in": 2.59,
+        "min_3h_in": 1.58,
+        "max_3h_in": 3.59,
+        "event_count": 2,
+        "threshold_category": "moderate_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.35000000000001,
+          29.950000000000003
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 2.26,
+        "median_3h_in": 2.26,
+        "mean_3h_in": 2.58,
+        "weighted_mean_3h_in": 2.58,
+        "min_3h_in": 1.65,
+        "max_3h_in": 4.17,
+        "event_count": 4,
+        "threshold_category": "moderate_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.30000000000001,
+          29.950000000000003
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 0.15,
+        "median_3h_in": 0.15,
+        "mean_3h_in": 0.15,
+        "weighted_mean_3h_in": 0.15,
+        "min_3h_in": 0.15,
+        "max_3h_in": 0.15,
+        "event_count": 1,
+        "threshold_category": "high_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.25,
+          29.950000000000003
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 0.69,
+        "median_3h_in": 0.69,
+        "mean_3h_in": 0.69,
+        "weighted_mean_3h_in": 0.69,
+        "min_3h_in": 0.69,
+        "max_3h_in": 0.69,
+        "event_count": 1,
+        "threshold_category": "high_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.10000000000001,
+          29.950000000000003
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 1.48,
+        "median_3h_in": 1.48,
+        "mean_3h_in": 1.48,
+        "weighted_mean_3h_in": 1.48,
+        "min_3h_in": 1.27,
+        "max_3h_in": 1.68,
+        "event_count": 2,
+        "threshold_category": "high_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.05000000000001,
+          29.950000000000003
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 0.15,
+        "median_3h_in": 0.15,
+        "mean_3h_in": 0.15,
+        "weighted_mean_3h_in": 0.15,
+        "min_3h_in": 0.15,
+        "max_3h_in": 0.15,
+        "event_count": 1,
+        "threshold_category": "high_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.0,
+          29.950000000000003
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 1.81,
+        "median_3h_in": 1.81,
+        "mean_3h_in": 1.81,
+        "weighted_mean_3h_in": 1.81,
+        "min_3h_in": 1.81,
+        "max_3h_in": 1.81,
+        "event_count": 1,
+        "threshold_category": "high_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.4,
+          30.0
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 1.69,
+        "median_3h_in": 1.69,
+        "mean_3h_in": 1.69,
+        "weighted_mean_3h_in": 1.69,
+        "min_3h_in": 1.69,
+        "max_3h_in": 1.69,
+        "event_count": 1,
+        "threshold_category": "high_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.35000000000001,
+          30.0
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 1.87,
+        "median_3h_in": 1.87,
+        "mean_3h_in": 2.6,
+        "weighted_mean_3h_in": 2.6,
+        "min_3h_in": 1.08,
+        "max_3h_in": 4.84,
+        "event_count": 3,
+        "threshold_category": "high_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.30000000000001,
+          30.0
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 0.4,
+        "median_3h_in": 0.4,
+        "mean_3h_in": 0.4,
+        "weighted_mean_3h_in": 0.4,
+        "min_3h_in": 0.4,
+        "max_3h_in": 0.4,
+        "event_count": 1,
+        "threshold_category": "high_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.25,
+          30.0
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 1.11,
+        "median_3h_in": 1.11,
+        "mean_3h_in": 1.11,
+        "weighted_mean_3h_in": 1.11,
+        "min_3h_in": 1.11,
+        "max_3h_in": 1.11,
+        "event_count": 1,
+        "threshold_category": "high_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.15,
+          30.0
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 2.21,
+        "median_3h_in": 2.21,
+        "mean_3h_in": 2.21,
+        "weighted_mean_3h_in": 2.21,
+        "min_3h_in": 1.86,
+        "max_3h_in": 2.57,
+        "event_count": 2,
+        "threshold_category": "moderate_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.10000000000001,
+          30.0
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 1.74,
+        "median_3h_in": 1.74,
+        "mean_3h_in": 1.43,
+        "weighted_mean_3h_in": 1.43,
+        "min_3h_in": 0.17,
+        "max_3h_in": 2.01,
+        "event_count": 5,
+        "threshold_category": "high_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.05000000000001,
+          30.0
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 2.67,
+        "median_3h_in": 2.67,
+        "mean_3h_in": 2.67,
+        "weighted_mean_3h_in": 2.67,
+        "min_3h_in": 2.67,
+        "max_3h_in": 2.67,
+        "event_count": 1,
+        "threshold_category": "moderate_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.85000000000001,
+          30.05
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 5.01,
+        "median_3h_in": 5.01,
+        "mean_3h_in": 5.01,
+        "weighted_mean_3h_in": 5.01,
+        "min_3h_in": 5.01,
+        "max_3h_in": 5.01,
+        "event_count": 1,
+        "threshold_category": "least_sensitive"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.80000000000001,
+          30.05
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 3.24,
+        "median_3h_in": 3.24,
+        "mean_3h_in": 3.24,
+        "weighted_mean_3h_in": 3.24,
+        "min_3h_in": 3.24,
+        "max_3h_in": 3.24,
+        "event_count": 1,
+        "threshold_category": "lower_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.05000000000001,
+          30.05
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 0.98,
+        "median_3h_in": 0.98,
+        "mean_3h_in": 0.98,
+        "weighted_mean_3h_in": 0.98,
+        "min_3h_in": 0.0,
+        "max_3h_in": 1.96,
+        "event_count": 2,
+        "threshold_category": "high_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.9,
+          30.150000000000002
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 3.42,
+        "median_3h_in": 3.42,
+        "mean_3h_in": 3.42,
+        "weighted_mean_3h_in": 3.42,
+        "min_3h_in": 3.42,
+        "max_3h_in": 3.42,
+        "event_count": 1,
+        "threshold_category": "lower_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.45,
+          30.25
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 0.0,
+        "median_3h_in": 0.0,
+        "mean_3h_in": 0.0,
+        "weighted_mean_3h_in": 0.0,
+        "min_3h_in": 0.0,
+        "max_3h_in": 0.0,
+        "event_count": 1,
+        "threshold_category": "high_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.25,
+          30.3
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 3.23,
+        "median_3h_in": 3.23,
+        "mean_3h_in": 3.23,
+        "weighted_mean_3h_in": 3.23,
+        "min_3h_in": 3.23,
+        "max_3h_in": 3.23,
+        "event_count": 1,
+        "threshold_category": "lower_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.80000000000001,
+          30.3
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 1.57,
+        "median_3h_in": 1.57,
+        "mean_3h_in": 1.57,
+        "weighted_mean_3h_in": 1.57,
+        "min_3h_in": 1.57,
+        "max_3h_in": 1.57,
+        "event_count": 1,
+        "threshold_category": "high_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.75,
+          30.3
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 0.95,
+        "median_3h_in": 0.95,
+        "mean_3h_in": 0.95,
+        "weighted_mean_3h_in": 0.95,
+        "min_3h_in": 0.95,
+        "max_3h_in": 0.95,
+        "event_count": 1,
+        "threshold_category": "high_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.35000000000001,
+          30.3
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 0.89,
+        "median_3h_in": 0.89,
+        "mean_3h_in": 0.89,
+        "weighted_mean_3h_in": 0.89,
+        "min_3h_in": 0.89,
+        "max_3h_in": 0.89,
+        "event_count": 1,
+        "threshold_category": "high_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.30000000000001,
+          30.3
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 3.59,
+        "median_3h_in": 3.59,
+        "mean_3h_in": 3.59,
+        "weighted_mean_3h_in": 3.59,
+        "min_3h_in": 3.59,
+        "max_3h_in": 3.59,
+        "event_count": 1,
+        "threshold_category": "lower_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.0,
+          30.35
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 1.8,
+        "median_3h_in": 1.8,
+        "mean_3h_in": 1.8,
+        "weighted_mean_3h_in": 1.8,
+        "min_3h_in": 1.8,
+        "max_3h_in": 1.8,
+        "event_count": 1,
+        "threshold_category": "high_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.2,
+          30.35
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 3.69,
+        "median_3h_in": 3.69,
+        "mean_3h_in": 3.69,
+        "weighted_mean_3h_in": 3.69,
+        "min_3h_in": 3.69,
+        "max_3h_in": 3.69,
+        "event_count": 1,
+        "threshold_category": "lower_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.15,
+          30.35
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 2.3,
+        "median_3h_in": 2.3,
+        "mean_3h_in": 2.77,
+        "weighted_mean_3h_in": 2.77,
+        "min_3h_in": 2.3,
+        "max_3h_in": 3.71,
+        "event_count": 3,
+        "threshold_category": "moderate_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -88.75,
+          30.35
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 3.14,
+        "median_3h_in": 3.14,
+        "mean_3h_in": 3.14,
+        "weighted_mean_3h_in": 3.14,
+        "min_3h_in": 3.14,
+        "max_3h_in": 3.14,
+        "event_count": 1,
+        "threshold_category": "lower_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -88.55000000000001,
+          30.35
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 2.79,
+        "median_3h_in": 2.79,
+        "mean_3h_in": 2.79,
+        "weighted_mean_3h_in": 2.79,
+        "min_3h_in": 1.48,
+        "max_3h_in": 4.11,
+        "event_count": 2,
+        "threshold_category": "moderate_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.2,
+          30.400000000000002
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 1.37,
+        "median_3h_in": 1.37,
+        "mean_3h_in": 1.37,
+        "weighted_mean_3h_in": 1.37,
+        "min_3h_in": 1.37,
+        "max_3h_in": 1.37,
+        "event_count": 1,
+        "threshold_category": "high_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.10000000000001,
+          30.400000000000002
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 1.64,
+        "median_3h_in": 1.64,
+        "mean_3h_in": 1.64,
+        "weighted_mean_3h_in": 1.64,
+        "min_3h_in": 1.64,
+        "max_3h_in": 1.64,
+        "event_count": 1,
+        "threshold_category": "high_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.45,
+          30.400000000000002
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 4.1,
+        "median_3h_in": 4.1,
+        "mean_3h_in": 4.1,
+        "weighted_mean_3h_in": 4.1,
+        "min_3h_in": 4.1,
+        "max_3h_in": 4.1,
+        "event_count": 1,
+        "threshold_category": "least_sensitive"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.15,
+          30.400000000000002
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 4.47,
+        "median_3h_in": 4.47,
+        "mean_3h_in": 4.47,
+        "weighted_mean_3h_in": 4.47,
+        "min_3h_in": 4.47,
+        "max_3h_in": 4.47,
+        "event_count": 1,
+        "threshold_category": "least_sensitive"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -88.9,
+          30.400000000000002
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 1.48,
+        "median_3h_in": 1.48,
+        "mean_3h_in": 1.48,
+        "weighted_mean_3h_in": 1.48,
+        "min_3h_in": 1.48,
+        "max_3h_in": 1.48,
+        "event_count": 1,
+        "threshold_category": "high_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -88.55000000000001,
+          30.400000000000002
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 2.58,
+        "median_3h_in": 2.58,
+        "mean_3h_in": 2.58,
+        "weighted_mean_3h_in": 2.58,
+        "min_3h_in": 2.58,
+        "max_3h_in": 2.58,
+        "event_count": 1,
+        "threshold_category": "moderate_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.2,
+          30.450000000000003
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 0.07,
+        "median_3h_in": 0.07,
+        "mean_3h_in": 0.07,
+        "weighted_mean_3h_in": 0.07,
+        "min_3h_in": 0.07,
+        "max_3h_in": 0.07,
+        "event_count": 1,
+        "threshold_category": "high_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.15,
+          30.450000000000003
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 0.46,
+        "median_3h_in": 0.46,
+        "mean_3h_in": 0.46,
+        "weighted_mean_3h_in": 0.46,
+        "min_3h_in": 0.46,
+        "max_3h_in": 0.46,
+        "event_count": 1,
+        "threshold_category": "high_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.10000000000001,
+          30.450000000000003
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 0.8,
+        "median_3h_in": 0.8,
+        "mean_3h_in": 0.8,
+        "weighted_mean_3h_in": 0.8,
+        "min_3h_in": 0.8,
+        "max_3h_in": 0.8,
+        "event_count": 1,
+        "threshold_category": "high_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.95,
+          30.450000000000003
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 2.09,
+        "median_3h_in": 2.09,
+        "mean_3h_in": 2.09,
+        "weighted_mean_3h_in": 2.09,
+        "min_3h_in": 2.02,
+        "max_3h_in": 2.16,
+        "event_count": 2,
+        "threshold_category": "moderate_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.60000000000001,
+          30.450000000000003
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 3.76,
+        "median_3h_in": 3.76,
+        "mean_3h_in": 3.76,
+        "weighted_mean_3h_in": 3.76,
+        "min_3h_in": 3.76,
+        "max_3h_in": 3.76,
+        "event_count": 1,
+        "threshold_category": "lower_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.45,
+          30.450000000000003
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 2.72,
+        "median_3h_in": 2.72,
+        "mean_3h_in": 2.72,
+        "weighted_mean_3h_in": 2.72,
+        "min_3h_in": 2.72,
+        "max_3h_in": 2.72,
+        "event_count": 1,
+        "threshold_category": "moderate_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.4,
+          30.450000000000003
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 2.16,
+        "median_3h_in": 2.16,
+        "mean_3h_in": 2.16,
+        "weighted_mean_3h_in": 2.16,
+        "min_3h_in": 2.09,
+        "max_3h_in": 2.24,
+        "event_count": 2,
+        "threshold_category": "moderate_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.30000000000001,
+          30.450000000000003
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 4.59,
+        "median_3h_in": 4.59,
+        "mean_3h_in": 4.59,
+        "weighted_mean_3h_in": 4.59,
+        "min_3h_in": 4.59,
+        "max_3h_in": 4.59,
+        "event_count": 1,
+        "threshold_category": "least_sensitive"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.25,
+          30.450000000000003
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 4.85,
+        "median_3h_in": 4.85,
+        "mean_3h_in": 4.85,
+        "weighted_mean_3h_in": 4.85,
+        "min_3h_in": 4.85,
+        "max_3h_in": 4.85,
+        "event_count": 1,
+        "threshold_category": "least_sensitive"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.15,
+          30.450000000000003
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 2.93,
+        "median_3h_in": 2.93,
+        "mean_3h_in": 2.93,
+        "weighted_mean_3h_in": 2.93,
+        "min_3h_in": 2.93,
+        "max_3h_in": 2.93,
+        "event_count": 1,
+        "threshold_category": "moderate_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.05000000000001,
+          30.450000000000003
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 1.51,
+        "median_3h_in": 1.51,
+        "mean_3h_in": 1.51,
+        "weighted_mean_3h_in": 1.51,
+        "min_3h_in": 1.51,
+        "max_3h_in": 1.51,
+        "event_count": 1,
+        "threshold_category": "high_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.45,
+          30.5
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 6.75,
+        "median_3h_in": 6.75,
+        "mean_3h_in": 6.75,
+        "weighted_mean_3h_in": 6.75,
+        "min_3h_in": 6.75,
+        "max_3h_in": 6.75,
+        "event_count": 1,
+        "threshold_category": "least_sensitive"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.2,
+          30.5
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 3.44,
+        "median_3h_in": 3.44,
+        "mean_3h_in": 3.44,
+        "weighted_mean_3h_in": 3.44,
+        "min_3h_in": 3.44,
+        "max_3h_in": 3.44,
+        "event_count": 1,
+        "threshold_category": "lower_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.85000000000001,
+          30.5
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 0.98,
+        "median_3h_in": 0.98,
+        "mean_3h_in": 0.98,
+        "weighted_mean_3h_in": 0.98,
+        "min_3h_in": 0.98,
+        "max_3h_in": 0.98,
+        "event_count": 1,
+        "threshold_category": "high_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.45,
+          30.5
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 2.06,
+        "median_3h_in": 2.06,
+        "mean_3h_in": 2.06,
+        "weighted_mean_3h_in": 2.06,
+        "min_3h_in": 2.06,
+        "max_3h_in": 2.06,
+        "event_count": 2,
+        "threshold_category": "moderate_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.5,
+          30.5
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 0.72,
+        "median_3h_in": 0.72,
+        "mean_3h_in": 0.72,
+        "weighted_mean_3h_in": 0.72,
+        "min_3h_in": 0.72,
+        "max_3h_in": 0.72,
+        "event_count": 1,
+        "threshold_category": "high_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.4,
+          30.5
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 2.13,
+        "median_3h_in": 2.13,
+        "mean_3h_in": 2.13,
+        "weighted_mean_3h_in": 2.13,
+        "min_3h_in": 2.13,
+        "max_3h_in": 2.13,
+        "event_count": 1,
+        "threshold_category": "moderate_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.15,
+          30.5
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 1.97,
+        "median_3h_in": 1.97,
+        "mean_3h_in": 1.97,
+        "weighted_mean_3h_in": 1.97,
+        "min_3h_in": 1.97,
+        "max_3h_in": 1.97,
+        "event_count": 1,
+        "threshold_category": "high_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.10000000000001,
+          30.5
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 6.04,
+        "median_3h_in": 6.04,
+        "mean_3h_in": 6.04,
+        "weighted_mean_3h_in": 6.04,
+        "min_3h_in": 6.04,
+        "max_3h_in": 6.04,
+        "event_count": 1,
+        "threshold_category": "least_sensitive"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.05000000000001,
+          30.5
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 0.02,
+        "median_3h_in": 0.02,
+        "mean_3h_in": 0.02,
+        "weighted_mean_3h_in": 0.02,
+        "min_3h_in": 0.02,
+        "max_3h_in": 0.02,
+        "event_count": 1,
+        "threshold_category": "high_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.45,
+          30.55
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 6.74,
+        "median_3h_in": 6.74,
+        "mean_3h_in": 6.74,
+        "weighted_mean_3h_in": 6.74,
+        "min_3h_in": 6.74,
+        "max_3h_in": 6.74,
+        "event_count": 1,
+        "threshold_category": "least_sensitive"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.4,
+          30.55
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 1.02,
+        "median_3h_in": 1.02,
+        "mean_3h_in": 1.02,
+        "weighted_mean_3h_in": 1.02,
+        "min_3h_in": 1.02,
+        "max_3h_in": 1.02,
+        "event_count": 1,
+        "threshold_category": "high_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.2,
+          30.55
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 1.19,
+        "median_3h_in": 1.19,
+        "mean_3h_in": 1.06,
+        "weighted_mean_3h_in": 1.06,
+        "min_3h_in": 0.0,
+        "max_3h_in": 1.89,
+        "event_count": 4,
+        "threshold_category": "high_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.05000000000001,
+          30.55
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 1.93,
+        "median_3h_in": 1.93,
+        "mean_3h_in": 1.93,
+        "weighted_mean_3h_in": 1.93,
+        "min_3h_in": 1.93,
+        "max_3h_in": 1.93,
+        "event_count": 1,
+        "threshold_category": "high_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.0,
+          30.55
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 0.37,
+        "median_3h_in": 0.37,
+        "mean_3h_in": 0.37,
+        "weighted_mean_3h_in": 0.37,
+        "min_3h_in": 0.37,
+        "max_3h_in": 0.37,
+        "event_count": 1,
+        "threshold_category": "high_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.95,
+          30.55
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 0.43,
+        "median_3h_in": 0.43,
+        "mean_3h_in": 0.43,
+        "weighted_mean_3h_in": 0.43,
+        "min_3h_in": 0.43,
+        "max_3h_in": 0.43,
+        "event_count": 1,
+        "threshold_category": "high_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.05000000000001,
+          30.55
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 1.17,
+        "median_3h_in": 1.17,
+        "mean_3h_in": 1.17,
+        "weighted_mean_3h_in": 1.17,
+        "min_3h_in": 1.17,
+        "max_3h_in": 1.17,
+        "event_count": 1,
+        "threshold_category": "high_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.15,
+          30.55
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 2.25,
+        "median_3h_in": 2.25,
+        "mean_3h_in": 2.25,
+        "weighted_mean_3h_in": 2.25,
+        "min_3h_in": 2.25,
+        "max_3h_in": 2.25,
+        "event_count": 1,
+        "threshold_category": "moderate_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.35000000000001,
+          30.650000000000002
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 4.8,
+        "median_3h_in": 4.8,
+        "mean_3h_in": 4.8,
+        "weighted_mean_3h_in": 4.8,
+        "min_3h_in": 4.8,
+        "max_3h_in": 4.8,
+        "event_count": 1,
+        "threshold_category": "least_sensitive"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.9,
+          30.650000000000002
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 1.35,
+        "median_3h_in": 1.35,
+        "mean_3h_in": 1.35,
+        "weighted_mean_3h_in": 1.35,
+        "min_3h_in": 1.35,
+        "max_3h_in": 1.35,
+        "event_count": 1,
+        "threshold_category": "high_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.15,
+          30.650000000000002
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 2.32,
+        "median_3h_in": 2.32,
+        "mean_3h_in": 2.32,
+        "weighted_mean_3h_in": 2.32,
+        "min_3h_in": 2.32,
+        "max_3h_in": 2.32,
+        "event_count": 1,
+        "threshold_category": "moderate_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.2,
+          30.650000000000002
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 2.46,
+        "median_3h_in": 2.46,
+        "mean_3h_in": 2.46,
+        "weighted_mean_3h_in": 2.46,
+        "min_3h_in": 2.46,
+        "max_3h_in": 2.46,
+        "event_count": 1,
+        "threshold_category": "moderate_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.10000000000001,
+          30.650000000000002
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 3.43,
+        "median_3h_in": 3.43,
+        "mean_3h_in": 3.43,
+        "weighted_mean_3h_in": 3.43,
+        "min_3h_in": 3.43,
+        "max_3h_in": 3.43,
+        "event_count": 1,
+        "threshold_category": "lower_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -88.60000000000001,
+          30.650000000000002
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 1.76,
+        "median_3h_in": 1.76,
+        "mean_3h_in": 1.76,
+        "weighted_mean_3h_in": 1.76,
+        "min_3h_in": 1.76,
+        "max_3h_in": 1.76,
+        "event_count": 1,
+        "threshold_category": "high_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.25,
+          30.700000000000003
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 2.22,
+        "median_3h_in": 2.22,
+        "mean_3h_in": 2.22,
+        "weighted_mean_3h_in": 2.22,
+        "min_3h_in": 2.22,
+        "max_3h_in": 2.22,
+        "event_count": 1,
+        "threshold_category": "moderate_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.85000000000001,
+          30.700000000000003
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 4.22,
+        "median_3h_in": 4.22,
+        "mean_3h_in": 4.22,
+        "weighted_mean_3h_in": 4.22,
+        "min_3h_in": 4.22,
+        "max_3h_in": 4.22,
+        "event_count": 1,
+        "threshold_category": "least_sensitive"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.80000000000001,
+          30.700000000000003
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 2.15,
+        "median_3h_in": 2.15,
+        "mean_3h_in": 2.15,
+        "weighted_mean_3h_in": 2.15,
+        "min_3h_in": 2.15,
+        "max_3h_in": 2.15,
+        "event_count": 1,
+        "threshold_category": "moderate_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.25,
+          30.700000000000003
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 2.2,
+        "median_3h_in": 2.2,
+        "mean_3h_in": 2.2,
+        "weighted_mean_3h_in": 2.2,
+        "min_3h_in": 2.2,
+        "max_3h_in": 2.2,
+        "event_count": 1,
+        "threshold_category": "moderate_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.85000000000001,
+          30.700000000000003
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 1.17,
+        "median_3h_in": 1.17,
+        "mean_3h_in": 1.17,
+        "weighted_mean_3h_in": 1.17,
+        "min_3h_in": 1.17,
+        "max_3h_in": 1.17,
+        "event_count": 1,
+        "threshold_category": "high_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.35000000000001,
+          30.75
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 3.34,
+        "median_3h_in": 3.34,
+        "mean_3h_in": 3.34,
+        "weighted_mean_3h_in": 3.34,
+        "min_3h_in": 3.34,
+        "max_3h_in": 3.34,
+        "event_count": 1,
+        "threshold_category": "lower_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.15,
+          30.75
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 2.62,
+        "median_3h_in": 2.62,
+        "mean_3h_in": 2.62,
+        "weighted_mean_3h_in": 2.62,
+        "min_3h_in": 2.62,
+        "max_3h_in": 2.62,
+        "event_count": 1,
+        "threshold_category": "moderate_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.45,
+          30.8
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 1.83,
+        "median_3h_in": 1.83,
+        "mean_3h_in": 1.83,
+        "weighted_mean_3h_in": 1.83,
+        "min_3h_in": 1.83,
+        "max_3h_in": 1.83,
+        "event_count": 1,
+        "threshold_category": "high_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.10000000000001,
+          30.8
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 2.3,
+        "median_3h_in": 2.3,
+        "mean_3h_in": 2.3,
+        "weighted_mean_3h_in": 2.3,
+        "min_3h_in": 2.3,
+        "max_3h_in": 2.3,
+        "event_count": 1,
+        "threshold_category": "moderate_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.45,
+          30.85
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 4.98,
+        "median_3h_in": 4.98,
+        "mean_3h_in": 4.98,
+        "weighted_mean_3h_in": 4.98,
+        "min_3h_in": 4.98,
+        "max_3h_in": 4.98,
+        "event_count": 1,
+        "threshold_category": "least_sensitive"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.05000000000001,
+          30.85
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 2.73,
+        "median_3h_in": 2.73,
+        "mean_3h_in": 2.73,
+        "weighted_mean_3h_in": 2.73,
+        "min_3h_in": 2.56,
+        "max_3h_in": 2.9,
+        "event_count": 2,
+        "threshold_category": "moderate_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.0,
+          30.85
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 2.81,
+        "median_3h_in": 2.81,
+        "mean_3h_in": 2.81,
+        "weighted_mean_3h_in": 2.81,
+        "min_3h_in": 2.81,
+        "max_3h_in": 2.81,
+        "event_count": 1,
+        "threshold_category": "moderate_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.10000000000001,
+          30.950000000000003
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 2.74,
+        "median_3h_in": 2.74,
+        "mean_3h_in": 2.74,
+        "weighted_mean_3h_in": 2.74,
+        "min_3h_in": 2.74,
+        "max_3h_in": 2.74,
+        "event_count": 1,
+        "threshold_category": "moderate_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.80000000000001,
+          30.950000000000003
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 2.02,
+        "median_3h_in": 2.02,
+        "mean_3h_in": 2.02,
+        "weighted_mean_3h_in": 2.02,
+        "min_3h_in": 2.02,
+        "max_3h_in": 2.02,
+        "event_count": 1,
+        "threshold_category": "moderate_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.7,
+          30.950000000000003
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 2.26,
+        "median_3h_in": 2.26,
+        "mean_3h_in": 2.26,
+        "weighted_mean_3h_in": 2.26,
+        "min_3h_in": 2.26,
+        "max_3h_in": 2.26,
+        "event_count": 1,
+        "threshold_category": "moderate_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.75,
+          31.0
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 0.15,
+        "median_3h_in": 0.15,
+        "mean_3h_in": 0.15,
+        "weighted_mean_3h_in": 0.15,
+        "min_3h_in": 0.15,
+        "max_3h_in": 0.15,
+        "event_count": 1,
+        "threshold_category": "high_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.5,
+          31.0
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 1.23,
+        "median_3h_in": 1.23,
+        "mean_3h_in": 1.23,
+        "weighted_mean_3h_in": 1.23,
+        "min_3h_in": 1.23,
+        "max_3h_in": 1.23,
+        "event_count": 1,
+        "threshold_category": "high_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.2,
+          31.0
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 4.21,
+        "median_3h_in": 4.21,
+        "mean_3h_in": 4.21,
+        "weighted_mean_3h_in": 4.21,
+        "min_3h_in": 4.21,
+        "max_3h_in": 4.21,
+        "event_count": 1,
+        "threshold_category": "least_sensitive"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.85000000000001,
+          31.0
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 5.12,
+        "median_3h_in": 5.12,
+        "mean_3h_in": 5.12,
+        "weighted_mean_3h_in": 5.12,
+        "min_3h_in": 5.12,
+        "max_3h_in": 5.12,
+        "event_count": 1,
+        "threshold_category": "least_sensitive"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.55000000000001,
+          31.0
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 2.19,
+        "median_3h_in": 2.19,
+        "mean_3h_in": 2.15,
+        "weighted_mean_3h_in": 2.15,
+        "min_3h_in": 1.97,
+        "max_3h_in": 2.29,
+        "event_count": 3,
+        "threshold_category": "moderate_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.5,
+          31.0
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 1.84,
+        "median_3h_in": 1.84,
+        "mean_3h_in": 1.84,
+        "weighted_mean_3h_in": 1.84,
+        "min_3h_in": 1.84,
+        "max_3h_in": 1.84,
+        "event_count": 1,
+        "threshold_category": "high_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.35000000000001,
+          31.0
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 3.13,
+        "median_3h_in": 3.13,
+        "mean_3h_in": 3.13,
+        "weighted_mean_3h_in": 3.13,
+        "min_3h_in": 2.61,
+        "max_3h_in": 3.64,
+        "event_count": 2,
+        "threshold_category": "lower_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.30000000000001,
+          31.0
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 2.86,
+        "median_3h_in": 2.86,
+        "mean_3h_in": 2.86,
+        "weighted_mean_3h_in": 2.86,
+        "min_3h_in": 2.86,
+        "max_3h_in": 2.86,
+        "event_count": 1,
+        "threshold_category": "moderate_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.85000000000001,
+          31.0
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 0.84,
+        "median_3h_in": 0.84,
+        "mean_3h_in": 0.84,
+        "weighted_mean_3h_in": 0.84,
+        "min_3h_in": 0.84,
+        "max_3h_in": 0.84,
+        "event_count": 1,
+        "threshold_category": "high_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.80000000000001,
+          31.05
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 3.66,
+        "median_3h_in": 3.66,
+        "mean_3h_in": 3.66,
+        "weighted_mean_3h_in": 3.66,
+        "min_3h_in": 3.66,
+        "max_3h_in": 3.66,
+        "event_count": 1,
+        "threshold_category": "lower_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.75,
+          31.1
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 2.55,
+        "median_3h_in": 2.55,
+        "mean_3h_in": 2.55,
+        "weighted_mean_3h_in": 2.55,
+        "min_3h_in": 2.55,
+        "max_3h_in": 2.55,
+        "event_count": 1,
+        "threshold_category": "moderate_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.55000000000001,
+          31.150000000000002
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 1.81,
+        "median_3h_in": 1.81,
+        "mean_3h_in": 1.81,
+        "weighted_mean_3h_in": 1.81,
+        "min_3h_in": 1.81,
+        "max_3h_in": 1.81,
+        "event_count": 1,
+        "threshold_category": "high_sensitivity"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.4,
+          31.3
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 5.64,
+        "median_3h_in": 5.64,
+        "mean_3h_in": 5.64,
+        "weighted_mean_3h_in": 5.64,
+        "min_3h_in": 5.64,
+        "max_3h_in": 5.64,
+        "event_count": 1,
+        "threshold_category": "least_sensitive"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.10000000000001,
+          31.3
+        ]
+      },
+      "properties": {
+        "threshold_3h_in": 3.33,
+        "median_3h_in": 3.33,
+        "mean_3h_in": 3.33,
+        "weighted_mean_3h_in": 3.33,
+        "min_3h_in": 3.33,
+        "max_3h_in": 3.33,
+        "event_count": 1,
+        "threshold_category": "lower_sensitivity"
+      }
+    }
+  ]
+}
