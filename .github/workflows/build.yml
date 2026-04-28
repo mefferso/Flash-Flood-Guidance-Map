@@ -57,14 +57,14 @@ jobs:
         continue-on-error: true
         run: python scripts/fetch_critical_infrastructure.py --out docs/data/critical_infrastructure.geojson
 
-      - name: Optional MRMS enrichment (TEST MODE)
+      - name: Optional MRMS enrichment (150-event scale test)
         if: "${{ github.event.inputs.run_mrms == 'true' }}"
         run: |
           python scripts/enrich_mrms.py \
             --events docs/data/flash_flood_events.geojson \
             --out docs/data/mrms_event_metrics.csv \
             --start-year 2015 \
-            --limit 25 \
+            --limit 150 \
             --sample-grib
 
       - name: Commit generated data files
