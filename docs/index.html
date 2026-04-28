@@ -103,11 +103,19 @@ const DATA_URL = "data/flash_flood_events.geojson";
 const INFRA_URL = "data/critical_infrastructure.geojson";
 const THRESHOLD_URL = "data/threshold_grid.geojson";
 
+// Temporary safety net: the current GeoJSON in main is empty. This CSV still exists in Git history.
+// Once the build step creates docs/data/flash_flood_events.geojson correctly, this fallback will not be used.
+const CSV_FALLBACK_URL = "https://raw.githubusercontent.com/mefferso/Flash-Flood-Guidance-Map/2db21192ace252be9862b2640491c1db98865389/docs/data/raw/lix_flash_flood_events.csv";
+
 let map, eventGeojson, infraGeojson, thresholdGeojson;
+let eventDataSource = "unknown";
+let skippedEventRows = 0;
 let eventLayer = L.layerGroup();
 let infraLayer = L.layerGroup();
 let thresholdLayer = L.layerGroup();
 let heatLayer = null;
+
+const EMPTY_FC = {type: "FeatureCollection", features: []};
 
 const severityColors = {
   catastrophic: "#dc2626",
@@ -131,6 +139,10 @@ const infraColors = {
   power_generation: "#eab308"
 };
 
+function setStatus(msg) {
+  document.getElementById("status").textContent = msg;
+}
+
 function esc(v) {
   return String(v ?? "").replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
 }
@@ -140,6 +152,150 @@ function fmtDate(d) {
   const s = String(d);
   if (/^\d{4}-\d{2}-\d{2}/.test(s)) return s.slice(0,10);
   return s;
+}
+
+function parseNumber(v) {
+  if (v === null || v === undefined) return NaN;
+  const cleaned = String(v).trim().replace(/[$,]/g, "");
+  if (!cleaned) return NaN;
+  return Number(cleaned);
+}
+
+function getPoint(feature) {
+  const g = feature?.geometry;
+  if (!g || g.type !== "Point" || !Array.isArray(g.coordinates)) return null;
+  const lon = Number(g.coordinates[0]);
+  const lat = Number(g.coordinates[1]);
+  if (!Number.isFinite(lat) || !Number.isFinite(lon)) return null;
+  if (lat < -90 || lat > 90 || lon < -180 || lon > 180) return null;
+  return [lat, lon];
+}
+
+function parseCSV(text) {
+  const rows = [];
+  let row = [];
+  let field = "";
+  let inQuotes = false;
+
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    const next = text[i + 1];
+
+    if (c === '"') {
+      if (inQuotes && next === '"') {
+        field += '"';
+        i++;
+      } else {
+        inQuotes = !inQuotes;
+      }
+    } else if (c === "," && !inQuotes) {
+      row.push(field);
+      field = "";
+    } else if ((c === "\n" || c === "\r") && !inQuotes) {
+      if (c === "\r" && next === "\n") i++;
+      row.push(field);
+      if (row.some(v => String(v).trim() !== "")) rows.push(row);
+      row = [];
+      field = "";
+    } else {
+      field += c;
+    }
+  }
+
+  row.push(field);
+  if (row.some(v => String(v).trim() !== "")) rows.push(row);
+  return rows;
+}
+
+function rowsToObjects(rows) {
+  if (!rows.length) return [];
+  const headers = rows[0].map(h => String(h).trim());
+  return rows.slice(1).map(row => {
+    const obj = {};
+    headers.forEach((h, idx) => obj[h] = row[idx] ?? "");
+    return obj;
+  });
+}
+
+function inferSeverity(p) {
+  const deaths = (parseNumber(p.DEATHS_DIRECT) || 0) + (parseNumber(p.DEATHS_INDIRECT) || 0);
+  const injuries = (parseNumber(p.INJURIES_DIRECT) || 0) + (parseNumber(p.INJURIES_INDIRECT) || 0);
+  const damage = Math.max(parseNumber(p.DAMAGE_PROPERTY_NUM) || 0, parseNumber(p.DAMAGE_CROPS_NUM) || 0);
+  const text = `${p.EVENT_NARRATIVE || ""} ${p.EPISODE_NARRATIVE || ""}`.toLowerCase();
+
+  if (deaths > 0 || damage >= 1000000 || /catastrophic|major flooding|life[- ]threatening|swept away|drowned/.test(text)) return "catastrophic";
+  if (injuries > 0 || damage >= 250000 || /widespread|severe flooding|numerous homes|water rescues|rescued/.test(text)) return "severe";
+  if (damage >= 50000 || /homes? (were )?flooded|businesses? (were )?flooded|vehicles? (were )?flooded/.test(text)) return "serious";
+  if (damage > 0 || /roadways|streets|impassable|closed|street flooding/.test(text)) return "moderate";
+  return "minor";
+}
+
+function csvTextToGeoJSON(text) {
+  const rows = rowsToObjects(parseCSV(text));
+  const features = [];
+  let skipped = 0;
+
+  rows.forEach(p => {
+    const lat = parseNumber(p.Latitude || p.BEGIN_LAT || p.END_LAT);
+    const lon = parseNumber(p.Longitude || p.BEGIN_LON || p.END_LON);
+
+    if (!Number.isFinite(lat) || !Number.isFinite(lon) || lat < -90 || lat > 90 || lon < -180 || lon > 180) {
+      skipped++;
+      return;
+    }
+
+    const props = {...p};
+    props.severity_category = props.severity_category || inferSeverity(props);
+
+    features.push({
+      type: "Feature",
+      geometry: { type: "Point", coordinates: [lon, lat] },
+      properties: props
+    });
+  });
+
+  skippedEventRows = skipped;
+  return {type: "FeatureCollection", features};
+}
+
+async function fetchText(url) {
+  const resp = await fetch(url, {cache: "no-store"});
+  if (!resp.ok) throw new Error(`HTTP ${resp.status} while loading ${url}`);
+  return await resp.text();
+}
+
+async function fetchGeoJSONOrEmpty(url) {
+  try {
+    const text = await fetchText(url);
+    if (!text.trim()) return {...EMPTY_FC};
+    const json = JSON.parse(text);
+    if (!json || json.type !== "FeatureCollection" || !Array.isArray(json.features)) return {...EMPTY_FC};
+    return json;
+  } catch (err) {
+    console.warn(`Using empty layer for ${url}:`, err);
+    return {...EMPTY_FC};
+  }
+}
+
+async function loadEventData() {
+  try {
+    const text = await fetchText(DATA_URL);
+    if (text.trim()) {
+      const json = JSON.parse(text);
+      if (json?.type === "FeatureCollection" && Array.isArray(json.features) && json.features.length > 0) {
+        eventDataSource = DATA_URL;
+        skippedEventRows = 0;
+        return json;
+      }
+    }
+  } catch (err) {
+    console.warn(`Primary event GeoJSON failed; trying CSV fallback.`, err);
+  }
+
+  const csv = await fetchText(CSV_FALLBACK_URL);
+  const geojson = csvTextToGeoJSON(csv);
+  eventDataSource = "historical CSV fallback";
+  return geojson;
 }
 
 function initMap() {
@@ -181,6 +337,7 @@ function getFilteredEvents() {
   const severity = document.getElementById("severityFilter").value;
 
   return (eventGeojson?.features || []).filter(f => {
+    if (!getPoint(f)) return false;
     const p = f.properties || {};
     const d = fmtDate(p.BEGIN_DATE);
     if (year && !d.startsWith(year + "-")) return false;
@@ -196,8 +353,10 @@ function rebuildEvents(features, fit=false) {
   let count = 0;
 
   features.forEach(f => {
+    const pt = getPoint(f);
+    if (!pt) return;
+    const [lat, lon] = pt;
     const p = f.properties || {};
-    const [lon, lat] = f.geometry.coordinates;
     const sev = p.severity_category || "minor";
     const color = severityColors[sev] || "#0ea5e9";
     const popup = `
@@ -239,11 +398,15 @@ function rebuildHeat(features) {
 
   const mode = document.getElementById("heatMode").value;
   const pts = features.map(f => {
-    const [lon, lat] = f.geometry.coordinates;
+    const pt = getPoint(f);
+    if (!pt) return null;
+    const [lat, lon] = pt;
     const sev = f.properties?.severity_category || "minor";
     const w = mode === "severity" ? (severityWeights[sev] || 1) : 1;
     return [lat, lon, w];
-  });
+  }).filter(Boolean);
+
+  if (!pts.length) return;
 
   heatLayer = L.heatLayer(pts, {
     radius: 26,
@@ -254,10 +417,9 @@ function rebuildHeat(features) {
   }).addTo(map);
 }
 
-
 function thresholdColor(val) {
   if (!Number.isFinite(val)) return "#64748b";
-  if (val < 2) return "#dc2626";      // lower threshold = more sensitive
+  if (val < 2) return "#dc2626";
   if (val < 3) return "#f97316";
   if (val < 4) return "#facc15";
   return "#22c55e";
@@ -274,13 +436,13 @@ function rebuildThreshold() {
   let count = 0;
 
   (thresholdGeojson?.features || []).forEach(f => {
+    const pt = getPoint(f);
+    if (!pt) return;
+    const [lat, lon] = pt;
     const p = f.properties || {};
-    const [lon, lat] = f.geometry.coordinates;
     const threshold = Number(p.threshold_3h_in);
     const eventCount = Number(p.event_count || 0);
     const color = thresholdColor(threshold);
-
-    // More supporting events = slightly larger marker, but keep it sane.
     const radius = Math.min(16, Math.max(7, 5 + eventCount * 2));
 
     L.circleMarker([lat, lon], {
@@ -309,7 +471,6 @@ function rebuildThreshold() {
   return count;
 }
 
-
 function rebuildInfra() {
   infraLayer.clearLayers();
   if (!document.getElementById("showInfra").checked) {
@@ -321,11 +482,13 @@ function rebuildInfra() {
   let count = 0;
 
   (infraGeojson?.features || []).forEach(f => {
+    const pt = getPoint(f);
+    if (!pt) return;
+    const [lat, lon] = pt;
     const p = f.properties || {};
     const type = p.infra_type || "other";
     if (selected && type !== selected) return;
 
-    const [lon, lat] = f.geometry.coordinates;
     const color = infraColors[type] || "#334155";
     const name = p.display_name || p.NAME || p.name || type.replaceAll("_", " ");
 
@@ -364,6 +527,7 @@ function refresh(fit=false) {
   if (document.getElementById("showThreshold")?.checked) {
     if (heatLayer) {
       map.removeLayer(heatLayer);
+      heatLayer = null;
     }
 
     eventLayer.eachLayer(l => {
@@ -373,9 +537,9 @@ function refresh(fit=false) {
 
   const thresholdCount = rebuildThreshold();
   const infraCount = rebuildInfra();
+  const skippedText = skippedEventRows ? ` Skipped ${skippedEventRows} CSV rows with missing/bad coordinates.` : "";
 
-  document.getElementById("status").textContent =
-    `Mapped ${eventCount} flash flood events. Threshold cells shown: ${thresholdCount}. Infrastructure features shown: ${infraCount}.`;
+  setStatus(`Mapped ${eventCount} flash flood events. Threshold cells shown: ${thresholdCount}. Infrastructure features shown: ${infraCount}. Source: ${eventDataSource}.${skippedText}`);
 }
 
 function applyFilters() { refresh(true); }
@@ -387,25 +551,12 @@ function clearFilters() {
 }
 
 async function loadData() {
-  const eventResp = await fetch(DATA_URL);
-  if (!eventResp.ok) throw new Error(`Could not load ${DATA_URL}`);
-  eventGeojson = await eventResp.json();
+  setStatus("Loading event data...");
+  eventGeojson = await loadEventData();
 
-  try {
-    const thresholdResp = await fetch(THRESHOLD_URL);
-    if (thresholdResp.ok) thresholdGeojson = await thresholdResp.json();
-    else thresholdGeojson = {type:"FeatureCollection", features:[]};
-  } catch {
-    thresholdGeojson = {type:"FeatureCollection", features:[]};
-  }
-
-  try {
-    const infraResp = await fetch(INFRA_URL);
-    if (infraResp.ok) infraGeojson = await infraResp.json();
-    else infraGeojson = {type:"FeatureCollection", features:[]};
-  } catch {
-    infraGeojson = {type:"FeatureCollection", features:[]};
-  }
+  setStatus("Loading optional threshold and infrastructure layers...");
+  thresholdGeojson = await fetchGeoJSONOrEmpty(THRESHOLD_URL);
+  infraGeojson = await fetchGeoJSONOrEmpty(INFRA_URL);
 
   refresh(true);
 }
@@ -421,7 +572,7 @@ window.onload = async function() {
   try {
     await loadData();
   } catch (err) {
-    document.getElementById("status").textContent = "Error: " + err.message;
+    setStatus("Error loading map data: " + err.message);
     console.error(err);
   }
 };
