@@ -22,7 +22,6 @@ import argparse
 import gzip
 import json
 import math
-import re
 import shutil
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -53,7 +52,6 @@ def parse_iso_utc(value: Any) -> datetime | None:
     if not s:
         return None
 
-    # Try ISO first: 2024-04-10T21:00:00+00:00 or Z.
     try:
         dt = datetime.fromisoformat(s.replace("Z", "+00:00"))
         if dt.tzinfo is None:
@@ -62,7 +60,6 @@ def parse_iso_utc(value: Any) -> datetime | None:
     except Exception:
         pass
 
-    # Fallbacks for common Storm Events-ish strings.
     for fmt in (
         "%Y-%m-%d %H:%M:%S",
         "%Y-%m-%d %H:%M",
@@ -73,8 +70,7 @@ def parse_iso_utc(value: Any) -> datetime | None:
         "%m-%d-%Y",
     ):
         try:
-            dt = datetime.strptime(s, fmt).replace(tzinfo=timezone.utc)
-            return dt
+            return datetime.strptime(s, fmt).replace(tzinfo=timezone.utc)
         except Exception:
             continue
 
@@ -104,7 +100,6 @@ def url_exists(url: str, timeout: int = 12) -> bool:
         r = SESSION.head(url, timeout=timeout, allow_redirects=True)
         if r.status_code == 200:
             return True
-        # Some archive servers don't love HEAD. Fall back to a tiny ranged GET.
         if r.status_code in (403, 405, 501):
             r = SESSION.get(url, timeout=timeout, headers={"Range": "bytes=0-0"}, stream=True)
             return r.status_code in (200, 206)
@@ -120,14 +115,11 @@ def count_mrms_hours_found(event_time: datetime, search_hours: int) -> tuple[int
 
     for h in range(-search_hours, search_hours + 1):
         vt = anchor + timedelta(hours=h)
-        found_this_hour = False
         for product, url in candidate_urls(vt):
             if url_exists(url):
                 products_used.add(product)
-                found_this_hour = True
+                found_hours += 1
                 break
-        if found_this_hour:
-            found_hours += 1
 
     return found_hours, ",".join(sorted(products_used))
 
@@ -225,12 +217,10 @@ def load_events(path: Path) -> list[dict[str, Any]]:
 
 
 def event_datetime(event: dict[str, Any]) -> datetime | None:
-    # Preferred generated field from build_events.py.
     dt = parse_iso_utc(event.get("event_datetime_utc"))
     if dt:
         return dt
 
-    # Fallbacks if GeoJSON properties use original Storm Events fields.
     date_value = event.get("BEGIN_DATE") or event.get("begin_date") or event.get("Begin Date")
     time_value = event.get("BEGIN_TIME") or event.get("begin_time") or event.get("Begin Time") or "00:00"
     if date_value:
@@ -313,6 +303,26 @@ def process_event_grib(event: dict[str, Any], cache_dir: Path, hours_before: int
     return row
 
 
+def filter_events(events: list[dict[str, Any]], start_year: int | None, end_year: int | None) -> list[dict[str, Any]]:
+    filtered: list[dict[str, Any]] = []
+    skipped = 0
+
+    for event in events:
+        dt = event_datetime(event)
+        if not dt:
+            skipped += 1
+            continue
+        if start_year is not None and dt.year < start_year:
+            continue
+        if end_year is not None and dt.year > end_year:
+            continue
+        filtered.append(event)
+
+    if skipped:
+        print(f"[WARN] Skipped {skipped:,} event(s) with unparseable dates before MRMS processing")
+    return filtered
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description="Enrich flash flood events with archived MRMS coverage or sampled QPE.")
     ap.add_argument("--events", default="docs/data/flash_flood_events.geojson")
@@ -324,9 +334,15 @@ def main() -> None:
     ap.add_argument("--limit", type=int, default=DEFAULT_MAX_EVENTS, help="Default small limit so you don't accidentally hammer the archive.")
     ap.add_argument("--all-events", action="store_true", help="Process all events instead of the default small limit.")
     ap.add_argument("--sample-grib", action="store_true", help="Download/sample GRIB2 files instead of lightweight coverage check.")
+    ap.add_argument("--start-year", type=int, default=None, help="Only process events at or after this UTC year.")
+    ap.add_argument("--end-year", type=int, default=None, help="Only process events at or before this UTC year.")
     args = ap.parse_args()
 
     events = load_events(Path(args.events))
+    original_count = len(events)
+    events = filter_events(events, args.start_year, args.end_year)
+    filtered_count = len(events)
+
     if not args.all_events and args.limit:
         events = events[: args.limit]
 
@@ -334,6 +350,7 @@ def main() -> None:
     rows: list[dict[str, Any]] = []
 
     mode = "GRIB sampling" if args.sample_grib else "lightweight coverage check"
+    print(f"[INFO] Loaded {original_count:,} event(s); {filtered_count:,} remain after year filtering")
     print(f"[INFO] Running MRMS {mode} for {len(events):,} event(s)")
 
     for i, event in enumerate(events, 1):
