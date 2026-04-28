@@ -10,11 +10,7 @@ Optional real sampling mode:
 - use --sample-grib
 - downloads archived hourly MRMS QPE GRIB2 files
 - samples nearest grid point
-- computes max 1h/3h/6h/12h QPE in mm
-
-Why this split?
-Because full MRMS GRIB sampling is slow and can fail in GitHub Actions. First prove coverage,
-then sample a small subset, then scale intelligently.
+- computes max 1h/3h/6h/12h QPE in both mm and inches
 """
 from __future__ import annotations
 
@@ -33,16 +29,23 @@ import requests
 
 try:
     import xarray as xr
-except Exception:  # Allows lightweight coverage mode without xarray/cfgrib installed.
+except Exception:
     xr = None
 
 PRODUCTS = ["MultiSensor_QPE_01H_Pass2", "GaugeCorr_QPE_01H"]
 ARCHIVE_BASE = "https://mtarchive.geol.iastate.edu"
 DEFAULT_SEARCH_HOURS = 6
 DEFAULT_MAX_EVENTS = 10
+MM_PER_INCH = 25.4
 
 SESSION = requests.Session()
 SESSION.headers.update({"User-Agent": "flash-flood-guidance-map/0.1"})
+
+
+def mm_to_in(value: float | None) -> float | None:
+    if value is None or not math.isfinite(value):
+        return None
+    return float(value) / MM_PER_INCH
 
 
 def parse_iso_utc(value: Any) -> datetime | None:
@@ -87,12 +90,10 @@ def mrms_dir_url(valid_time: datetime, product: str) -> str:
 
 def candidate_urls(valid_time: datetime) -> list[tuple[str, str]]:
     stamp = valid_time.strftime("%Y%m%d-%H0000")
-    urls: list[tuple[str, str]] = []
-    for product in PRODUCTS:
-        name = f"{product}_00.00_{stamp}.grib2.gz"
-        url = f"{mrms_dir_url(valid_time, product)}{name}"
-        urls.append((product, url))
-    return urls
+    return [
+        (product, f"{mrms_dir_url(valid_time, product)}{product}_00.00_{stamp}.grib2.gz")
+        for product in PRODUCTS
+    ]
 
 
 def url_exists(url: str, timeout: int = 12) -> bool:
@@ -246,6 +247,10 @@ def base_output_row(event: dict[str, Any]) -> dict[str, Any]:
         "max_3h_qpe_mm": None,
         "max_6h_qpe_mm": None,
         "max_12h_qpe_mm": None,
+        "max_1h_qpe_in": None,
+        "max_3h_qpe_in": None,
+        "max_6h_qpe_in": None,
+        "max_12h_qpe_in": None,
     }
 
 
@@ -293,13 +298,22 @@ def process_event_grib(event: dict[str, Any], cache_dir: Path, hours_before: int
             print(f"[WARN] EVENT_ID={event_id} failed sampling {vt}: {exc}")
             hourly.append(None)
 
+    max_1h_mm = rolling_sum(hourly, 1)
+    max_3h_mm = rolling_sum(hourly, 3)
+    max_6h_mm = rolling_sum(hourly, 6)
+    max_12h_mm = rolling_sum(hourly, 12)
+
     row["MRMS_HOURS_FOUND"] = int(sum(v is not None for v in hourly))
     row["mrms_hours_sampled"] = int(sum(v is not None for v in hourly))
     row["mrms_product_used"] = ",".join(sorted(p for p in products_used if p))
-    row["max_1h_qpe_mm"] = rolling_sum(hourly, 1)
-    row["max_3h_qpe_mm"] = rolling_sum(hourly, 3)
-    row["max_6h_qpe_mm"] = rolling_sum(hourly, 6)
-    row["max_12h_qpe_mm"] = rolling_sum(hourly, 12)
+    row["max_1h_qpe_mm"] = max_1h_mm
+    row["max_3h_qpe_mm"] = max_3h_mm
+    row["max_6h_qpe_mm"] = max_6h_mm
+    row["max_12h_qpe_mm"] = max_12h_mm
+    row["max_1h_qpe_in"] = mm_to_in(max_1h_mm)
+    row["max_3h_qpe_in"] = mm_to_in(max_3h_mm)
+    row["max_6h_qpe_in"] = mm_to_in(max_6h_mm)
+    row["max_12h_qpe_in"] = mm_to_in(max_12h_mm)
     return row
 
 
