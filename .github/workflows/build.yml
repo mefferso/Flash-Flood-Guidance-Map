@@ -64,7 +64,7 @@ jobs:
             --events docs/data/flash_flood_events.geojson \
             --out docs/data/mrms_event_metrics.csv \
             --start-year 2015 \
-            --limit 150 \
+            --all-events \
             --sample-grib
          
       - name: Merge MRMS metrics into events
