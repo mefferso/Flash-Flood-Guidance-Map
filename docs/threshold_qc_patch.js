@@ -166,8 +166,8 @@ function addLineLabels(lineGeojson) {
 
   (lineGeojson?.features || []).forEach(feature => {
     const p = feature.properties || {};
-    const label = p.label || (Number.isFinite(Number(p.level_in)) ? `${Number(p.level_in):g}\"` : "");
     const level = Number(p.level_in);
+    const label = p.label || (Number.isFinite(level) ? `${level}"` : "");
     const color = p.stroke || (level >= 4 ? "#166534" : "#7c2d12");
     const geom = feature.geometry || {};
     if (geom.type !== "LineString" || !Array.isArray(geom.coordinates) || geom.coordinates.length < 2) return;
