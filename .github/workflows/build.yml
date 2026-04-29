@@ -11,6 +11,14 @@ on:
         options:
           - "false"
           - "true"
+      run_contours:
+        description: "Rebuild threshold contours from existing threshold grid?"
+        required: true
+        default: "true"
+        type: choice
+        options:
+          - "false"
+          - "true"
   schedule:
     - cron: "23 10 15 * *"
   push:
@@ -81,12 +89,12 @@ jobs:
           python scripts/build_threshold_grid.py
 
       - name: Build threshold contours
-        if: "${{ github.event.inputs.run_mrms == 'true' }}"
+        if: "${{ github.event.inputs.run_mrms == 'true' || github.event.inputs.run_contours == 'true' }}"
         run: |
           python scripts/build_threshold_contours.py
 
       - name: Commit generated data files
-        if: "${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_mrms == 'true' }}"
+        if: "${{ github.event_name == 'workflow_dispatch' && (github.event.inputs.run_mrms == 'true' || github.event.inputs.run_contours == 'true') }}"
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -96,7 +104,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "No generated data changes to commit."
           else
-            git commit -m "Update generated MRMS data"
+            git commit -m "Update generated contour/threshold data"
             git push
           fi
       - name: Configure Pages
