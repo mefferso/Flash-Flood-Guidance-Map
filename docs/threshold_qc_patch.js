@@ -8,7 +8,7 @@ const CONTOUR_SEARCH_RADIUS_DEG = 0.18;
 const CONTOUR_POWER = 2;
 
 let thresholdContourLayer = L.layerGroup();
-let thresholdQcStats = { shown: 0, hidden: 0, contourCells: 0 };
+let thresholdQcStats = { shown: 0, flagged: 0, contourCells: 0 };
 
 function ensureThresholdQcControls() {
   const showThreshold = document.getElementById("showThreshold");
@@ -17,27 +17,23 @@ function ensureThresholdQcControls() {
   const thresholdLabel = showThreshold.closest("label");
   thresholdLabel.insertAdjacentHTML("afterend", `
     <label><input type="checkbox" id="showThresholdContours"> Threshold contour-style surface</label>
-    <label><input type="checkbox" id="showSuspectThresholds"> Show suspect/low-confidence thresholds</label>
   `);
 
   const hint = document.querySelector(".hint");
   if (hint) {
-    hint.innerHTML = `Threshold QC hides sub-1.00&quot; 3-hour values and one-event cells by default. Turn on suspect thresholds only for troubleshooting. MRMS-enriched events will automatically show rainfall metrics in popups once <code>mrms_event_metrics.csv</code> is generated and merged.`;
+    hint.innerHTML = `Threshold QC now flags suspect/low-confidence 3-hour threshold values in popups instead of hiding them. MRMS-enriched events will automatically show rainfall metrics in popups once <code>mrms_event_metrics.csv</code> is generated and merged.`;
   }
 
-  ["showThresholdContours", "showSuspectThresholds"].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.addEventListener("change", () => refresh(false));
-  });
+  const el = document.getElementById("showThresholdContours");
+  if (el) el.addEventListener("change", () => refresh(false));
 }
 
 function thresholdColor(val, suspect=false) {
-  if (suspect || !Number.isFinite(val)) return "#64748b";
-  if (val < 2) return "#991b1b";
+  if (!Number.isFinite(val)) return "#64748b";
+  if (val < 2) return "#dc2626";
   if (val < 3) return "#f97316";
   if (val < 4) return "#facc15";
-  if (val < 5) return "#22c55e";
-  return "#2563eb";
+  return "#22c55e";
 }
 
 function thresholdInfo(feature) {
@@ -47,21 +43,21 @@ function thresholdInfo(feature) {
   const reasons = [];
 
   if (!Number.isFinite(threshold)) reasons.push("missing threshold");
-  else if (threshold < MIN_REALISTIC_3H_THRESHOLD_IN) reasons.push(`below ${MIN_REALISTIC_3H_THRESHOLD_IN.toFixed(2)} inch QC floor`);
+  else if (threshold < MIN_REALISTIC_3H_THRESHOLD_IN) reasons.push(`below ${MIN_REALISTIC_3H_THRESHOLD_IN.toFixed(2)} inch QC flag`);
 
   if (eventCount < MIN_THRESHOLD_SUPPORTING_EVENTS) reasons.push(`fewer than ${MIN_THRESHOLD_SUPPORTING_EVENTS} supporting events`);
 
   const suspect = reasons.length > 0;
-  const confidence = suspect ? "low/suspect" : (eventCount >= 5 ? "high" : eventCount >= 3 ? "medium" : "usable-low");
+  const confidence = suspect ? "flagged/low confidence" : (eventCount >= 5 ? "high" : eventCount >= 3 ? "medium" : "usable-low");
   return { p, threshold, eventCount, suspect, confidence, qcFlag: suspect ? reasons.join("; ") : "ok" };
 }
 
-function getUsableThresholdPoints(includeSuspect=false) {
+function getUsableThresholdPoints() {
   return (thresholdGeojson?.features || []).map(f => {
     const pt = getPoint(f);
     if (!pt) return null;
     const info = thresholdInfo(f);
-    if (info.suspect && !includeSuspect) return null;
+    if (!Number.isFinite(info.threshold)) return null;
     return { lat: pt[0], lon: pt[1], ...info };
   }).filter(Boolean);
 }
@@ -72,13 +68,12 @@ function rebuildThreshold() {
   if (!document.getElementById("showThreshold")?.checked) {
     if (map.hasLayer(thresholdLayer)) map.removeLayer(thresholdLayer);
     thresholdQcStats.shown = 0;
-    thresholdQcStats.hidden = 0;
+    thresholdQcStats.flagged = 0;
     return 0;
   }
 
-  const showSuspect = document.getElementById("showSuspectThresholds")?.checked;
   let count = 0;
-  let hidden = 0;
+  let flagged = 0;
 
   (thresholdGeojson?.features || []).forEach(f => {
     const pt = getPoint(f);
@@ -86,22 +81,18 @@ function rebuildThreshold() {
 
     const [lat, lon] = pt;
     const info = thresholdInfo(f);
-
-    if (info.suspect && !showSuspect) {
-      hidden++;
-      return;
-    }
+    if (info.suspect) flagged++;
 
     const color = thresholdColor(info.threshold, info.suspect);
     const radius = Math.min(16, Math.max(7, 5 + info.eventCount * 2));
 
     L.circleMarker([lat, lon], {
       radius,
-      color: info.suspect ? "#334155" : "#111827",
+      color: "#111827",
       weight: info.suspect ? 2 : 1,
       dashArray: info.suspect ? "4 3" : null,
       fillColor: color,
-      fillOpacity: info.suspect ? 0.45 : 0.72
+      fillOpacity: 0.72
     }).bindPopup(`
       <div style="max-width:310px">
         <b>Empirical 3-hr flood threshold</b><br>
@@ -112,7 +103,7 @@ function rebuildThreshold() {
         <hr>
         <span style="font-size:.9em;color:#475569">
           Lower values mean flash flooding has occurred nearby with less 3-hour MRMS QPE.
-          Values below 1.00&quot; or based on only one event are hidden by default because they are likely location/QPE/timing artifacts, not reliable operational guidance.
+          Suspect/low-confidence values are displayed with the rest of the threshold points, but flagged here so they can be reviewed instead of silently hidden.
         </span>
       </div>
     `).addTo(thresholdLayer);
@@ -121,7 +112,7 @@ function rebuildThreshold() {
   });
 
   thresholdQcStats.shown = count;
-  thresholdQcStats.hidden = hidden;
+  thresholdQcStats.flagged = flagged;
 
   if (!map.hasLayer(thresholdLayer)) thresholdLayer.addTo(map);
   return count;
@@ -136,7 +127,7 @@ function rebuildThresholdContours() {
     return 0;
   }
 
-  const pts = getUsableThresholdPoints(false);
+  const pts = getUsableThresholdPoints();
   if (pts.length < 3) {
     thresholdQcStats.contourCells = 0;
     return 0;
@@ -216,10 +207,10 @@ refresh = function(fit=false) {
   const thresholdCount = rebuildThreshold();
   const infraCount = rebuildInfra();
   const skippedText = skippedEventRows ? ` Skipped ${skippedEventRows} CSV rows with missing/bad coordinates.` : "";
-  const hiddenText = thresholdQcStats.hidden ? ` Suspect threshold cells hidden: ${thresholdQcStats.hidden}.` : "";
+  const flaggedText = thresholdQcStats.flagged ? ` Flagged threshold points shown: ${thresholdQcStats.flagged}.` : "";
   const contourText = contourCount ? ` Threshold contour cells shown: ${contourCount}.` : "";
 
-  setStatus(`Mapped ${eventCount} flash flood events. Threshold points shown: ${thresholdCount}.${hiddenText}${contourText} Infrastructure features shown: ${infraCount}. Source: ${eventDataSource}.${skippedText}`);
+  setStatus(`Mapped ${eventCount} flash flood events. Threshold points shown: ${thresholdCount}.${flaggedText}${contourText} Infrastructure features shown: ${infraCount}. Source: ${eventDataSource}.${skippedText}`);
 };
 
 window.addEventListener("load", () => {
