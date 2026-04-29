@@ -15,7 +15,7 @@ from __future__ import annotations
 import json
 import math
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Tuple
 
 import numpy as np
 
@@ -40,20 +40,14 @@ INPUT = Path("docs/data/threshold_grid.geojson")
 OUT_FILLED = Path("docs/data/threshold_contours.geojson")
 OUT_LINES = Path("docs/data/threshold_contour_lines.geojson")
 
-# Keep this aligned with the web popup QC. Points below this stay visible on the map
-# but do not contaminate the smoothed contour guidance field.
 MIN_REALISTIC_3H_THRESHOLD_IN = 1.20
 MIN_SUPPORTING_EVENTS_FOR_SURFACE = 1
 
-# Fine grid, then smooth. This produces a much cleaner product than Leaflet rectangles.
 GRID_SPACING_DEG = 0.00625
 GAUSSIAN_SIGMA_CELLS = 2.0
 
-# Filled contour bins and isolines.
 FILLED_LEVELS = [1.2, 2.0, 3.0, 4.0, 5.0, 8.0]
 LINE_LEVELS = [2.0, 3.0, 4.0, 5.0]
-
-# Do not extrapolate wildly beyond the threshold points.
 MAX_DISTANCE_DEG = 0.20
 
 
@@ -102,7 +96,6 @@ def load_points() -> Tuple[np.ndarray, np.ndarray, np.ndarray, List[dict]]:
 
 def distance_mask(grid_x: np.ndarray, grid_y: np.ndarray, xs: np.ndarray, ys: np.ndarray) -> np.ndarray:
     mask = np.zeros(grid_x.shape, dtype=bool)
-    # Dataset is small enough that this simple loop is fine and avoids adding sklearn.
     for idx in np.ndindex(grid_x.shape):
         gx = grid_x[idx]
         gy = grid_y[idx]
@@ -140,7 +133,6 @@ def build_grid(xs: np.ndarray, ys: np.ndarray, zs: np.ndarray) -> Tuple[np.ndarr
 
 
 def polygon_feature(coords: List[List[float]], props: Dict[str, object]) -> dict:
-    # Matplotlib paths are x/y. GeoJSON wants lon/lat. Ensure ring is closed.
     if coords and coords[0] != coords[-1]:
         coords.append(coords[0])
     return {
@@ -170,6 +162,22 @@ def color_for_bin(low: float, high: float) -> str:
     return "#2563eb"
 
 
+def iter_contour_paths(contour_set):
+    """Support both older Matplotlib .collections and newer .get_paths APIs."""
+    if hasattr(contour_set, "collections"):
+        for level_idx, collection in enumerate(contour_set.collections):
+            for path in collection.get_paths():
+                yield level_idx, path
+    else:
+        # Matplotlib 3.10+ QuadContourSet exposes all_paths().
+        for level_idx, paths in enumerate(contour_set.allsegs):
+            for vertices in paths:
+                if len(vertices) < 2:
+                    continue
+                from matplotlib.path import Path as MplPath
+                yield level_idx, MplPath(vertices)
+
+
 def contours_to_geojson(grid_x: np.ndarray, grid_y: np.ndarray, surface: np.ndarray) -> Tuple[dict, dict]:
     filled_features: List[dict] = []
     line_features: List[dict] = []
@@ -177,35 +185,38 @@ def contours_to_geojson(grid_x: np.ndarray, grid_y: np.ndarray, surface: np.ndar
     fig, ax = plt.subplots(figsize=(6, 6))
 
     cf = ax.contourf(grid_x, grid_y, surface, levels=FILLED_LEVELS)
-    for level_idx, collection in enumerate(cf.collections):
+    for level_idx, path in iter_contour_paths(cf):
+        if level_idx >= len(FILLED_LEVELS) - 1:
+            continue
         low = float(FILLED_LEVELS[level_idx])
         high = float(FILLED_LEVELS[level_idx + 1])
-        for path in collection.get_paths():
-            for poly in path.to_polygons():
-                if len(poly) < 4:
-                    continue
-                coords = [[float(x), float(y)] for x, y in poly]
-                filled_features.append(polygon_feature(coords, {
-                    "low_in": low,
-                    "high_in": high,
-                    "label": f"{low:g}–{high:g}\"",
-                    "fill": color_for_bin(low, high),
-                    "source": "python_smoothed_threshold_surface",
-                }))
+        for poly in path.to_polygons():
+            if len(poly) < 4:
+                continue
+            coords = [[float(x), float(y)] for x, y in poly]
+            filled_features.append(polygon_feature(coords, {
+                "low_in": low,
+                "high_in": high,
+                "label": f"{low:g}–{high:g}\"",
+                "fill": color_for_bin(low, high),
+                "source": "python_smoothed_threshold_surface",
+            }))
 
     cs = ax.contour(grid_x, grid_y, surface, levels=LINE_LEVELS)
-    for level, collection in zip(cs.levels, cs.collections):
-        for path in collection.get_paths():
-            vertices = path.vertices
-            if len(vertices) < 2:
-                continue
-            coords = [[float(x), float(y)] for x, y in vertices]
-            line_features.append(line_feature(coords, {
-                "level_in": float(level),
-                "label": f"{float(level):g}\"",
-                "stroke": "#7c2d12" if level < 4 else "#166534",
-                "source": "python_smoothed_threshold_contour_line",
-            }))
+    for level_idx, path in iter_contour_paths(cs):
+        if level_idx >= len(LINE_LEVELS):
+            continue
+        level = float(LINE_LEVELS[level_idx])
+        vertices = path.vertices
+        if len(vertices) < 2:
+            continue
+        coords = [[float(x), float(y)] for x, y in vertices]
+        line_features.append(line_feature(coords, {
+            "level_in": level,
+            "label": f"{level:g}\"",
+            "stroke": "#7c2d12" if level < 4 else "#166534",
+            "source": "python_smoothed_threshold_contour_line",
+        }))
 
     plt.close(fig)
 
