@@ -43,14 +43,16 @@ OUT_LINES = Path("docs/data/threshold_contour_lines.geojson")
 MIN_REALISTIC_3H_THRESHOLD_IN = 1.20
 MIN_SUPPORTING_EVENTS_FOR_SURFACE = 1
 
-# Tuned 2026-04-29: finer grid, less smoothing, shorter extrapolation distance.
-# Goal: reduce broad blobs, keep contours closer to supported data, and retain local gradients.
+# Tuned 2026-04-29: finer grid, moderate smoothing, shorter extrapolation distance,
+# plus support masking so contours are only drawn where nearby data actually supports them.
 GRID_SPACING_DEG = 0.004
-GAUSSIAN_SIGMA_CELLS = 1.25
+GAUSSIAN_SIGMA_CELLS = 1.4
 
 FILLED_LEVELS = [1.2, 2.0, 3.0, 4.0, 5.0, 8.0]
 LINE_LEVELS = [2.0, 3.0, 4.0, 5.0]
-MAX_DISTANCE_DEG = 0.12
+MAX_DISTANCE_DEG = 0.10
+MIN_NEARBY_POINTS = 3
+MIN_DIRECTIONAL_QUADRANTS = 2
 
 
 def load_points() -> Tuple[np.ndarray, np.ndarray, np.ndarray, List[dict]]:
@@ -96,13 +98,41 @@ def load_points() -> Tuple[np.ndarray, np.ndarray, np.ndarray, List[dict]]:
     return np.asarray(xs), np.asarray(ys), np.asarray(zs), used_features
 
 
-def distance_mask(grid_x: np.ndarray, grid_y: np.ndarray, xs: np.ndarray, ys: np.ndarray) -> np.ndarray:
+def support_mask(grid_x: np.ndarray, grid_y: np.ndarray, xs: np.ndarray, ys: np.ndarray) -> np.ndarray:
+    """
+    True only where the grid cell is close to enough points AND those points are not
+    all coming from only one direction. This trims unsupported islands/fingers caused
+    by interpolation trying to stretch across sparse areas.
+    """
     mask = np.zeros(grid_x.shape, dtype=bool)
+
     for idx in np.ndindex(grid_x.shape):
-        gx = grid_x[idx]
-        gy = grid_y[idx]
-        d2 = np.min((xs - gx) ** 2 + (ys - gy) ** 2)
-        mask[idx] = math.sqrt(float(d2)) <= MAX_DISTANCE_DEG
+        gx = float(grid_x[idx])
+        gy = float(grid_y[idx])
+        dx = xs - gx
+        dy = ys - gy
+        dist = np.sqrt(dx * dx + dy * dy)
+        nearby = dist <= MAX_DISTANCE_DEG
+
+        if int(np.sum(nearby)) < MIN_NEARBY_POINTS:
+            continue
+
+        q = set()
+        for xoff, yoff in zip(dx[nearby], dy[nearby]):
+            if xoff >= 0 and yoff >= 0:
+                q.add("NE")
+            elif xoff < 0 and yoff >= 0:
+                q.add("NW")
+            elif xoff < 0 and yoff < 0:
+                q.add("SW")
+            else:
+                q.add("SE")
+
+        if len(q) < MIN_DIRECTIONAL_QUADRANTS:
+            continue
+
+        mask[idx] = True
+
     return mask
 
 
@@ -119,8 +149,8 @@ def build_grid(xs: np.ndarray, ys: np.ndarray, zs: np.ndarray) -> Tuple[np.ndarr
     nearest = griddata((xs, ys), zs, (grid_x, grid_y), method="nearest")
     surface = np.where(np.isnan(linear), nearest, linear)
 
-    valid_distance = distance_mask(grid_x, grid_y, xs, ys)
-    surface = np.where(valid_distance, surface, np.nan)
+    valid_support = support_mask(grid_x, grid_y, xs, ys)
+    surface = np.where(valid_support, surface, np.nan)
 
     valid = np.isfinite(surface).astype(float)
     filled = np.where(np.isfinite(surface), surface, 0.0)
@@ -130,7 +160,7 @@ def build_grid(xs: np.ndarray, ys: np.ndarray, zs: np.ndarray) -> Tuple[np.ndarr
     with np.errstate(invalid="ignore", divide="ignore"):
         smooth = smooth_num / smooth_den
 
-    smooth = np.where((smooth_den > 0.20) & valid_distance, smooth, np.nan)
+    smooth = np.where((smooth_den > 0.20) & valid_support, smooth, np.nan)
     return grid_x, grid_y, smooth
 
 
