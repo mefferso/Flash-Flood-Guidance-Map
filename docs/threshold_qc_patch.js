@@ -3,12 +3,16 @@
 
 const MIN_REALISTIC_3H_THRESHOLD_IN = 1.20;
 const MIN_THRESHOLD_SUPPORTING_EVENTS = 1;
-const CONTOUR_GRID_DEG = 0.025;
-const CONTOUR_SEARCH_RADIUS_DEG = 0.18;
-const CONTOUR_POWER = 2;
+
+// Smaller grid = finer display. Larger search radius + Gaussian weighting = smoother field.
+const CONTOUR_GRID_DEG = 0.0125;
+const CONTOUR_SEARCH_RADIUS_DEG = 0.22;
+const CONTOUR_SMOOTHING_SIGMA_DEG = 0.075;
+const CONTOUR_MIN_SUPPORT_POINTS = 3;
+const CONTOUR_LEVELS = [2, 3, 4];
 
 let thresholdContourLayer = L.layerGroup();
-let thresholdQcStats = { shown: 0, flagged: 0, contourCells: 0 };
+let thresholdQcStats = { shown: 0, flagged: 0, contourCells: 0, contourLabels: 0 };
 
 function ensureThresholdQcControls() {
   const showThreshold = document.getElementById("showThreshold");
@@ -16,12 +20,12 @@ function ensureThresholdQcControls() {
 
   const thresholdLabel = showThreshold.closest("label");
   thresholdLabel.insertAdjacentHTML("afterend", `
-    <label><input type="checkbox" id="showThresholdContours"> Threshold contour-style surface</label>
+    <label><input type="checkbox" id="showThresholdContours"> Threshold smoothed surface + labels</label>
   `);
 
   const hint = document.querySelector(".hint");
   if (hint) {
-    hint.innerHTML = `Threshold QC now flags suspect/low-confidence 3-hour threshold values in popups instead of hiding them. MRMS-enriched events will automatically show rainfall metrics in popups once <code>mrms_event_metrics.csv</code> is generated and merged.`;
+    hint.innerHTML = `Threshold points are all displayed, but sub-${MIN_REALISTIC_3H_THRESHOLD_IN.toFixed(2)}&quot; / low-confidence values are flagged in popups and excluded from the smoothed contour surface.`;
   }
 
   const el = document.getElementById("showThresholdContours");
@@ -52,12 +56,13 @@ function thresholdInfo(feature) {
   return { p, threshold, eventCount, suspect, confidence, qcFlag: suspect ? reasons.join("; ") : "ok" };
 }
 
-function getUsableThresholdPoints() {
+function getUsableThresholdPoints(includeFlagged=false) {
   return (thresholdGeojson?.features || []).map(f => {
     const pt = getPoint(f);
     if (!pt) return null;
     const info = thresholdInfo(f);
     if (!Number.isFinite(info.threshold)) return null;
+    if (info.suspect && !includeFlagged) return null;
     return { lat: pt[0], lon: pt[1], ...info };
   }).filter(Boolean);
 }
@@ -102,8 +107,7 @@ function rebuildThreshold() {
         <b>QC flag:</b> ${esc(info.qcFlag)}<br>
         <hr>
         <span style="font-size:.9em;color:#475569">
-          Lower values mean flash flooding has occurred nearby with less 3-hour MRMS QPE.
-          Suspect/low-confidence values are displayed with the rest of the threshold points, but flagged here so they can be reviewed instead of silently hidden.
+          All threshold points are displayed for transparency. Flagged points are kept visible for review, but excluded from the smoothed contour surface so bogus low values do not contaminate the spatial guidance.
         </span>
       </div>
     `).addTo(thresholdLayer);
@@ -118,57 +122,142 @@ function rebuildThreshold() {
   return count;
 }
 
+function contourLineColor(level) {
+  if (level <= 2) return "#991b1b";
+  if (level <= 3) return "#b45309";
+  return "#166534";
+}
+
+function addContourLabel(lat, lon, text, color) {
+  const icon = L.divIcon({
+    className: "",
+    html: `<div style="font:bold 11px Arial,sans-serif;color:${color};background:rgba(255,255,255,.78);border:1px solid ${color};border-radius:4px;padding:1px 4px;white-space:nowrap;box-shadow:0 1px 2px rgba(0,0,0,.18);">${text}</div>`,
+    iconSize: [44, 18],
+    iconAnchor: [22, 9]
+  });
+  L.marker([lat, lon], { icon, interactive: false }).addTo(thresholdContourLayer);
+  thresholdQcStats.contourLabels++;
+}
+
+function drawBoundarySegment(lat1, lon1, lat2, lon2, level, labelEveryN, counterObj) {
+  const color = contourLineColor(level);
+  L.polyline([[lat1, lon1], [lat2, lon2]], {
+    color,
+    weight: 2,
+    opacity: 0.75,
+    interactive: false
+  }).addTo(thresholdContourLayer);
+
+  counterObj.count++;
+  if (counterObj.count % labelEveryN === 0) {
+    addContourLabel((lat1 + lat2) / 2, (lon1 + lon2) / 2, `${level}\"`, color);
+  }
+}
+
 function rebuildThresholdContours() {
   thresholdContourLayer.clearLayers();
+  thresholdQcStats.contourCells = 0;
+  thresholdQcStats.contourLabels = 0;
 
   if (!document.getElementById("showThresholdContours")?.checked) {
     if (map.hasLayer(thresholdContourLayer)) map.removeLayer(thresholdContourLayer);
-    thresholdQcStats.contourCells = 0;
     return 0;
   }
 
-  const pts = getUsableThresholdPoints();
-  if (pts.length < 3) {
-    thresholdQcStats.contourCells = 0;
-    return 0;
-  }
+  // Use only non-flagged points for the contour/surface so 0.19" junk stays visible as a point but does not smear into the guidance field.
+  const pts = getUsableThresholdPoints(false);
+  if (pts.length < 3) return 0;
 
   const lats = pts.map(p => p.lat);
   const lons = pts.map(p => p.lon);
-  const minLat = Math.min(...lats);
-  const maxLat = Math.max(...lats);
-  const minLon = Math.min(...lons);
-  const maxLon = Math.max(...lons);
+  const minLat = Math.min(...lats) - CONTOUR_GRID_DEG;
+  const maxLat = Math.max(...lats) + CONTOUR_GRID_DEG;
+  const minLon = Math.min(...lons) - CONTOUR_GRID_DEG;
+  const maxLon = Math.max(...lons) + CONTOUR_GRID_DEG;
 
-  let cells = 0;
+  const rows = [];
+  const latVals = [];
+  const lonVals = [];
 
-  for (let lat = minLat; lat <= maxLat; lat += CONTOUR_GRID_DEG) {
-    for (let lon = minLon; lon <= maxLon; lon += CONTOUR_GRID_DEG) {
+  for (let lat = minLat; lat <= maxLat + 1e-9; lat += CONTOUR_GRID_DEG) latVals.push(lat);
+  for (let lon = minLon; lon <= maxLon + 1e-9; lon += CONTOUR_GRID_DEG) lonVals.push(lon);
+
+  for (let i = 0; i < latVals.length; i++) {
+    const lat = latVals[i];
+    rows[i] = [];
+    for (let j = 0; j < lonVals.length; j++) {
+      const lon = lonVals[j];
       let num = 0;
       let den = 0;
+      let support = 0;
       let nearest = Infinity;
 
       pts.forEach(p => {
         const d = Math.sqrt((lat - p.lat) ** 2 + (lon - p.lon) ** 2);
         nearest = Math.min(nearest, d);
         if (d <= CONTOUR_SEARCH_RADIUS_DEG) {
-          const w = 1 / Math.max(0.0001, d ** CONTOUR_POWER);
+          const w = Math.exp(-(d * d) / (2 * CONTOUR_SMOOTHING_SIGMA_DEG * CONTOUR_SMOOTHING_SIGMA_DEG));
           num += p.threshold * w;
           den += w;
+          support++;
         }
       });
 
-      if (!den || nearest > CONTOUR_SEARCH_RADIUS_DEG) continue;
+      if (!den || support < CONTOUR_MIN_SUPPORT_POINTS || nearest > CONTOUR_SEARCH_RADIUS_DEG) {
+        rows[i][j] = null;
+        continue;
+      }
 
-      const val = num / den;
-      const color = thresholdColor(val, false);
+      rows[i][j] = num / den;
+    }
+  }
 
-      L.rectangle(
-        [[lat - CONTOUR_GRID_DEG / 2, lon - CONTOUR_GRID_DEG / 2], [lat + CONTOUR_GRID_DEG / 2, lon + CONTOUR_GRID_DEG / 2]],
-        { stroke: false, fillColor: color, fillOpacity: 0.23, interactive: false }
-      ).addTo(thresholdContourLayer);
+  let cells = 0;
+  const lineCounters = {};
+  CONTOUR_LEVELS.forEach(level => lineCounters[level] = { count: 0 });
 
+  for (let i = 0; i < latVals.length - 1; i++) {
+    for (let j = 0; j < lonVals.length - 1; j++) {
+      const v00 = rows[i][j];
+      const v01 = rows[i][j + 1];
+      const v10 = rows[i + 1][j];
+      const v11 = rows[i + 1][j + 1];
+      if ([v00, v01, v10, v11].some(v => v === null)) continue;
+
+      const avg = (v00 + v01 + v10 + v11) / 4;
+      const color = thresholdColor(avg, false);
+      const lat0 = latVals[i];
+      const lat1 = latVals[i + 1];
+      const lon0 = lonVals[j];
+      const lon1 = lonVals[j + 1];
+
+      L.rectangle([[lat0, lon0], [lat1, lon1]], {
+        stroke: false,
+        fillColor: color,
+        fillOpacity: 0.18,
+        interactive: false
+      }).addTo(thresholdContourLayer);
       cells++;
+
+      CONTOUR_LEVELS.forEach(level => {
+        const thisBin = avg >= level;
+        const rightVal = j + 1 < lonVals.length - 1 ? rows[i][j + 2] : null;
+        const upVal = i + 1 < latVals.length - 1 ? rows[i + 2][j] : null;
+
+        if (rightVal !== null) {
+          const rightAvg = (v01 + rightVal + v11 + rows[i + 1][j + 2]) / 4;
+          if ((avg < level && rightAvg >= level) || (avg >= level && rightAvg < level)) {
+            drawBoundarySegment(lat0, lon1, lat1, lon1, level, 18, lineCounters[level]);
+          }
+        }
+
+        if (upVal !== null) {
+          const upAvg = (v10 + v11 + upVal + rows[i + 2][j + 1]) / 4;
+          if ((avg < level && upAvg >= level) || (avg >= level && upAvg < level)) {
+            drawBoundarySegment(lat1, lon0, lat1, lon1, level, 18, lineCounters[level]);
+          }
+        }
+      });
     }
   }
 
@@ -208,7 +297,7 @@ refresh = function(fit=false) {
   const infraCount = rebuildInfra();
   const skippedText = skippedEventRows ? ` Skipped ${skippedEventRows} CSV rows with missing/bad coordinates.` : "";
   const flaggedText = thresholdQcStats.flagged ? ` Flagged threshold points shown: ${thresholdQcStats.flagged}.` : "";
-  const contourText = contourCount ? ` Threshold contour cells shown: ${contourCount}.` : "";
+  const contourText = contourCount ? ` Smoothed contour cells shown: ${contourCount}. Contour labels: ${thresholdQcStats.contourLabels}.` : "";
 
   setStatus(`Mapped ${eventCount} flash flood events. Threshold points shown: ${thresholdCount}.${flaggedText}${contourText} Infrastructure features shown: ${infraCount}. Source: ${eventDataSource}.${skippedText}`);
 };
