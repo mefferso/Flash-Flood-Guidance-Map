@@ -2,7 +2,7 @@
 // Loaded after the main page script. It overrides threshold rendering functions without touching the rest of the app.
 
 const MIN_REALISTIC_3H_THRESHOLD_IN = 1.00;
-const MIN_THRESHOLD_SUPPORTING_EVENTS = 2;
+const MIN_THRESHOLD_SUPPORTING_EVENTS = 1;
 const CONTOUR_GRID_DEG = 0.025;
 const CONTOUR_SEARCH_RADIUS_DEG = 0.18;
 const CONTOUR_POWER = 2;
