@@ -43,12 +43,14 @@ OUT_LINES = Path("docs/data/threshold_contour_lines.geojson")
 MIN_REALISTIC_3H_THRESHOLD_IN = 1.20
 MIN_SUPPORTING_EVENTS_FOR_SURFACE = 1
 
-GRID_SPACING_DEG = 0.00625
-GAUSSIAN_SIGMA_CELLS = 2.0
+# Tuned 2026-04-29: finer grid, less smoothing, shorter extrapolation distance.
+# Goal: reduce broad blobs, keep contours closer to supported data, and retain local gradients.
+GRID_SPACING_DEG = 0.004
+GAUSSIAN_SIGMA_CELLS = 1.25
 
 FILLED_LEVELS = [1.2, 2.0, 3.0, 4.0, 5.0, 8.0]
 LINE_LEVELS = [2.0, 3.0, 4.0, 5.0]
-MAX_DISTANCE_DEG = 0.20
+MAX_DISTANCE_DEG = 0.12
 
 
 def load_points() -> Tuple[np.ndarray, np.ndarray, np.ndarray, List[dict]]:
